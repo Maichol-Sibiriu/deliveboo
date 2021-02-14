@@ -3,11 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Order;
-use App\Restaurant;
 use Illuminate\Http\Request;
+use App\Restaurant;
 
-class OrderController extends Controller
+class RestaurantController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +15,9 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $orders = Order::all();
-        // dd($orders);
-         return view('admin.orders.index', compact('orders'));
+        $restaurants = Restaurant::all();
+        // dd($restaurants);
+         return view('restaurants.advanced_search', compact('restaurants'));
     }
 
     /**
@@ -48,11 +47,11 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        $order = Order::where('id' , $id)->first();
+        $restaurant = Restaurant::where('slug' , $slug)->first();
 
-        return view('admin.orders.show', compact('order'));
+        return view('restaurants.show', compact('restaurant'));
     }
 
     /**

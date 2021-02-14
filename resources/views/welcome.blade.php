@@ -76,6 +76,7 @@
                             <a href="{{ route('register') }}">Register</a>
                         @endif
                     @endauth
+                    <button><a href="{{ route('restaurants.index') }}">RISTORANTI</a></button>
                 </div>
             @endif
 

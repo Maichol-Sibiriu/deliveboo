@@ -16,6 +16,8 @@
 
                     {{ __('You are logged in!') }}
                 </div>
+                <button><a href="{{ route('orders.index') }}">ORDINI</a></button>
+                <button><a href="{{ route('dishes.index') }}">PIATTI</a></button>
             </div>
         </div>
     </div>

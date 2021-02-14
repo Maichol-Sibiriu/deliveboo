@@ -31,3 +31,11 @@ Route::prefix('admin')
 });
 
 
+// route resource  dishes
+Route::resource('dishes', 'Admin\DishController');
+
+// route resource  orders
+Route::resource('orders', 'Admin\OrderController');
+
+// route resource  restaurants
+Route::resource('restaurants', 'Admin\RestaurantController');

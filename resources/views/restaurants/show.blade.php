@@ -7,14 +7,12 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>io sono tutti i piatti</h1>
+    <h1>{{ $restaurant->name }}</h1>
+    <h1>{{ $restaurant->address }}</h1>
+    <h1>{{ $restaurant->phone }}</h1>
+    <h1>{{ $restaurant->vat_num }}</h1>
+    <h1>{{ $restaurant->image_logo }}</h1>
 
-    <ul>
-        @foreach ($dishes as $dish)
-
-           <li><a href="{{ route('dishes.show', $dish->id) }}">{{ $dish->name }} {{ $dish->price }}</a></li>
-            
-        @endforeach
-    </ul>
+    
 </body>
 </html>
