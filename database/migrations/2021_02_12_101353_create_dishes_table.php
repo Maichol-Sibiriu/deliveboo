@@ -19,7 +19,7 @@ class CreateDishesTable extends Migration
             $table->string('name', 40);
             $table->float('price', 5, 2);
             $table->text('image');
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->boolean('vegan');
             $table->boolean('available');
             $table->string('typology', 40);
