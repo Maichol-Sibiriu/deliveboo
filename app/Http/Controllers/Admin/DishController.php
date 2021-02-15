@@ -18,6 +18,7 @@ class DishController extends Controller
      */
     public function index()
     {
+        // recupero tutti i piatti del ristorante
         $id = Auth::id();
         $dishes = Dish::where('restaurant_id', $id)->get();
         return view('admin.dishes.index', compact('dishes'));
@@ -42,6 +43,7 @@ class DishController extends Controller
      */
     public function store(Request $request)
     {
+        // validation 
         $request->validate([
             'name' => 'required | max:40',
             'price' => 'required | numeric | min:0 | max:999',
@@ -49,20 +51,30 @@ class DishController extends Controller
             'typology' => 'required | max:30',
         ]);
 
+        // get data from request
         $data = $request->all();
+
+        // aggiunta restaurant_id (foreign key)
         $data['restaurant_id'] = Auth::user()->id;
+
+        // conversione prezzo da stringa a integer
         $data['price'] = (int)$data['price'];
+
+        // conversione in boolean
         $data['available'] = !empty($data['available']) && $data['available'] == 'on' ? 1 : 0;
         $data['vegan'] = !empty($data['vegan']) && $data['vegan'] == 'on' ? 1 : 0;
 
 
         $newDish = new Dish();
+
+        // salvataggio immagine se fornita
         if(!empty($data['image'])) {
             $data['image'] = Storage::disk('public')->put('images/dish_images', $data['image']);
         } else {
             $data['image'] = null;
         }
 
+        // salvataggio record a db
         $newDish->fill($data);
         $saved = $newDish->save();
 
@@ -81,7 +93,6 @@ class DishController extends Controller
     public function show($id)
     {
         $dish = Dish::where('id' , $id)->first();
-
         return view('admin.dishes.show', compact('dish'));
     }
 
@@ -106,6 +117,7 @@ class DishController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // validation
         $request->validate([
             'name' => 'required | max:40',
             'price' => 'required | numeric | min:0 | max:999',
@@ -113,16 +125,23 @@ class DishController extends Controller
             'typology' => 'required | max:30',
         ]);
         
+        // get data from response
+        $data = $request->all();
+        
+        // recupero record del piatto da modificare
         $oldDish = Dish::find($id);
 
-        $data = $request->all();
+        // conversione prezzo in integer
         $data['price'] = (int)$data['price'];
+
+        // conversione in boolean
         $data['available'] = !empty($data['available']) && $data['available'] == 'on' ? 1 : 0;
         $data['vegan'] = !empty($data['vegan']) && $data['vegan'] == 'on' ? 1 : 0;
 
-
+        
         if(empty($data['image'])) {
             if(!empty($oldDish->image)) {
+                // cancello immagine se non fornita ma presente a db
                 Storage::disk('public')->delete($oldDish->image);
                 $data['image'] = null;
             }
@@ -130,6 +149,7 @@ class DishController extends Controller
             $data['image'] = Storage::disk('public')->put('images/dish_images', $data['image']);
         }
 
+        // aggiorno record a db
         $name = $oldDish->name;
         $updated = $oldDish->update($data);
 

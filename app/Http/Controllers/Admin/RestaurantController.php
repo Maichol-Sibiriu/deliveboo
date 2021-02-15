@@ -31,6 +31,7 @@ class RestaurantController extends Controller
      */
     public function create()
     {
+        // passo alla view create la lista delle categorie disponibili per la scelta
         $categories = Category::all();
         return view('admin.restaurants.create', compact('categories'));
     }
@@ -43,6 +44,7 @@ class RestaurantController extends Controller
      */
     public function store(Request $request)
     {
+        // validation
         $request->validate([
             'name' => 'required | max: 40 | unique:restaurants',
             'address' => 'required',
@@ -50,16 +52,20 @@ class RestaurantController extends Controller
             'phone' => 'required | max: 30 | unique:restaurants',
             'image_logo' => 'mimes:jpg, bmp, png'
         ]);
+
+        // get data from response
         $data = $request->all();
         
-        // dd($data);
+        // popolo i campi slug e user_id (foreign key)
         $data['slug'] = Str::slug($data['name'], '-');
         $data['user_id'] = Auth::id();
 
+        // salvo l'immagine se fornita dal form
         if (!empty($data['image_logo'])) {
             $data['image_logo'] = Storage::disk('public')->put('images/restaurant_logos', $data['image_logo']);
         }
 
+        // salvataggio record a db
         $newRestaurant = new Restaurant();
         $newRestaurant->fill($data);
         $name = $newRestaurant->name;
@@ -67,13 +73,11 @@ class RestaurantController extends Controller
         $saved = $newRestaurant->save();
 
 
-        
         if($saved) {
-
+            // popolo la tabella pivot se ho categorie fornite dal form
             if (!empty($data['categories'])) {
                 $newRestaurant->categories()->attach($data['categories']);
             }
-
             return redirect()->route('admin.home')->with('saved', $name);
         } else {
             return redirect()->route('admin.restaurants.create');
@@ -117,6 +121,7 @@ class RestaurantController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // validation
         $request->validate([
             'name' => ['required','max: 40', Rule::unique('restaurants')->ignore($id)],
             'address' => 'required',
@@ -124,24 +129,26 @@ class RestaurantController extends Controller
             'phone' => ['required ',' max: 30 ', Rule::unique('restaurants')->ignore($id)],
             'image_logo' => 'mimes:jpg, bmp, png'
         ]);
+
+        // get data from response
         $data = $request->all();
-        // dd($data);
         $oldRestaurant = Restaurant::find($id);
 
         
-        //Controllo lo Slug
+        // controllo su slug
         if ($data['name'] != $oldRestaurant->name) {
             $data['slug'] = Str::slug($data['name'], '-');
         } else {
             $data['slug'] = $oldRestaurant->slug;
         }
 
-        //Aggiungo lo User ID
+        // aggiungo lo user_id (foreign key)
         $data['user_id'] = Auth::id();
 
-        //Controllo immagine
+        // controllo su immagine
         if(empty($data['image_logo'])) {
             if(!empty($oldRestaurant->image_logo)) {
+                // se immagine presente a db ma non fornita in edit, cancello vecchia immagine
                 Storage::disk('public')->delete($oldRestaurant->image_logo);
                 $data['image_logo'] = null;
             }
@@ -149,12 +156,12 @@ class RestaurantController extends Controller
             $data['image_logo'] = Storage::disk('public')->put('images/restaurant_logos', $data['image_logo']);
         }
 
-        //eseguiamo l'update sul DB
+        // eseguiamo l'update sul DB
         $name = $oldRestaurant->name;
         $updated = $oldRestaurant->update($data);
 
         if($updated) {
-
+            // sincronizzo la pivot con le categorie, se fornite, altrimenti detach
             if (!empty($data['categories'])) {
                 $oldRestaurant->categories()->sync($data['categories']);
             } else {
@@ -181,6 +188,7 @@ class RestaurantController extends Controller
 
         if($deleted) {
             if(!empty($restaurant->image_logo)) {
+                // cancello immagine se presente
                 Storage::disk('public')->delete($restaurant->image_logo);
             }
             return redirect()->route('admin.home')->with('deleted', $name);
