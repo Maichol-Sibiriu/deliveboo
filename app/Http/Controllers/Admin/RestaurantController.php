@@ -155,7 +155,7 @@ class RestaurantController extends Controller
             if (!empty($data['categories'])) {
                 $oldRestaurant->categories()->sync($data['categories']);
             } else {
-                $newRestaurant->categories()->detach();
+                $oldRestaurant->categories()->detach();
             }
             return redirect()->route('admin.home')->with('updated', $name);
         } else {
@@ -171,8 +171,16 @@ class RestaurantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Restaurant $restaurant)
     {
-        //
+        $name = $restaurant->name;
+        $deleted = $restaurant->delete();
+
+        if($deleted) {
+            if(!empty($restaurant->image_logo)) {
+                Storage::disk('public')->delete($restaurant->image_logo);
+            }
+            return redirect()->route('admin.home')->with('deleted', $name);
+        }
     }
 }
