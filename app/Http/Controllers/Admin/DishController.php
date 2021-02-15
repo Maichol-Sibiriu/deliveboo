@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Storage;
 use App\Dish;
 
 class DishController extends Controller
@@ -15,16 +18,10 @@ class DishController extends Controller
      */
     public function index()
     {
-        $dishes = Dish::all();
-        // dd($dishes);
-         return view('admin.dishes.index', compact('dishes'));
+        $id = Auth::id();
+        $dishes = Dish::where('restaurant_id', $id)->get();
+        return view('admin.dishes.index', compact('dishes'));
     }
-    
-    // public function showall($id)
-    // {
-    //     $dishes = Dish::find($id);
-    //     return view('admin.dishes.index', compact('dishes'));
-    // }
 
 
     /**
@@ -34,7 +31,7 @@ class DishController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.dishes.create');
     }
 
     /**
@@ -45,7 +42,34 @@ class DishController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required | max:40',
+            'price' => 'required | numeric | min:0 | max:999',
+            'image' => 'image',
+            'typology' => 'required | max:30',
+        ]);
+
+        $data = $request->all();
+        $data['restaurant_id'] = Auth::user()->id;
+        $data['price'] = (int)$data['price'];
+        $data['available'] = !empty($data['available']) && $data['available'] == 'on' ? 1 : 0;
+        $data['vegan'] = !empty($data['vegan']) && $data['vegan'] == 'on' ? 1 : 0;
+
+
+        $newDish = new Dish();
+        if(!empty($data['image'])) {
+            $data['image'] = Storage::disk('public')->put('images/dish_images', $data['image']);
+        } else {
+            $data['image'] = null;
+        }
+
+        $newDish->fill($data);
+        $saved = $newDish->save();
+
+        if($saved) {
+            $name = $data['name'];
+            return redirect()->route('admin.dishes.index')->with('created', $name);
+        }
     }
 
     /**
@@ -69,7 +93,8 @@ class DishController extends Controller
      */
     public function edit($id)
     {
-        //
+        $dish = Dish::find($id);
+        return view('admin.dishes.edit', compact('dish'));
     }
 
     /**
@@ -81,7 +106,38 @@ class DishController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name' => 'required | max:40',
+            'price' => 'required | numeric | min:0 | max:999',
+            'image' => 'image',
+            'typology' => 'required | max:30',
+        ]);
+        
+        $oldDish = Dish::find($id);
+
+        $data = $request->all();
+        $data['price'] = (int)$data['price'];
+        $data['available'] = !empty($data['available']) && $data['available'] == 'on' ? 1 : 0;
+        $data['vegan'] = !empty($data['vegan']) && $data['vegan'] == 'on' ? 1 : 0;
+
+
+        if(empty($data['image'])) {
+            if(!empty($oldDish->image)) {
+                Storage::disk('public')->delete($oldDish->image);
+                $data['image'] = null;
+            }
+        } else {
+            $data['image'] = Storage::disk('public')->put('images/dish_images', $data['image']);
+        }
+
+        $name = $oldDish->name;
+        $updated = $oldDish->update($data);
+
+        if($updated) {
+            return redirect()->route('admin.dishes.show', $id)->with('updated', $name);
+        } else {
+            return redirect()->route('admin.dishes.edit', $id);
+        }
     }
 
     /**
@@ -90,8 +146,16 @@ class DishController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Dish $dish)
     {
-        //
+        $name = $dish->name;
+        $deleted = $dish->delete();
+
+        if($deleted) {
+            if(!empty($dish->image)) {
+                Storage::disk('public')->delete($dish->image);
+            }
+            return redirect()->route('admin.dishes.index')->with('deleted', $name);
+        }
     }
 }

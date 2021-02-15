@@ -6,7 +6,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Dashboard') }}</div>
-                <button><a href="{{ route('admin.restaurants.create') }}">Crea Nuovo Ristorante</a></button>
+                {{-- <button><a href="{{ route('admin.restaurants.create') }}">Crea Nuovo Ristorante</a></button> --}}
 
                 @if (session('saved'))
                     <p>E' stato creato un ristorante dal nome: {{session('saved')}}</p>  
@@ -37,7 +37,7 @@
                         <input type="submit" value="Cancella Ristorante">
                     </form>
                 @empty
-                    {{-- <button><a href="{{ route('admin.restaurants.edit', $restaurant->id) }}">Modifica Ristorante</a></button> --}}
+                    <button><a href="{{ route('admin.restaurants.create') }}">Crea Nuovo Ristorante</a></button>
                 @endforelse
             </div>
         </div>

@@ -18,7 +18,7 @@ class CreateDishesTable extends Migration
             $table->unsignedBigInteger('restaurant_id');
             $table->string('name', 40);
             $table->float('price', 5, 2);
-            $table->text('image');
+            $table->text('image')->nullable();
             $table->text('description')->nullable();
             $table->boolean('vegan');
             $table->boolean('available');

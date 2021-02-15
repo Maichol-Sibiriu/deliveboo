@@ -57,7 +57,7 @@ class RestaurantController extends Controller
         $data['user_id'] = Auth::id();
 
         if (!empty($data['image_logo'])) {
-            $data['image_logo'] = Storage::disk('public')->put('images', $data['image_logo']);
+            $data['image_logo'] = Storage::disk('public')->put('images/restaurant_logos', $data['image_logo']);
         }
 
         $newRestaurant = new Restaurant();
@@ -146,7 +146,7 @@ class RestaurantController extends Controller
                 $data['image_logo'] = null;
             }
         } else {
-            $data['image_logo'] = Storage::disk('public')->put('images', $data['image_logo']);
+            $data['image_logo'] = Storage::disk('public')->put('images/restaurant_logos', $data['image_logo']);
         }
 
         //eseguiamo l'update sul DB
