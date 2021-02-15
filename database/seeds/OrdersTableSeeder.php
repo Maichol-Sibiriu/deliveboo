@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Order;
+use App\Restaurant;
 use Faker\Generator as Faker;
 
 
@@ -14,15 +15,19 @@ class OrdersTableSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        for( $i = 0; $i < 15; $i++){
+        $restaurants = Restaurant::all();
+        foreach ($restaurants as $restaurant) {
 
-            $newOrder = new Order();
-
-            $newOrder->price_tot = $faker->randomFloat(2, 1, 999);
-            $newOrder->phone = $faker->unique()->phoneNumber();
-            $newOrder->address =  $faker->address();
-
-            $newOrder->save();
+            for( $i = 0; $i < 5; $i++){
+                $newOrder = new Order();
+    
+                $newOrder->price_tot = $faker->randomFloat(2, 1, 999);
+                $newOrder->phone = $faker->unique()->phoneNumber();
+                $newOrder->address =  $faker->address();
+                $newOrder->restaurant_id = $restaurant->id;  
+    
+                $newOrder->save();
+            }
         }
     }
 }

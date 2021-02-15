@@ -7,12 +7,14 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>io sono tutti gli ordini</h1>
+    <h1>Lista Ordini</h1>
 
     <ul>
         @foreach ($orders as $order)
 
-           <li><a href="{{ route('orders.show', $order->id) }}">{{ $order->price_tot }} {{ $order->phone }} {{ $order->address }}</a></li>
+           <li>
+               <a href="{{ route('admin.orders.show', $order->id) }}">{{ $order->price_tot }} {{ $order->phone }} {{ $order->address }}</a>
+            </li>
             
         @endforeach
     </ul>

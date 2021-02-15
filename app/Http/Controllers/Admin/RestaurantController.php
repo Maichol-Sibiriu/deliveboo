@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Restaurant;
+use App\Category;
 
 class RestaurantController extends Controller
 {
@@ -15,9 +16,7 @@ class RestaurantController extends Controller
      */
     public function index()
     {
-        $restaurants = Restaurant::all();
-        // dd($restaurants);
-         return view('restaurants.advanced_search', compact('restaurants'));
+        
     }
 
     /**
@@ -27,7 +26,8 @@ class RestaurantController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::all();
+        return view('admin.restaurants.create', compact('categories'));
     }
 
     /**
@@ -38,7 +38,20 @@ class RestaurantController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required | max: 40 | unique:restaurants',
+            'address' => 'required',
+            'vat_num' => 'required | size: 13 | unique:restaurants',
+            'phone' => 'required | max: 30 | unique:restaurants',
+            'image_logo' => 'mimes:jpg, bmp, png'
+        ]);
+        $data = $request->all();
+        
+        // dd($data);
+
+
+
+
     }
 
     /**
@@ -49,9 +62,7 @@ class RestaurantController extends Controller
      */
     public function show($slug)
     {
-        $restaurant = Restaurant::where('slug' , $slug)->first();
 
-        return view('restaurants.show', compact('restaurant'));
     }
 
     /**

@@ -19,6 +19,13 @@ class DishController extends Controller
         // dd($dishes);
          return view('admin.dishes.index', compact('dishes'));
     }
+    
+    // public function showall($id)
+    // {
+    //     $dishes = Dish::find($id);
+    //     return view('admin.dishes.index', compact('dishes'));
+    // }
+
 
     /**
      * Show the form for creating a new resource.

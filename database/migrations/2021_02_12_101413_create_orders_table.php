@@ -18,6 +18,7 @@ class CreateOrdersTable extends Migration
             $table->float('price_tot', 5,2);
             $table->string('phone', 30);
             $table->string('address');
+            $table->unsignedBigInteger('restaurant_id');
             $table->timestamps();
         });
     }

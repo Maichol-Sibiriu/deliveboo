@@ -1,16 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
-
-use App\Http\Controllers\Controller;
-use App\Order;
-use App\Dish;
-use App\Restaurant;
-use Illuminate\Support\Facades\Auth;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Restaurant;
 
-class OrderController extends Controller
+class RestaurantController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,11 +14,10 @@ class OrderController extends Controller
      */
     public function index()
     {
-
-        $userId = Auth::id();
-        $restaurant = Restaurant::where('user_id', $userId)->first();
-        $orders = Order::where('restaurant_id', $restaurant->id)->get();
-         return view('admin.orders.index', compact('orders'));
+        
+        $restaurants = Restaurant::all();
+        // dd($restaurants);
+         return view('restaurants.advanced_search', compact('restaurants'));
     }
 
     /**
@@ -53,18 +47,11 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        $order = Order::find($id);
-        $dishes = $order->dishes;
-        // $dishes = [];
-        // foreach ($order->dishes as $dish) {
-        //     $dishes[] = $dish->pivot->order_id;
-        // }
+        $restaurant = Restaurant::where('slug' , $slug)->first();
 
-        
-
-        return view('admin.orders.show', compact('dishes', 'order'));
+        return view('restaurants.show', compact('restaurant'));
     }
 
     /**

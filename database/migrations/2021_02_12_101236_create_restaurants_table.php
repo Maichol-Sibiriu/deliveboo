@@ -21,7 +21,7 @@ class CreateRestaurantsTable extends Migration
             $table->char('vat_num', 13)->unique();
             $table->string('phone', 30)->unique();
             $table->string('slug', 50);
-            $table->text('image_logo');
+            $table->text('image_logo')->nullable();
             $table->timestamps();
 
             // foreign key

@@ -15,27 +15,27 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', 'StaticPageController@homepage')->name('welcome');
+Route::resource('/restaurants', 'RestaurantController');
+// Route::get('admin/dishes', 'Admin\DishController@showall')->name('admin.dishes.showall')->middleware('auth');
+// Route::get('admin/orders', 'Admin\OrderController@showall')->name('admin.orders.showall')->middleware('auth');
 
 Auth::routes();
 
 // Route::get('/home', 'HomeController@index')->name('home');
 
 Route::prefix('admin')
-     ->namespace('Admin')
-     ->name('admin.')
-     ->middleware('auth')
-     ->group(function(){
+->namespace('Admin')
+->name('admin.')
+->middleware('auth')
+->group(function(){
     
     Route::get('/', 'HomeController@index')->name('home');
+    Route::resource('dishes', 'DishController');
+    Route::resource('orders', 'OrderController');
+    Route::resource('restaurants', 'RestaurantController');
 
 });
 
 
-// route resource  dishes
-Route::resource('dishes', 'Admin\DishController');
 
-// route resource  orders
-Route::resource('orders', 'Admin\OrderController');
 
-// route resource  restaurants
-Route::resource('restaurants', 'Admin\RestaurantController');
