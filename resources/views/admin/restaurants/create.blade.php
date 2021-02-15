@@ -40,7 +40,7 @@
         </div>
         <div>
             <label for="img_logo">Logo Ristorante</label>
-            <input type="file" name="img_logo" id="img_logo" accept="image/*">
+            <input type="file" name="image_logo" id="img_logo" accept="image/*">
         </div>
         <div>
             @foreach ($categories as $category)

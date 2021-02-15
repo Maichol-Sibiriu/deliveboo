@@ -125,6 +125,7 @@ class RestaurantController extends Controller
             'image_logo' => 'mimes:jpg, bmp, png'
         ]);
         $data = $request->all();
+        // dd($data);
         $oldRestaurant = Restaurant::find($id);
 
         
@@ -139,10 +140,12 @@ class RestaurantController extends Controller
         $data['user_id'] = Auth::id();
 
         //Controllo immagine
-        if(!empty($data['image_logo'])) {
+        if(empty($data['image_logo'])) {
             if(!empty($oldRestaurant->image_logo)) {
                 Storage::disk('public')->delete($oldRestaurant->image_logo);
+                $data['image_logo'] = null;
             }
+        } else {
             $data['image_logo'] = Storage::disk('public')->put('images', $data['image_logo']);
         }
 
