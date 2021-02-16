@@ -1,22 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
+@extends('layouts.main')
+
+@section('content')
     <h1>io sono tutti i ristoranti</h1>
 
     <div>
+        <input type="text" name="name" placeholder="cerca per nome" v-model="name">
         <ul>
-            @foreach ($restaurants as $restaurant)
-               
-                <li><a href="{{ route('restaurants.show', $restaurant->slug) }}">{{ $restaurant->name }}</a></li>
+            @foreach ($categories as $category)
+            
+                <li>
+                    <label for="{{ $category->name }}">{{ $category->name }}</label>
+                    <input type="checkbox" id="{{ $category->name }}" value="{{ $category->name }}" v-model="categories">
+                </li>
                 
             @endforeach
         </ul>
     </div>
-</body>
-</html>
+@endsection

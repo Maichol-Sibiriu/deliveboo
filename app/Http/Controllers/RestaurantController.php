@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Restaurant;
+use App\Category;
 
 class RestaurantController extends Controller
 {
@@ -15,9 +16,9 @@ class RestaurantController extends Controller
     public function index()
     {
         
-        $restaurants = Restaurant::all();
+        $categories = Category::all();
         // dd($restaurants);
-         return view('restaurants.advanced_search', compact('restaurants'));
+         return view('restaurants.advanced_search', compact('categories'));
     }
 
     /**
