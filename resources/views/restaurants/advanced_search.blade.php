@@ -16,4 +16,6 @@
             @endforeach
         </ul>
     </div>
+
 @endsection
+<script src="{{ asset('js/filter_restaurant.js') }}" defer></script>
