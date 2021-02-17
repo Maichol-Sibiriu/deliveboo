@@ -14450,21 +14450,32 @@ var deliveboo = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: '#app',
   data: {
     name: '',
-    categories: ['americano']
+    categories: [],
+    allRestaurants: []
   },
   created: function created() {
-    axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('http://127.0.0.1:8000/api/filter-restaurant', {
-      params: {
-        name: this.name,
-        categories: this.categories
-      }
-    }).then(function (response) {
-      console.log(response.data);
-    })["catch"](function (error) {
-      console.log(error);
-    });
+    this.filterRestaurant();
   },
-  methods: {}
+  methods: {
+    filterRestaurant: function filterRestaurant() {
+      var _this = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('http://127.0.0.1:8000/api/filter-restaurant', {
+        params: {
+          name: this.name,
+          categories: this.categories
+        }
+      }).then(function (response) {
+        _this.allRestaurants = response.data;
+        console.log(_this.allRestaurants);
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    routing: function routing(slug) {
+      return window.location + '/' + slug;
+    }
+  }
 });
 
 /***/ }),
@@ -14487,8 +14498,8 @@ var deliveboo = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\MAMP\htdocs\deliveboo\resources\js\filter_restaurant.js */"./resources/js/filter_restaurant.js");
-module.exports = __webpack_require__(/*! C:\MAMP\htdocs\deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\opaio\OneDrive\Desktop\deliveboo\resources\js\filter_restaurant.js */"./resources/js/filter_restaurant.js");
+module.exports = __webpack_require__(/*! C:\Users\opaio\OneDrive\Desktop\deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
