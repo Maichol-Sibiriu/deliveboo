@@ -11,7 +11,7 @@ class ApiController extends Controller
 {
     public function filter_restaurant(Request $request) {
         $data = $request->all();
-        $name = $data['name'];
+        $name = !empty($data['name']) ? $data['name'] : '';
 
         // niente filtri, invio tutti i ristoranti
         if ( empty($data['name']) && empty($data['categories']) ) {
@@ -44,7 +44,7 @@ class ApiController extends Controller
                     // ciclo su array ristoranti per controllo unicità (l'elemento da pushare è già presente nell'array ristoranti?)
                     foreach ($restaurants as $restaurant) {
                         // se già inserito, setto $verify = false per controllo successivo
-                        if ($restaurant->restaurant_id == $result->restaurant_id) {
+                        if ($restaurant->id == $result->id) {
                             $verify = false;
                         }
                     }
@@ -71,7 +71,7 @@ class ApiController extends Controller
                 foreach ($results as $result) {
                     $verify = true;
                     foreach ($restaurants as $restaurant) {
-                        if ($restaurant->restaurant_id == $result->restaurant_id) {
+                        if ($restaurant->id == $result->id) {
                             $verify = false;
                         }
                     }

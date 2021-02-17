@@ -15,7 +15,7 @@ const deliveboo = new Vue({
     },
     methods: {
       filterRestaurant(){
-
+        console.log(this.categories);
         axios.get('http://127.0.0.1:8000/api/filter-restaurant', {
             params: {
                 name: this.name,

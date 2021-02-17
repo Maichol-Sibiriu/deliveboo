@@ -14460,6 +14460,7 @@ var deliveboo = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
     filterRestaurant: function filterRestaurant() {
       var _this = this;
 
+      console.log(this.categories);
       axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('http://127.0.0.1:8000/api/filter-restaurant', {
         params: {
           name: this.name,
