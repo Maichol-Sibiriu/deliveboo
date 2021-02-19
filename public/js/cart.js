@@ -14451,9 +14451,13 @@ var cart = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   data: {
     order: [],
     dishes: [],
-    id: ''
+    id: '',
+    displayModal: false,
+    dishIndex: 0,
+    numDish: 0,
+    total: 0
   },
-  mounted: function mounted() {
+  created: function created() {
     var _this = this;
 
     this.id = document.getElementById('restaurantId').value; // console.log(this.id);
@@ -14463,22 +14467,68 @@ var cart = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
         id: this.id
       }
     }).then(function (response) {
-      _this.dishes = response.data; // console.log(this.dishes);
+      _this.dishes = response.data; // clono array piatti
+
+      _this.dishes.forEach(function (dish) {
+        var newDish = {
+          id: dish.id,
+          name: dish.name,
+          price: dish.price,
+          quantity: 0
+        };
+
+        _this.order.push(newDish);
+      });
     })["catch"](function (error) {
       console.log(error);
     });
   },
   methods: {
-    addDish: function addDish(name) {
-      var dish = {
-        name: name,
-        quantity: 1
-      };
-      this.order.push(dish);
-      console.log(this.order);
-    }
-  } // api/get-dishes
+    activeModal: function activeModal(index) {
+      this.displayModal = true;
+      this.dishIndex = index;
+    },
 
+    /* gestione carrello ordine */
+    // aggiunta piatto
+    addDish: function addDish() {
+      if (this.numDish > 0) {
+        this.order[this.dishIndex].quantity = parseInt(this.numDish);
+        this.displayModal = false;
+        this.numDish = 0;
+        this.calculateTotal();
+      }
+    },
+    // modifica quantità
+    setQuantity: function setQuantity(toAdd, index) {
+      this.order[index].quantity += toAdd ? 1 : -1;
+      this.calculateTotal();
+    },
+    // cancella piatto
+    deleteDish: function deleteDish(index) {
+      this.order[index].quantity = 0;
+      this.calculateTotal();
+    },
+    // cancella tutto l'ordine
+    deleteCart: function deleteCart() {
+      var _this2 = this;
+
+      this.order.forEach(function (product) {
+        product.quantity = 0;
+
+        _this2.calculateTotal();
+      });
+    },
+    // aggiornamento totale ordine
+    calculateTotal: function calculateTotal() {
+      var _this3 = this;
+
+      this.total = 0;
+      this.order.forEach(function (product) {
+        _this3.total += product.price * product.quantity;
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -14490,7 +14540,7 @@ var cart = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\opaio\OneDrive\Desktop\deliveboo\resources\js\cart.js */"./resources/js/cart.js");
+module.exports = __webpack_require__(/*! C:\Users\c4lci\Desktop\Boolean\CORSO\Febbraio\progettoFinale\deliveboo\resources\js\cart.js */"./resources/js/cart.js");
 
 
 /***/ })

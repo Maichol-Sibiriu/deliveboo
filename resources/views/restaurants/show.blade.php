@@ -16,15 +16,37 @@
     <h1>{{ $restaurant->vat_num }}</h1>
     <h1>{{ $restaurant->image_logo }}</h1>
 
-
+    {{-- Lista piatti --}}
     <ul>
-      <li v-if="dish.available" v-for="dish in dishes">
-        <a v-on:click="addDish(dish.name)" href="#">@{{dish.name}}</a>
+      <li v-if="dish.available" v-for="(dish, index) in dishes">
+        <a v-on:click="activeModal(index)" href="#">@{{dish.name}}</a>
       </li>
     </ul>
+    
+    {{-- Modale --}}
+    <div class="modal" v-show="displayModal">
+      <p>Aggiungi @{{ order[dishIndex].name }}</p>
+      <label for="quantity">Quantità</label>
+      <input id="quantity" type="number" min="0" v-model="numDish">
+      <button v-on:click="addDish()">Aggiungi piatto</button>
+    </div>
 
-    <div class="cart">
+    {{-- Carrello ordine --}}
+    <div class="cart" v-if="total > 0">
+      <ul>
+        <li v-for="(product, index) in order" v-if="product.quantity > 0">
+          <p>@{{ product.name }} - @{{ product.quantity }}</p>
+          <a v-on:click="setQuantity(false, index)">- </a>
+          <a v-on:click="setQuantity(true, index)"> +</a>
+          <a v-on:click="deleteDish(index)">Elimina piatto</a>
+        </li>
+      </ul>
+      <div class="total">
+        <h2>Totale: @{{ total }} €</h2>
+        <a v-on:click="deleteCart">Pulisci carrello</a>
+      </div>
 
+      <button>Checkout</button>
     </div>
 
   </div>
