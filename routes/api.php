@@ -20,8 +20,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::namespace('Api')->middleware('web')->group(function() {
     Route::get('/filter-restaurant', 'ApiController@filter_restaurant');
-});
-
-Route::namespace('Api')->middleware('web')->group(function() {
-  Route::get('/get-dishes', 'ApiController@get_dishes');
-});
+    Route::get('/get-dishes', 'ApiController@get_dishes');
+  });
+  
+  Route::post('/payment', 'Api\PayController@pay')->name('pay');

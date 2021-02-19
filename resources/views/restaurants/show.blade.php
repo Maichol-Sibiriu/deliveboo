@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <script src="https://js.braintreegateway.com/web/dropin/1.26.0/js/dropin.min.js"></script>
 </head>
 <body>
 
@@ -50,6 +51,55 @@
     </div>
 
   </div>
+
+
+
+
+{{-- pagamento braintree --}}
+<div class="braintree-dropin">
+    <form id="payment-form" action="{{ route('pay') }}" method="POST">
+      @csrf
+      @method('POST')
+      <div id="dropin-container"></div>
+      <input type="submit" />
+      <input type="hidden" id="nonce" name="payment_method_nonce"/>
+    </form>
+  
+  
+    <script type="text/javascript">
+      const form = document.getElementById('payment-form');
+      const clientToken = '@php echo($clientToken) @endphp';
+  
+      braintree.dropin.create({
+        authorization: clientToken,
+        container: document.getElementById('dropin-container'),
+      }, (error, dropinInstance) => {
+
+        if (error) console.error(error);
+  
+        form.addEventListener('submit', event => {
+            event.preventDefault();
+  
+            dropinInstance.requestPaymentMethod((error, payload) => {
+            if (error) {
+                console.error(error);
+            }
+            document.getElementById('nonce').value = payload.nonce;
+  
+            form.submit();
+            });
+        });
+      });
+    </script>
+  </div>
+
+
+
+
+
+
+
+
 
   <script defer src="{{asset('js/cart.js')}}" charset="utf-8"></script>
 

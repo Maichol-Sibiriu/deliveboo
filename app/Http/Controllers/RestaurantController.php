@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Braintree\Gateway as Gateway;
 use App\Restaurant;
 use App\Category;
 
@@ -52,7 +53,16 @@ class RestaurantController extends Controller
     {
         $restaurant = Restaurant::where('slug' , $slug)->first();
 
-        return view('restaurants.show', compact('restaurant'));
+        $gateway = new Gateway([
+            'environment' => 'sandbox',
+            'merchantId' => 'xyg6km7tjcfh5hkh',
+            'publicKey' => 'qghn6r3vsw6tqbbp',
+            'privateKey' => '7b394a59ad46848440f8dc4171434f52'
+        ]);
+        
+        $clientToken = $gateway->clientToken()->generate();
+
+        return view('restaurants.show', compact('restaurant', 'clientToken'));
     }
 
     /**
