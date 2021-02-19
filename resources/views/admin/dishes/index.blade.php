@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>io sono tutti i piatti</h1>
+    <h1>Il mio Menu </h1>
     @if (session('created'))
         <h3>Il piatto - {{ session('created') }} - è stato creato!</h3>
     @elseif(session('deleted'))

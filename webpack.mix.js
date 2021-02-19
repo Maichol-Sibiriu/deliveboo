@@ -12,7 +12,8 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/filter_restaurant.js', 'public/js/filter_restaurant.js')
-    .js('resources/js/app.js', 'public/js') 
+    .js('resources/js/cart.js', 'public/js/cart.js')
+    .js('resources/js/app.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css')
     .options({
         processCssUrls: false,

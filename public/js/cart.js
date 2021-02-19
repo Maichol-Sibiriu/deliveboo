@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -14431,10 +14431,10 @@ module.exports = g;
 
 /***/ }),
 
-/***/ "./resources/js/filter_restaurant.js":
-/*!*******************************************!*\
-  !*** ./resources/js/filter_restaurant.js ***!
-  \*******************************************/
+/***/ "./resources/js/cart.js":
+/*!******************************!*\
+  !*** ./resources/js/cart.js ***!
+  \******************************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -14446,61 +14446,51 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
 
 
-var deliveboo = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
-  el: '#app',
+var cart = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
+  el: '#cart',
   data: {
-    name: '',
-    categories: [],
-    allRestaurants: []
+    order: [],
+    dishes: [],
+    id: ''
   },
-  created: function created() {
-    this.filterRestaurant();
+  mounted: function mounted() {
+    var _this = this;
+
+    this.id = document.getElementById('restaurantId').value; // console.log(this.id);
+
+    axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('http://127.0.0.1:8000/api/get-dishes', {
+      params: {
+        id: this.id
+      }
+    }).then(function (response) {
+      _this.dishes = response.data; // console.log(this.dishes);
+    })["catch"](function (error) {
+      console.log(error);
+    });
   },
   methods: {
-    filterRestaurant: function filterRestaurant() {
-      var _this = this;
-
-      console.log(this.categories);
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('http://127.0.0.1:8000/api/filter-restaurant', {
-        params: {
-          name: this.name,
-          categories: this.categories
-        }
-      }).then(function (response) {
-        _this.allRestaurants = response.data;
-        console.log(_this.allRestaurants);
-      })["catch"](function (error) {
-        console.log(error);
-      });
-    },
-    routing: function routing(slug) {
-      return window.location + '/' + slug;
+    addDish: function addDish(name) {
+      var dish = {
+        name: name,
+        quantity: 1
+      };
+      this.order.push(dish);
+      console.log(this.order);
     }
-  }
+  } // api/get-dishes
+
 });
 
 /***/ }),
 
-/***/ "./resources/sass/app.scss":
-/*!*********************************!*\
-  !*** ./resources/sass/app.scss ***!
-  \*********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
-/***/ 0:
-/*!***************************************************************************!*\
-  !*** multi ./resources/js/filter_restaurant.js ./resources/sass/app.scss ***!
-  \***************************************************************************/
+/***/ 1:
+/*!************************************!*\
+  !*** multi ./resources/js/cart.js ***!
+  \************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\opaio\OneDrive\Desktop\deliveboo\resources\js\filter_restaurant.js */"./resources/js/filter_restaurant.js");
-module.exports = __webpack_require__(/*! C:\Users\opaio\OneDrive\Desktop\deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! C:\Users\opaio\OneDrive\Desktop\deliveboo\resources\js\cart.js */"./resources/js/cart.js");
 
 
 /***/ })

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Restaurant;
+use App\Dish;
 
 class ApiController extends Controller
 {
@@ -85,5 +86,17 @@ class ApiController extends Controller
 
         // return JSON
         return response()->json($restaurants);
+    }
+
+    public function get_dishes(Request $request) {
+
+      $data = $request->all();
+      $dishes= Dish::where('restaurant_id', $data['id'])->get();
+
+      // dd($dishes);
+      return response()->json($dishes);
+
+
+
     }
 }
