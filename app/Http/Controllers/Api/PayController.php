@@ -5,12 +5,15 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Braintree\Gateway as Gateway;
+use Dotenv\Result\Result;
 
 class PayController extends Controller
 {
     public function pay(Request $request) {
         $data = $request->all();
-        dd($data);
+        $slug = $data['slug'];
+        
+        // dd($data);
         $gateway = new Gateway([
             'environment' => 'sandbox',
             'merchantId' => 'xyg6km7tjcfh5hkh',
@@ -30,6 +33,12 @@ class PayController extends Controller
             ]
         ]);
 
-        return response()->json($result);
+        if ($result->success) {
+            return 'success';
+        }
+        else {
+            
+            return redirect()->route('restaurants.show', $slug);
+        }
     }
 }

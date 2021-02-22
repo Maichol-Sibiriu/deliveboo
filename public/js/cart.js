@@ -14479,6 +14479,17 @@ var cart = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
 
         _this.order.push(newDish);
       });
+
+      if (document.cookie) {
+        var cookiesArray = document.cookie.split(';');
+
+        for (var i = 0; i < cookiesArray.length - 1; i++) {
+          var cookie = cookiesArray[i].trim().split('=');
+          _this.order[parseInt(cookie[0])].quantity = parseInt(cookie[1]);
+        }
+
+        _this.calculateTotal();
+      }
     })["catch"](function (error) {
       console.log(error);
     });
@@ -14486,6 +14497,10 @@ var cart = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   watch: {
     total: function total(tot) {
       document.getElementById('amount').value = tot;
+      this.order.forEach(function (el, i) {
+        var strCookie = "".concat(i, "=").concat(el.quantity, ";");
+        document.cookie = strCookie;
+      }); // console.log(cookiesArray);
     }
   },
   methods: {
@@ -14546,7 +14561,7 @@ var cart = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\opaio\OneDrive\Desktop\deliveboo\resources\js\cart.js */"./resources/js/cart.js");
+module.exports = __webpack_require__(/*! C:\MAMP\htdocs\deliveboo\resources\js\cart.js */"./resources/js/cart.js");
 
 
 /***/ })

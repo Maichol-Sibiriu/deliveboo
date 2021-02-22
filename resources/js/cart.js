@@ -33,15 +33,33 @@ const cart = new Vue({
           };
           this.order.push(newDish);
         });
+        if (document.cookie) {
+           let cookiesArray = document.cookie.split(';');
+           
+          for (let i = 0; i < cookiesArray.length - 1; i++) {
+             
+            const cookie = cookiesArray[i].trim().split('=');
+            this.order[parseInt(cookie[0])].quantity = parseInt(cookie[1]);
+              
+          }
+          this.calculateTotal();
+        }
       })
       .catch(error => {
           console.log(error);
       })
+
+
     },
     watch:{
       total: function(tot) {
         document.getElementById('amount').value= tot;
-      }
+        this.order.forEach((el, i) => {
+          const strCookie = `${i}=${el.quantity};`;
+          document.cookie = strCookie;
+        });
+        // console.log(cookiesArray);
+      },
     },
     methods:{
       activeModal(index) {

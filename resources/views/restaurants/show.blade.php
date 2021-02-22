@@ -61,8 +61,8 @@
       <input type="hidden" name="amount" id="amount">
       <input type="submit" />
       <input type="hidden" id="nonce" name="payment_method_nonce"/>
+      <input type="hidden" name="slug" value="{{ $restaurant->slug }}" />
       
-      <!-- <input type="hidden" name="order[]" :value="element.quantity" v-for="element in order"> -->
     </form>
 
     <script type="text/javascript">
@@ -85,8 +85,7 @@
             }
             document.getElementById('nonce').value = payload.nonce;
 
-            // document.cookie = ''
-            // form.submit();
+            form.submit();
             });
         });
       });
