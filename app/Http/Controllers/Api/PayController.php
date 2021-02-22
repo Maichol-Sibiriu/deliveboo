@@ -10,7 +10,7 @@ class PayController extends Controller
 {
     public function pay(Request $request) {
         $data = $request->all();
-        // dd($data['payment_method_nonce']);
+        dd($data);
         $gateway = new Gateway([
             'environment' => 'sandbox',
             'merchantId' => 'xyg6km7tjcfh5hkh',
@@ -20,8 +20,10 @@ class PayController extends Controller
 
         $nonceFromTheClient = $data['payment_method_nonce'];
 
+        $total= $data['amount'];
+
         $result = $gateway->transaction()->sale([
-            'amount' => '3000.50',
+            'amount' => $total,
             'paymentMethodNonce' => $nonceFromTheClient,
             'options' => [
               'submitForSettlement' => False

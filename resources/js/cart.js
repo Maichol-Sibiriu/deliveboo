@@ -38,6 +38,11 @@ const cart = new Vue({
           console.log(error);
       })
     },
+    watch:{
+      total: function(tot) {
+        document.getElementById('amount').value= tot;
+      }
+    },
     methods:{
       activeModal(index) {
         this.displayModal = true;
@@ -79,6 +84,8 @@ const cart = new Vue({
           this.total += product.price * product.quantity;
         });
       },
-      
+
     }
 });
+
+export default cart;

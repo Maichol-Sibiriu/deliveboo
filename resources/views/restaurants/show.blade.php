@@ -23,7 +23,7 @@
         <a v-on:click="activeModal(index)" href="#">@{{dish.name}}</a>
       </li>
     </ul>
-    
+
     {{-- Modale --}}
     <div class="modal" v-show="displayModal">
       <p>Aggiungi @{{ order[dishIndex].name }}</p>
@@ -47,58 +47,51 @@
         <a v-on:click="deleteCart">Pulisci carrello</a>
       </div>
 
-      <button>Checkout</button>
+      <button v-on:click="checkout()">Checkout</button>
     </div>
-
   </div>
 
 
-
-
-{{-- pagamento braintree --}}
-<div class="braintree-dropin">
+  {{-- pagamento braintree --}}
+  <div class="braintree-dropin">
     <form id="payment-form" action="{{ route('pay') }}" method="POST">
       @csrf
       @method('POST')
       <div id="dropin-container"></div>
+      <input type="hidden" name="amount" id="amount">
       <input type="submit" />
       <input type="hidden" id="nonce" name="payment_method_nonce"/>
+      
+      <!-- <input type="hidden" name="order[]" :value="element.quantity" v-for="element in order"> -->
     </form>
-  
-  
+
     <script type="text/javascript">
       const form = document.getElementById('payment-form');
       const clientToken = '@php echo($clientToken) @endphp';
-  
+
       braintree.dropin.create({
         authorization: clientToken,
         container: document.getElementById('dropin-container'),
       }, (error, dropinInstance) => {
 
         if (error) console.error(error);
-  
+
         form.addEventListener('submit', event => {
             event.preventDefault();
-  
+
             dropinInstance.requestPaymentMethod((error, payload) => {
             if (error) {
                 console.error(error);
             }
             document.getElementById('nonce').value = payload.nonce;
-  
-            form.submit();
+
+            // document.cookie = ''
+            // form.submit();
             });
         });
       });
     </script>
   </div>
-
-
-
-
-
-
-
 
 
   <script defer src="{{asset('js/cart.js')}}" charset="utf-8"></script>

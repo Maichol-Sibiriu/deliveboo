@@ -14435,7 +14435,7 @@ module.exports = g;
 /*!******************************!*\
   !*** ./resources/js/cart.js ***!
   \******************************/
-/*! no exports provided */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -14482,6 +14482,11 @@ var cart = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
     })["catch"](function (error) {
       console.log(error);
     });
+  },
+  watch: {
+    total: function total(tot) {
+      document.getElementById('amount').value = tot;
+    }
   },
   methods: {
     activeModal: function activeModal(index) {
@@ -14530,6 +14535,7 @@ var cart = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
     }
   }
 });
+/* harmony default export */ __webpack_exports__["default"] = (cart);
 
 /***/ }),
 
@@ -14540,7 +14546,7 @@ var cart = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\c4lci\Desktop\Boolean\CORSO\Febbraio\progettoFinale\deliveboo\resources\js\cart.js */"./resources/js/cart.js");
+module.exports = __webpack_require__(/*! C:\Users\opaio\OneDrive\Desktop\deliveboo\resources\js\cart.js */"./resources/js/cart.js");
 
 
 /***/ })
