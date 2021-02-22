@@ -34,7 +34,8 @@ class PayController extends Controller
         ]);
 
         if ($result->success) {
-            return 'success';
+            
+            return response()->json($result);
         }
         else {
             

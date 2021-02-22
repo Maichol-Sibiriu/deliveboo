@@ -62,6 +62,9 @@
       <input type="submit" />
       <input type="hidden" id="nonce" name="payment_method_nonce"/>
       <input type="hidden" name="slug" value="{{ $restaurant->slug }}" />
+      <input type="hidden" name="id" value="{{ $restaurant->id }}" />
+      <input type="text" name="phone" value="{{ old('phone') }}" />
+      <input type="text" name="address" value="{{ old('address') }}" />
       
     </form>
 

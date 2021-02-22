@@ -32,6 +32,12 @@ const cart = new Vue({
             quantity: 0,
           };
           this.order.push(newDish);
+          const form = document.getElementById('payment-form');
+          // form.innerHTML += `<input type="hidden" name="dishes[]" id="${ newDish.id }" value="${ newDish.quantity }" /> `;
+          const hiddenInput = form.appendChild(document.createElement("input"));
+          hiddenInput.setAttribute("id", newDish.id);
+          hiddenInput.setAttribute("type", "hidden");                     
+          hiddenInput.setAttribute("value", newDish.quantity);
         });
         if (document.cookie) {
            let cookiesArray = document.cookie.split(';');
@@ -40,8 +46,10 @@ const cart = new Vue({
              
             const cookie = cookiesArray[i].trim().split('=');
             this.order[parseInt(cookie[0])].quantity = parseInt(cookie[1]);
-              
+            document.getElementById(this.order[parseInt(cookie[0])].id).value = this.order[parseInt(cookie[0])].quantity;
+            // console.log(cookie);
           }
+          // console.log(cookiesArray);
           this.calculateTotal();
         }
       })

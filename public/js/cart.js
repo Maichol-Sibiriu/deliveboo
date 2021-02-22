@@ -14478,6 +14478,13 @@ var cart = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
         };
 
         _this.order.push(newDish);
+
+        var form = document.getElementById('payment-form'); // form.innerHTML += `<input type="hidden" name="dishes[]" id="${ newDish.id }" value="${ newDish.quantity }" /> `;
+
+        var hiddenInput = form.appendChild(document.createElement("input"));
+        hiddenInput.setAttribute("id", newDish.id);
+        hiddenInput.setAttribute("type", "hidden");
+        hiddenInput.setAttribute("value", newDish.quantity);
       });
 
       if (document.cookie) {
@@ -14486,7 +14493,9 @@ var cart = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
         for (var i = 0; i < cookiesArray.length - 1; i++) {
           var cookie = cookiesArray[i].trim().split('=');
           _this.order[parseInt(cookie[0])].quantity = parseInt(cookie[1]);
-        }
+          document.getElementById(_this.order[parseInt(cookie[0])].id).value = _this.order[parseInt(cookie[0])].quantity; // console.log(cookie);
+        } // console.log(cookiesArray);
+
 
         _this.calculateTotal();
       }

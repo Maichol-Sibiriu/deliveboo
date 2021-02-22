@@ -17,6 +17,7 @@ class CreateDishOrderTable extends Migration
             $table->id();
             $table->unsignedBigInteger('order_id');
             $table->unsignedBigInteger('dish_id');
+            $table->integer('quantity');
             $table->dateTime('time_order');
 
             // foreign key
