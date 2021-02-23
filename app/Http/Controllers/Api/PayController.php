@@ -35,6 +35,7 @@ class PayController extends Controller
 
         if ($result->success) {
             
+            // return redirect()->route('admin.orders.store', compact('data'));
             return response()->json($result);
         }
         else {

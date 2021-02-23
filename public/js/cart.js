@@ -14485,6 +14485,7 @@ var cart = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
         hiddenInput.setAttribute("id", newDish.id);
         hiddenInput.setAttribute("type", "hidden");
         hiddenInput.setAttribute("value", newDish.quantity);
+        hiddenInput.setAttribute("name", "dishes[]");
       });
 
       if (document.cookie) {
@@ -14570,7 +14571,7 @@ var cart = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\MAMP\htdocs\deliveboo\resources\js\cart.js */"./resources/js/cart.js");
+module.exports = __webpack_require__(/*! C:\Users\Marco\Desktop\deliveboo\resources\js\cart.js */"./resources/js/cart.js");
 
 
 /***/ })

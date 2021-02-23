@@ -38,6 +38,7 @@ const cart = new Vue({
           hiddenInput.setAttribute("id", newDish.id);
           hiddenInput.setAttribute("type", "hidden");                     
           hiddenInput.setAttribute("value", newDish.quantity);
+          hiddenInput.setAttribute("name", "dishes[]");
         });
         if (document.cookie) {
            let cookiesArray = document.cookie.split(';');

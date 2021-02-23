@@ -4,10 +4,11 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        <script src="https://js.braintreegateway.com/web/dropin/1.26.0/js/dropin.min.js"></script>
         <title>Deliveboo</title>
     </head>
     <body>
-        <div id="app">
+        <div id="app" class="container">
             @include('partials.header')
 
             <main>
