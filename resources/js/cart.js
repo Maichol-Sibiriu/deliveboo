@@ -15,7 +15,6 @@ const cart = new Vue({
     },
     created(){
       this.id = document.getElementById('restaurantId').value;
-      // console.log(this.id);
       axios.get('http://127.0.0.1:8000/api/get-dishes', {
           params: {
               id: this.id,
@@ -40,7 +39,6 @@ const cart = new Vue({
           hiddenInput.setAttribute("type", "hidden");                     
           hiddenInput.setAttribute("value", newDish.quantity);
           hiddenInput.setAttribute("name", "dishes[]");
-           console.log(newDish); 
 
           const hiddenId = form.appendChild(document.createElement("input"));
           // hiddenId.setAttribute("id", newDish.id);
@@ -49,16 +47,15 @@ const cart = new Vue({
           hiddenId.setAttribute("name", "dishes_id[]");
         });
         if (document.cookie) {
-           let cookiesArray = document.cookie.split(';');
+          let cookiesArray = document.cookie.split(';');
+          // console.log(cookiesArray);
            
           for (let i = 0; i < cookiesArray.length - 1; i++) {
              
             const cookie = cookiesArray[i].trim().split('=');
             this.order[parseInt(cookie[0])].quantity = parseInt(cookie[1]);
-            document.getElementById(this.order[parseInt(cookie[0])].id).value = this.order[parseInt(cookie[0])].quantity;
-            // console.log(cookie);
+            document.getElementById(this.order[parseInt(cookie[0])].name).value = this.order[parseInt(cookie[0])].quantity;
           }
-          // console.log(cookiesArray);
           this.calculateTotal();
         }
       })
@@ -75,7 +72,7 @@ const cart = new Vue({
           const strCookie = `${i}=${el.quantity};`;
           document.cookie = strCookie;
         });
-        // console.log(cookiesArray);
+        console.log(document.cookie);
       },
     },
     methods:{

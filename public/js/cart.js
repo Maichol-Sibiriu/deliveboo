@@ -14460,8 +14460,7 @@ var cart = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   created: function created() {
     var _this = this;
 
-    this.id = document.getElementById('restaurantId').value; // console.log(this.id);
-
+    this.id = document.getElementById('restaurantId').value;
     axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('http://127.0.0.1:8000/api/get-dishes', {
       params: {
         id: this.id
@@ -14485,7 +14484,6 @@ var cart = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
         hiddenInput.setAttribute("type", "hidden");
         hiddenInput.setAttribute("value", newDish.quantity);
         hiddenInput.setAttribute("name", "dishes[]");
-        console.log(newDish);
         var hiddenId = form.appendChild(document.createElement("input")); // hiddenId.setAttribute("id", newDish.id);
 
         hiddenId.setAttribute("type", "hidden");
@@ -14494,14 +14492,13 @@ var cart = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
       });
 
       if (document.cookie) {
-        var cookiesArray = document.cookie.split(';');
+        var cookiesArray = document.cookie.split(';'); // console.log(cookiesArray);
 
         for (var i = 0; i < cookiesArray.length - 1; i++) {
           var cookie = cookiesArray[i].trim().split('=');
           _this.order[parseInt(cookie[0])].quantity = parseInt(cookie[1]);
-          document.getElementById(_this.order[parseInt(cookie[0])].id).value = _this.order[parseInt(cookie[0])].quantity; // console.log(cookie);
-        } // console.log(cookiesArray);
-
+          document.getElementById(_this.order[parseInt(cookie[0])].name).value = _this.order[parseInt(cookie[0])].quantity;
+        }
 
         _this.calculateTotal();
       }
@@ -14515,7 +14512,8 @@ var cart = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
       this.order.forEach(function (el, i) {
         var strCookie = "".concat(i, "=").concat(el.quantity, ";");
         document.cookie = strCookie;
-      }); // console.log(cookiesArray);
+      });
+      console.log(document.cookie);
     }
   },
   methods: {
@@ -14577,7 +14575,7 @@ var cart = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\MAMP\htdocs\deliveboo\resources\js\cart.js */"./resources/js/cart.js");
+module.exports = __webpack_require__(/*! C:\Users\c4lci\Desktop\Boolean\CORSO\Febbraio\progettoFinale\deliveboo\resources\js\cart.js */"./resources/js/cart.js");
 
 
 /***/ })
