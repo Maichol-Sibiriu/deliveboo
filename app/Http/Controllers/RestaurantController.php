@@ -51,7 +51,16 @@ class RestaurantController extends Controller
      */
     public function show($slug)
     {
+        if (str_contains ( $slug , '=' )) {
+            $ArraySlug = explode('=', $slug);
+            $slug = $ArraySlug[0];
+            $error = $ArraySlug[1];
+        } else {
+            $error = '';
+        }
+
         $restaurant = Restaurant::where('slug' , $slug)->first();
+
 
         $gateway = new Gateway([
             'environment' => 'sandbox',
@@ -62,7 +71,7 @@ class RestaurantController extends Controller
         
         $clientToken = $gateway->clientToken()->generate();
 
-        return view('restaurants.show', compact('restaurant', 'clientToken'));
+        return view('restaurants.show', compact('restaurant', 'clientToken', 'error'));
     }
 
     /**

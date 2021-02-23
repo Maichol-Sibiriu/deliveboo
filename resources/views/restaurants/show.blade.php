@@ -2,6 +2,12 @@
 
 @section('content')
 
+@if ($error) 
+
+<p class="alert alert-danger">L'ordine non è andato a buon fine, controllare il metodo di pagamento!</p>
+    
+@endif
+
 <div id="cart">
   <input value="{{ $restaurant->id}}"  type="hidden" id="restaurantId">
   <h1>{{ $restaurant->name }}<small>{{ $restaurant->address }}</small></h1>

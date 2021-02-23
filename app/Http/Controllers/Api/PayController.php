@@ -39,7 +39,7 @@ class PayController extends Controller
             return response()->json($result);
         }
         else {
-            
+            $slug = $slug . '=failed';
             return redirect()->route('restaurants.show', $slug);
         }
     }
