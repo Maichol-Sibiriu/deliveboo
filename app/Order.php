@@ -7,9 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     protected $fillable = [
-        'price_tot',
+        'amount',
         'phone',
         'address',
+        'restaurant_id',
     ];
 
     public function dishes(){

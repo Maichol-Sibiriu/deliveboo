@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Braintree\Gateway as Gateway;
+use App\Order;
 use Dotenv\Result\Result;
 
 class PayController extends Controller
@@ -34,9 +35,26 @@ class PayController extends Controller
         ]);
 
         if ($result->success) {
-            
-            // return redirect()->route('admin.orders.store', compact('data'));
-            return response()->json($result);
+            // dd($data['dishes']);
+
+
+            $newOrder = new Order();
+
+            $newOrder->fill($data);
+            $saved = $newOrder->save();
+
+            if ($saved) {
+                foreach ($data['dishes'] as $key => $dish) {
+                    if ($dish == 0) {
+                        \array_splice($data['dishes'], $key, 1);
+                        \array_splice($data['dishes_id'], $key, 1);
+                    }
+                }
+                dd($data['dishes']);
+                $newOrder->dishes()->attach($data['dishes_id'], ['quantity', $data['dishes']]);
+            }
+            // return redirect()->route();
+            // return response()->json($result);
         }
         else {
             $slug = $slug . '=failed';

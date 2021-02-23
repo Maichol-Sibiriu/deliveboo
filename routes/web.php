@@ -15,7 +15,9 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', 'StaticPageController@homepage')->name('welcome');
+
 Route::resource('/restaurants', 'RestaurantController');
+
 // Route::get('admin/dishes', 'Admin\DishController@showall')->name('admin.dishes.showall')->middleware('auth');
 // Route::get('admin/orders', 'Admin\OrderController@showall')->name('admin.orders.showall')->middleware('auth');
 

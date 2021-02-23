@@ -32,13 +32,21 @@ const cart = new Vue({
             quantity: 0,
           };
           this.order.push(newDish);
+
           const form = document.getElementById('payment-form');
-          // form.innerHTML += `<input type="hidden" name="dishes[]" id="${ newDish.id }" value="${ newDish.quantity }" /> `;
+          
           const hiddenInput = form.appendChild(document.createElement("input"));
-          hiddenInput.setAttribute("id", newDish.id);
+          hiddenInput.setAttribute("id", newDish.name);
           hiddenInput.setAttribute("type", "hidden");                     
           hiddenInput.setAttribute("value", newDish.quantity);
           hiddenInput.setAttribute("name", "dishes[]");
+           console.log(newDish); 
+
+          const hiddenId = form.appendChild(document.createElement("input"));
+          // hiddenId.setAttribute("id", newDish.id);
+          hiddenId.setAttribute("type", "hidden");                     
+          hiddenId.setAttribute("value", newDish.id);
+          hiddenId.setAttribute("name", "dishes_id[]");
         });
         if (document.cookie) {
            let cookiesArray = document.cookie.split(';');
@@ -86,16 +94,19 @@ const cart = new Vue({
           this.calculateTotal();
         }
       },
+
       // modifica quantità
       setQuantity(toAdd, index) {
         this.order[index].quantity += toAdd ? 1 : - 1;
         this.calculateTotal();
       },
+
       // cancella piatto
       deleteDish(index) {
         this.order[index].quantity = 0;
         this.calculateTotal();
       },
+
       // cancella tutto l'ordine
       deleteCart() {
         this.order.forEach(product => {
@@ -108,6 +119,7 @@ const cart = new Vue({
       calculateTotal() {
         this.total = 0;
         this.order.forEach(product => {
+          document.getElementById(product.name).value = product.quantity;
           this.total += product.price * product.quantity;
         });
       },

@@ -42,6 +42,7 @@ class ApiController extends Controller
                 // ciclo sui risultati della query
                 foreach ($results as $result) {
                     $verify = true;
+                    
                     // ciclo su array ristoranti per controllo unicità (l'elemento da pushare è già presente nell'array ristoranti?)
                     foreach ($restaurants as $restaurant) {
                         // se già inserito, setto $verify = false per controllo successivo

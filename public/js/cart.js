@@ -14479,13 +14479,18 @@ var cart = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
 
         _this.order.push(newDish);
 
-        var form = document.getElementById('payment-form'); // form.innerHTML += `<input type="hidden" name="dishes[]" id="${ newDish.id }" value="${ newDish.quantity }" /> `;
-
+        var form = document.getElementById('payment-form');
         var hiddenInput = form.appendChild(document.createElement("input"));
-        hiddenInput.setAttribute("id", newDish.id);
+        hiddenInput.setAttribute("id", newDish.name);
         hiddenInput.setAttribute("type", "hidden");
         hiddenInput.setAttribute("value", newDish.quantity);
         hiddenInput.setAttribute("name", "dishes[]");
+        console.log(newDish);
+        var hiddenId = form.appendChild(document.createElement("input")); // hiddenId.setAttribute("id", newDish.id);
+
+        hiddenId.setAttribute("type", "hidden");
+        hiddenId.setAttribute("value", newDish.id);
+        hiddenId.setAttribute("name", "dishes_id[]");
       });
 
       if (document.cookie) {
@@ -14555,6 +14560,7 @@ var cart = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
 
       this.total = 0;
       this.order.forEach(function (product) {
+        document.getElementById(product.name).value = product.quantity;
         _this3.total += product.price * product.quantity;
       });
     }
@@ -14571,7 +14577,7 @@ var cart = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\c4lci\Desktop\Boolean\CORSO\Febbraio\progettoFinale\deliveboo\resources\js\cart.js */"./resources/js/cart.js");
+module.exports = __webpack_require__(/*! C:\MAMP\htdocs\deliveboo\resources\js\cart.js */"./resources/js/cart.js");
 
 
 /***/ })

@@ -58,7 +58,7 @@
     <input type="hidden" name="amount" id="amount">
     <input type="hidden" id="nonce" name="payment_method_nonce"/>
     <input type="hidden" name="slug" value="{{ $restaurant->slug }}" />
-    <input type="hidden" name="id" value="{{ $restaurant->id }}" />
+    <input type="hidden" name="restaurant_id" value="{{ $restaurant->id }}" />
     <label for="phone">Numero di Telefono</label>
     <input type="text" name="phone" value="{{ old('phone') }}" id="phone" />
     <label for="phone">Indirizzo di Consegna</label>
