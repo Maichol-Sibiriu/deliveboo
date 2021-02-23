@@ -50,8 +50,8 @@ class PayController extends Controller
                         \array_splice($data['dishes_id'], $key, 1);
                     }
                 }
-                dd($data['dishes']);
-                $newOrder->dishes()->attach($data['dishes_id'], ['quantity', $data['dishes']]);
+                // dd($data['dishes_id']);
+                $newOrder->dishes()->attach($data['dishes_id'], ['time_order' => date('Y-m-d H:i:s')]);
             }
             // return redirect()->route();
             // return response()->json($result);
