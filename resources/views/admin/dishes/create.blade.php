@@ -41,7 +41,12 @@
     </div>
     <div>
       <label for="typology">Tipologia</label>
-      <input type="text" id="typology" name="typology" value="{{ old('typology') }}">
+      <select name="typology" id="typology">
+        @foreach($typologies as $typology)
+          <option value="{{ $typology }}">{{ $typology }}</option>
+        @endforeach
+      </select>
+      {{-- <input type="text" id="typology" name="typology" value="{{ old('typology') }}"> --}}
     </div>
     <div>
       <label for="vegan">Vegano</label>

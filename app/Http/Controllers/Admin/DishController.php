@@ -32,7 +32,18 @@ class DishController extends Controller
      */
     public function create()
     {
-        return view('admin.dishes.create');
+        $typologies = [
+            'Antipasti',
+            'Primi piatti',
+            'Secondi piatti',
+            'Dessert',
+            'Contorni',
+            'Bibite',
+            'Pizze rosse',
+            'Pizze bianche',
+            'Pizze speciali'
+        ];
+        return view('admin.dishes.create', compact('typologies'));
     }
 
     /**
