@@ -8,7 +8,6 @@ const restId = document.getElementById('restaurant_id').value;
 axios.get(`http://127.0.0.1:8000/api/get-statistics?id=${restId}`)
     .then(response => {
         orders = response.data;
-        console.log(orders);
     })
     .catch(error => {
         console.log(error);
@@ -52,7 +51,7 @@ setTimeout(() => {
         data: {
             labels: ['2016', '2017', '2018', '2019', '2020', '2021'],
             datasets: [{
-                label: 'Scontrino Medio Annuo',
+                label: 'Scontrino medio anno 2016',
                 data: [media[0].calc, media[1].calc, media[2].calc, media[3].calc, media[4].calc, media[5].calc],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
@@ -114,7 +113,7 @@ setTimeout(() => {
         
     });
 
-    console.log(mediaMonth);
+    // console.log(mediaMonth);
     mediaMonth.forEach(element => {
         element.calc = element.total / element.orderNum;
     });
