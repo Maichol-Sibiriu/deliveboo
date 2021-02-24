@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use App\Restaurant;
 use App\Dish;
 use App\Order;
@@ -103,12 +104,12 @@ class ApiController extends Controller
 
 
     }
+        // dati da mostrare per le statistiche
+        public function get_statistics(Request $request){
+            $data = $request->all();
+            $idRest = $data['id'];
+            $orders = Order::where('restaurant_id', $idRest)->get();
     
-    // dati da mostrare per le statistiche
-    public function get_statistics(Request $request){
-        // $data = $request->all();
-        $orders = Order::all();
-
-        return response()->json($orders);
-    }
+            return response()->json($orders);
+        }
 }

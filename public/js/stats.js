@@ -39943,7 +39943,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var orders = [];
-axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('http://127.0.0.1:8000/api/get-statistics').then(function (response) {
+var restId = document.getElementById('restaurant_id').value;
+axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("http://127.0.0.1:8000/api/get-statistics?id=".concat(restId)).then(function (response) {
   orders = response.data;
   console.log(orders);
 })["catch"](function (error) {
@@ -39952,29 +39953,35 @@ axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('http://127.0.0.1:8000/api/get-
 setTimeout(function () {
   var total = 0;
   var media = [{
-    year: '2021',
+    year: '2016',
     total: 0,
-    orderNum: 0
-  }, {
-    year: '2020',
-    total: 0,
-    orderNum: 0
-  }, {
-    year: '2019',
-    total: 0,
-    orderNum: 0
-  }, {
-    year: '2018',
-    total: 0,
-    orderNum: 0
+    orderNum: 0,
+    calc: 0
   }, {
     year: '2017',
     total: 0,
-    orderNum: 0
+    orderNum: 0,
+    calc: 0
   }, {
-    year: '2016',
+    year: '2018',
     total: 0,
-    orderNum: 0
+    orderNum: 0,
+    calc: 0
+  }, {
+    year: '2019',
+    total: 0,
+    orderNum: 0,
+    calc: 0
+  }, {
+    year: '2020',
+    total: 0,
+    orderNum: 0,
+    calc: 0
+  }, {
+    year: '2021',
+    total: 0,
+    orderNum: 0,
+    calc: 0
   }];
   orders.forEach(function (order) {
     var index = 0;
@@ -39989,15 +39996,18 @@ setTimeout(function () {
     media[index].total += parseInt(order.amount);
     media[index].orderNum++;
   });
+  media.forEach(function (element) {
+    element.calc = element.total / element.orderNum;
+  });
   console.log(media);
   var ctx = document.getElementById('myChart');
   var myChart = new chart_js__WEBPACK_IMPORTED_MODULE_0___default.a(ctx, {
     type: 'bar',
     data: {
-      labels: ['2015', '2016', '2017', '2018', '2019', '2020'],
+      labels: ['2016', '2017', '2018', '2019', '2020', '2021'],
       datasets: [{
-        label: '# of Votes',
-        data: [12, 19, 3, 5, 2, 3],
+        label: 'Scontrino Medio Annuo',
+        data: [media[0].calc, media[1].calc, media[2].calc, media[3].calc, media[4].calc, media[5].calc],
         backgroundColor: ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)', 'rgba(153, 102, 255, 0.2)', 'rgba(255, 159, 64, 0.2)'],
         borderColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)', 'rgba(255, 159, 64, 1)'],
         borderWidth: 1
@@ -40049,7 +40059,7 @@ setTimeout(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\MAMP\htdocs\deliveboo\resources\js\stats.js */"./resources/js/stats.js");
+module.exports = __webpack_require__(/*! C:\Users\Marco\Desktop\deliveboo\resources\js\stats.js */"./resources/js/stats.js");
 
 
 /***/ })

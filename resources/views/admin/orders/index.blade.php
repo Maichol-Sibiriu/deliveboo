@@ -19,7 +19,7 @@
         @endforeach
 
         <li>
-            <a href="{{ route('stats') }}">controlla statistica</a>
+            <a href="{{ route('admin.stats.show', $orders[0]->restaurant_id) }}">controlla statistica</a>
         </li>
     </ul>
     

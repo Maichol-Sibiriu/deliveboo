@@ -3,7 +3,9 @@ import axios from 'axios';
 
 let orders = [];
 
-axios.get('http://127.0.0.1:8000/api/get-statistics')
+const restId = document.getElementById('restaurant_id').value;
+
+axios.get(`http://127.0.0.1:8000/api/get-statistics?id=${restId}`)
     .then(response => {
         orders = response.data;
         console.log(orders);
@@ -16,12 +18,12 @@ setTimeout(() => {
 
     let total = 0;
     let media = [
-        {year: '2021', total: 0, orderNum: 0,},
-        {year: '2020', total: 0, orderNum: 0,},
-        {year: '2019', total: 0, orderNum: 0,},
-        {year: '2018', total: 0, orderNum: 0,},
-        {year: '2017', total: 0, orderNum: 0,},
-        {year: '2016', total: 0, orderNum: 0,},
+        {year: '2016', total: 0, orderNum: 0, calc: 0},
+        {year: '2017', total: 0, orderNum: 0, calc: 0},
+        {year: '2018', total: 0, orderNum: 0, calc: 0},
+        {year: '2019', total: 0, orderNum: 0, calc: 0},
+        {year: '2020', total: 0, orderNum: 0, calc: 0},
+        {year: '2021', total: 0, orderNum: 0, calc: 0},
     ];
     orders.forEach(order => {
         let index = 0;
@@ -37,15 +39,19 @@ setTimeout(() => {
         media[index].orderNum++;
         
     });
+    media.forEach(element => {
+        element.calc = element.total / element.orderNum;
+    });
+
     console.log(media);
     var ctx = document.getElementById('myChart');
     
     var myChart = new Chart(ctx, {type: 'bar',
         data: {
-            labels: ['2015', '2016', '2017', '2018', '2019', '2020'],
+            labels: ['2016', '2017', '2018', '2019', '2020', '2021'],
             datasets: [{
-                label: '# of Votes',
-                data: [12, 19, 3, 5, 2, 3],
+                label: 'Scontrino Medio Annuo',
+                data: [media[0].calc, media[1].calc, media[2].calc, media[3].calc, media[4].calc, media[5].calc],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',

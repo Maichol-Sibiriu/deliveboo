@@ -21,7 +21,7 @@ class OrdersTableSeeder extends Seeder
             for( $i = 0; $i < 5; $i++){
                 $newOrder = new Order();
     
-                $newOrder->price_tot = $faker->randomFloat(2, 1, 999);
+                $newOrder->amount = $faker->randomFloat(2, 1, 999);
                 $newOrder->phone = $faker->unique()->phoneNumber();
                 $newOrder->address =  $faker->address();
                 $newOrder->restaurant_id = $restaurant->id;  

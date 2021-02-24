@@ -7,9 +7,8 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <input type="hidden" value="@php echo($id) @endphp" id="restaurant_id">
     <div style="display: flex">
-
         <div style="position: relative; height:400px; width:400px">
     
             {{-- creazione grafico --}}

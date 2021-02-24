@@ -16,10 +16,7 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/', 'StaticPageController@homepage')->name('welcome');
 
-// rotta statistica
-Route::get('/admin/orders/stats', function(){
-    return view('admin.orders.stats');
-} )->name('stats');
+
 
 Route::resource('/restaurants', 'RestaurantController');
 
@@ -40,6 +37,7 @@ Route::prefix('admin')
     Route::resource('dishes', 'DishController');
     Route::resource('orders', 'OrderController');
     Route::resource('restaurants', 'RestaurantController');
+    Route::resource('stats', 'StatsController');
 
 });
 
