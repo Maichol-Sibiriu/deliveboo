@@ -7,9 +7,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Restaurant;
 use App\Dish;
+use App\Order;
 
 class ApiController extends Controller
 {
+    // filtro ristoranti
     public function filter_restaurant(Request $request) {
         $data = $request->all();
         $name = !empty($data['name']) ? $data['name'] : '';
@@ -89,6 +91,7 @@ class ApiController extends Controller
         return response()->json($restaurants);
     }
 
+    // piatti da mostrare nel menu' al cliente
     public function get_dishes(Request $request) {
 
       $data = $request->all();
@@ -99,5 +102,13 @@ class ApiController extends Controller
 
 
 
+    }
+    
+    // dati da mostrare per le statistiche
+    public function get_statistics(Request $request){
+        // $data = $request->all();
+        $orders = Order::all();
+
+        return response()->json($orders);
     }
 }

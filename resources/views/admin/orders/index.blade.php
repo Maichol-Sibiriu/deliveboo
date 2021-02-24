@@ -17,6 +17,11 @@
             </li>
             
         @endforeach
+
+        <li>
+            <a href="{{ route('stats') }}">controlla statistica</a>
+        </li>
     </ul>
+    
 </body>
 </html>

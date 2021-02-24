@@ -16,6 +16,11 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/', 'StaticPageController@homepage')->name('welcome');
 
+// rotta statistica
+Route::get('/admin/orders/stats', function(){
+    return view('admin.orders.stats');
+} )->name('stats');
+
 Route::resource('/restaurants', 'RestaurantController');
 
 // Route::get('admin/dishes', 'Admin\DishController@showall')->name('admin.dishes.showall')->middleware('auth');
