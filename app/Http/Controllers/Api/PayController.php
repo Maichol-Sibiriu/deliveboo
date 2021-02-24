@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Braintree\Gateway as Gateway;
 use App\Order;
 use Dotenv\Result\Result;
+use Illuminate\Support\Facades\DB;
 
 class PayController extends Controller
 {
@@ -52,6 +53,13 @@ class PayController extends Controller
                 }
                 // dd($data['dishes_id']);
                 $newOrder->dishes()->attach($data['dishes_id'], ['time_order' => date('Y-m-d H:i:s')]);
+                
+                foreach ($data['dishes'] as $key => $quantity) {
+                    DB::table('dish_order')
+                        ->where('dish_id', $data['dishes_id'][$key])
+                        ->where('order_id', $newOrder->id)
+                        ->update(['quantity' => $quantity]);
+                }
             }
             // return redirect()->route();
             // return response()->json($result);
