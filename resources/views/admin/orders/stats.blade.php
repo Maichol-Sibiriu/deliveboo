@@ -12,14 +12,28 @@
         <div style="position: relative; height:400px; width:400px">
     
             {{-- creazione grafico --}}
-            <canvas id="myChart" width="400" height="400"></canvas>
+            <canvas id="mediaAnno" width="400" height="400"></canvas>
     
         </div>
     
         <div style="position: relative; height:400px; width:400px">
     
             {{-- creazione grafico --}}
-            <canvas id="myChart2" width="400" height="400"></canvas>
+            <canvas id="mediaMese" width="400" height="400"></canvas>
+    
+        </div>
+
+        <div style="position: relative; height:400px; width:400px">
+    
+            {{-- creazione grafico --}}
+            <canvas id="ordiniMensili" width="400" height="400"></canvas>
+    
+        </div>
+
+        <div style="position: relative; height:400px; width:400px">
+    
+            {{-- creazione grafico --}}
+            <canvas id="ordiniAnnuali" width="400" height="400"></canvas>
     
         </div>
     </div>

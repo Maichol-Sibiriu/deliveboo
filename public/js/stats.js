@@ -39950,7 +39950,7 @@ axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("http://127.0.0.1:8000/api/get-
   console.log(error);
 });
 setTimeout(function () {
-  // Logica Scontrino medio annuale
+  // Logica Scontrino media annuale
   var media = [{
     year: '2016',
     total: 0,
@@ -39997,15 +39997,15 @@ setTimeout(function () {
   });
   media.forEach(function (element) {
     element.calc = element.total / element.orderNum;
-  }); // Statistica - SCONTRINO MEDIO PER ANNO
+  }); // Statistica - SCONTRINO MEDIA PER ANNO
 
-  var ctx = document.getElementById('myChart');
-  var myChart = new chart_js__WEBPACK_IMPORTED_MODULE_0___default.a(ctx, {
+  var ctxMediaAnno = document.getElementById('mediaAnno');
+  var mediaAnno = new chart_js__WEBPACK_IMPORTED_MODULE_0___default.a(ctxMediaAnno, {
     type: 'bar',
     data: {
       labels: ['2016', '2017', '2018', '2019', '2020', '2021'],
       datasets: [{
-        label: 'Scontrino medio anno 2016',
+        label: 'Scontrino medio Annuo',
         data: [media[0].calc, media[1].calc, media[2].calc, media[3].calc, media[4].calc, media[5].calc],
         backgroundColor: ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)', 'rgba(153, 102, 255, 0.2)', 'rgba(255, 159, 64, 0.2)'],
         borderColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)', 'rgba(255, 159, 64, 1)'],
@@ -40022,7 +40022,7 @@ setTimeout(function () {
         }]
       }
     }
-  }); //Logica Scontrino medio mensile, anno in corso
+  }); //Logica Scontrino media mensile, anno in corso
 
   var mediaMonth = [{
     month: '01',
@@ -40100,16 +40100,66 @@ setTimeout(function () {
 
   mediaMonth.forEach(function (element) {
     element.calc = element.total / element.orderNum;
-  }); // Statistica - SCONTRINO MEDIO PER MESE
+  }); // Statistica - SCONTRINO MEDIA PER MESE
 
-  var ctx2 = document.getElementById('myChart2');
-  var myChart2 = new chart_js__WEBPACK_IMPORTED_MODULE_0___default.a(ctx2, {
+  var ctxMediaMese = document.getElementById('mediaMese');
+  var mediaMese = new chart_js__WEBPACK_IMPORTED_MODULE_0___default.a(ctxMediaMese, {
     type: 'bar',
     data: {
       labels: ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'],
       datasets: [{
         label: 'Scontrino Medio Mensile',
         data: [mediaMonth[0].calc, mediaMonth[1].calc, mediaMonth[2].calc, mediaMonth[3].calc, mediaMonth[4].calc, mediaMonth[5].calc, mediaMonth[6].calc, mediaMonth[7].calc, mediaMonth[8].calc, mediaMonth[9].calc, mediaMonth[10].calc, mediaMonth[11].calc],
+        backgroundColor: ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)', 'rgba(153, 102, 255, 0.2)', 'rgba(255, 159, 64, 0.2)', 'rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)', 'rgba(153, 102, 255, 0.2)', 'rgba(255, 159, 64, 0.2)'],
+        borderColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)', 'rgba(255, 159, 64, 1)', 'rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)', 'rgba(255, 159, 64, 1)'],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      responsive: true,
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
+  }); // Statistica - NUMERO ORDINI MENSILI
+
+  var ctxOrdiniMensili = document.getElementById('ordiniMensili');
+  var ordiniMensili = new chart_js__WEBPACK_IMPORTED_MODULE_0___default.a(ctxOrdiniMensili, {
+    type: 'bar',
+    data: {
+      labels: ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'],
+      datasets: [{
+        label: 'Numero Ordini Mensili',
+        data: [mediaMonth[0].orderNum, mediaMonth[1].orderNum, mediaMonth[2].orderNum, mediaMonth[3].orderNum, mediaMonth[4].orderNum, mediaMonth[5].orderNum, mediaMonth[6].orderNum, mediaMonth[7].orderNum, mediaMonth[8].orderNum, mediaMonth[9].orderNum, mediaMonth[10].orderNum, mediaMonth[11].orderNum],
+        backgroundColor: ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)', 'rgba(153, 102, 255, 0.2)', 'rgba(255, 159, 64, 0.2)', 'rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)', 'rgba(153, 102, 255, 0.2)', 'rgba(255, 159, 64, 0.2)'],
+        borderColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)', 'rgba(255, 159, 64, 1)', 'rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)', 'rgba(255, 159, 64, 1)'],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      responsive: true,
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
+  }); // Statistica - NUMERO ORDINI ANNUALI
+
+  var ctxOrdiniAnnuali = document.getElementById('ordiniAnnuali');
+  var ordiniAnnuali = new chart_js__WEBPACK_IMPORTED_MODULE_0___default.a(ctxOrdiniAnnuali, {
+    type: 'bar',
+    data: {
+      labels: ['2016', '2017', '2018', '2019', '2020', '2021'],
+      datasets: [{
+        label: 'Numero Ordini Annuali',
+        data: [media[0].orderNum, media[1].orderNum, media[2].orderNum, media[3].orderNum, media[4].orderNum, media[5].orderNum],
         backgroundColor: ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)', 'rgba(153, 102, 255, 0.2)', 'rgba(255, 159, 64, 0.2)', 'rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)', 'rgba(153, 102, 255, 0.2)', 'rgba(255, 159, 64, 0.2)'],
         borderColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)', 'rgba(255, 159, 64, 1)', 'rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)', 'rgba(255, 159, 64, 1)'],
         borderWidth: 1
