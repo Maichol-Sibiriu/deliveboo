@@ -61,7 +61,7 @@ class PayController extends Controller
                         ->update(['quantity' => $quantity]);
                 }
             }
-            // return redirect()->route();
+            return view('success');
             // return response()->json($result);
         }
         else {
