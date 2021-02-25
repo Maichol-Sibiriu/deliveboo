@@ -10010,6 +10010,10 @@ h3 {
   box-sizing: border-box;
 }
 
+body {
+  font-size: 14px;
+}
+
 img {
   display: block;
   max-width: 100%;

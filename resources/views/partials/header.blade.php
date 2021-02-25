@@ -6,7 +6,15 @@
     </button>
   
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#">HOME</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">RICERCA AVANZATA</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto">
         @if (Route::has('login'))
                 @auth
                 <li>
@@ -24,9 +32,6 @@
                     @endif
                 @endauth
         @endif
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
       </ul>
     </div>
   </div>
