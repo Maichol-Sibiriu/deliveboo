@@ -98,18 +98,15 @@ class ApiController extends Controller
       $data = $request->all();
       $dishes= Dish::where('restaurant_id', $data['id'])->get();
 
-      // dd($dishes);
       return response()->json($dishes);
-
-
-
     }
-        // dati da mostrare per le statistiche
-        public function get_statistics(Request $request){
-            $data = $request->all();
-            $idRest = $data['id'];
-            $orders = Order::where('restaurant_id', $idRest)->get();
-    
-            return response()->json($orders);
-        }
+
+    // dati da mostrare per le statistiche
+    public function get_statistics(Request $request){
+        $data = $request->all();
+        $idRest = $data['id'];
+        $orders = Order::where('restaurant_id', $idRest)->get();
+
+        return response()->json($orders);
+    }
 }

@@ -8,7 +8,7 @@
         <title>Deliveboo</title>
     </head>
     <body>
-        <div id="app" class="container">
+        <div id="app">
             @include('partials.header')
 
             <main>

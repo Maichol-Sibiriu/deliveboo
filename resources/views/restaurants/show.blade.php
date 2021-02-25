@@ -9,7 +9,7 @@
 @endif
 
 <div id="cart">
-  <input value="{{ $restaurant->id}}"  type="hidden" id="restaurantId">
+  <input value="{{ $restaurant->id}}" type="hidden" id="restaurantId">
   <h1>{{ $restaurant->name }}<small>{{ $restaurant->address }}</small></h1>
   <h4>{{ $restaurant->phone }}</h4>
   <h5>{{ $restaurant->vat_num }}</h5>

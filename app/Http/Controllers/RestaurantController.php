@@ -16,9 +16,7 @@ class RestaurantController extends Controller
      */
     public function index()
     {
-        
         $categories = Category::all();
-        // dd($restaurants);
          return view('restaurants.advanced_search', compact('categories'));
     }
 
