@@ -7,6 +7,7 @@ const cart = new Vue({
     data: {
       order: [],
       dishes: [],
+      typologies: [],
       id:'',
       displayModal: false,
       dishIndex: 0,
@@ -28,6 +29,7 @@ const cart = new Vue({
             id: dish.id,
             name: dish.name,
             price: dish.price,
+            typology: dish.typology,
             quantity: 0,
           };
           this.order.push(newDish);
@@ -46,9 +48,11 @@ const cart = new Vue({
           hiddenId.setAttribute("value", newDish.id);
           hiddenId.setAttribute("name", "dishes_id[]");
         });
+
+        this.getTypologies();
+
         if (document.cookie) {
           let cookiesArray = document.cookie.split(';');
-          // console.log(cookiesArray);
            
           for (let i = 0; i < cookiesArray.length - 1; i++) {
              
@@ -72,7 +76,6 @@ const cart = new Vue({
           const strCookie = `${i}=${el.quantity};`;
           document.cookie = strCookie;
         });
-        console.log(document.cookie);
       },
     },
     methods:{
@@ -120,6 +123,14 @@ const cart = new Vue({
           this.total += product.price * product.quantity;
         });
       },
+
+      getTypologies() {
+        this.dishes.forEach(dish => {
+          if(!this.typologies.includes(dish.typology)) {
+            this.typologies.push(dish.typology);
+          };
+        });
+      }
 
     }
 });

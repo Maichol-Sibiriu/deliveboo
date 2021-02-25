@@ -189,4 +189,5 @@ class DishController extends Controller
             return redirect()->route('admin.dishes.index')->with('deleted', $name);
         }
     }
+
 }

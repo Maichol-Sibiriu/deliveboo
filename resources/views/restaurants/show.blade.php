@@ -16,11 +16,14 @@
   {{-- <h1>{{ $restaurant->image_logo }}</h1> DA INSERIRE!!!!!!!!!!!!!! --}}
 
   {{-- Lista piatti --}}
-  <ul class="flex">
-    <li v-if="dish.available" v-for="(dish, index) in dishes">
-      <a class="btn btn-primary" v-on:click="activeModal(index)">@{{dish.name}}</a>
-    </li>
-  </ul>
+  <div class="flex">
+    <div v-for="typology in typologies">
+      <h2>@{{ typology }}</h2>
+      <li v-if="dish.available && dish.typology == typology" v-for="(dish, index) in dishes">
+        <a class="btn btn-primary" v-on:click="activeModal(index)">@{{dish.name}}</a>
+      </li>
+    </div>
+  </div>
 
   {{-- Modale --}}
   <div class="modal-box" v-show="displayModal">

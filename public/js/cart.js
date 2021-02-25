@@ -14451,6 +14451,7 @@ var cart = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   data: {
     order: [],
     dishes: [],
+    typologies: [],
     id: '',
     displayModal: false,
     dishIndex: 0,
@@ -14473,6 +14474,7 @@ var cart = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
           id: dish.id,
           name: dish.name,
           price: dish.price,
+          typology: dish.typology,
           quantity: 0
         };
 
@@ -14491,8 +14493,10 @@ var cart = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
         hiddenId.setAttribute("name", "dishes_id[]");
       });
 
+      _this.getTypologies();
+
       if (document.cookie) {
-        var cookiesArray = document.cookie.split(';'); // console.log(cookiesArray);
+        var cookiesArray = document.cookie.split(';');
 
         for (var i = 0; i < cookiesArray.length - 1; i++) {
           var cookie = cookiesArray[i].trim().split('=');
@@ -14513,7 +14517,6 @@ var cart = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
         var strCookie = "".concat(i, "=").concat(el.quantity, ";");
         document.cookie = strCookie;
       });
-      console.log(document.cookie);
     }
   },
   methods: {
@@ -14560,6 +14563,17 @@ var cart = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
       this.order.forEach(function (product) {
         document.getElementById(product.name).value = product.quantity;
         _this3.total += product.price * product.quantity;
+      });
+    },
+    getTypologies: function getTypologies() {
+      var _this4 = this;
+
+      this.dishes.forEach(function (dish) {
+        if (!_this4.typologies.includes(dish.typology)) {
+          _this4.typologies.push(dish.typology);
+        }
+
+        ;
       });
     }
   }
