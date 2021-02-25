@@ -10,4 +10,8 @@ class StaticPageController extends Controller
         return view('welcome');
     }
 
+    public function success() {
+        return view('success');
+    }
+
 }

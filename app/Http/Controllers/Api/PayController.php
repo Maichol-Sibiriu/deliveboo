@@ -36,9 +36,6 @@ class PayController extends Controller
         ]);
 
         if ($result->success) {
-            // dd($data['dishes']);
-
-
             $newOrder = new Order();
 
             $newOrder->fill($data);
@@ -61,8 +58,7 @@ class PayController extends Controller
                         ->update(['quantity' => $quantity]);
                 }
             }
-            return view('success');
-            // return response()->json($result);
+            return redirect()->route('success');
         }
         else {
             $slug = $slug . '=failed';

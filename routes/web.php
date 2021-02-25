@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', 'StaticPageController@homepage')->name('welcome');
+Route::get('/success', 'StaticPageController@success')->name('success');
 
 
 
