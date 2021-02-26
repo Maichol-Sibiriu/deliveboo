@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<h1>Crea un nuovo piatto</h1>
+<h1 class="text-center">Crea un nuovo piatto</h1>
 
   @if ($errors->any())
     <ul>
@@ -16,11 +16,11 @@
     @csrf
     @method('POST')
 
-    <div>
+    <div class="form-group">
       <label for="name">Nome</label>
       <input type="text" id="name" name="name" value="{{ old('name') }}">
     </div>
-    <div>
+    <div class="form-group">
       <label for="price">Prezzo</label>
       <input type="number" min="0" max="999" id="price" name="price" value="{{ old('price') }}">
     </div>
@@ -28,7 +28,7 @@
       <label for="image">Immagine</label>
       <input type="file" id="image" name="image" accept="image/*">
     </div>
-    <div>
+    <div class="form-group">
       <label for="description">Descrizione</label>
       <textarea id="description" name="description">{{ old('description') }}</textarea>
     </div>

@@ -1,0 +1,16 @@
+form{
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.all-categories,
+.input{
+    width: 48%;
+}
+
+.box-categories{
+    flex-wrap: wrap;
+    .category{
+        flex-basis: calc(100% / 5);
+    }
+}
