@@ -10044,6 +10044,7 @@ a {
 .navbar {
   font-family: "Lato", sans-serif;
   font-weight: 900;
+  padding: 20px;
 }
 .navbar .navbar-toggler {
   border: 2px solid transparent;
@@ -10164,5 +10165,106 @@ a {
     max-width: 400px;
     left: 3%;
     bottom: 4%;
+  }
+}
+.advanced-search {
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.advanced-search .sidebar-client {
+  flex-basis: 100%;
+  padding: 50px;
+}
+.advanced-search .sidebar-client .sidebar-heading {
+  font-family: "Oswald", sans-serif;
+  font-size: 2.5rem;
+  line-height: 2rem;
+}
+.advanced-search .sidebar-client .list-group input {
+  background: #F8F7F7;
+  color: #6E665B;
+  padding: 15px 10px;
+  border-bottom-right-radius: 25px;
+  border-top-right-radius: 25px;
+  border: none;
+  border-left: 4px solid #F1CA29;
+}
+.advanced-search .sidebar-client .list-group input:focus {
+  outline: none;
+}
+.advanced-search .sidebar-client .list-group .category-box > h3 {
+  color: #F8F7F7;
+  text-transform: uppercase;
+  font-size: 3.65rem;
+  font-weight: 900;
+  font-family: "Lato", sans-serif;
+  margin-bottom: -15px;
+}
+.advanced-search .sidebar-client .list-group .grey-box {
+  background: #F8F7F7;
+  padding: 25px;
+  color: #6E665B;
+  font-size: 1.5rem;
+  font-family: "Lato", sans-serif;
+}
+.advanced-search .sidebar-client .list-group .grey-box ul {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-grow: 1;
+}
+.advanced-search .sidebar-client .list-group .grey-box ul li {
+  flex-basis: 48%;
+  margin: 1%;
+}
+
+.advanced-search .page-content {
+  flex-basis: 100%;
+  padding: 50px;
+}
+.advanced-search .page-content ul {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-grow: 1;
+}
+.advanced-search .page-content ul li {
+  flex-basis: 98%;
+  margin: 1%;
+  border: 1px solid #F8F7F7;
+}
+.advanced-search .page-content ul li a {
+  text-decoration: none;
+}
+.advanced-search .page-content ul li a h3 {
+  text-transform: uppercase;
+  font-family: "Roboto", sans-serif;
+  color: #EF6E60;
+  font-size: 1.75rem;
+}
+
+@media screen and (min-width: 768px) {
+  .advanced-search .page-content ul li {
+    flex-basis: 48%;
+    margin: 1%;
+  }
+}
+@media screen and (min-width: 992px) {
+  .advanced-search {
+    flex-wrap: nowrap;
+  }
+
+  .advanced-search .sidebar-client {
+    flex-basis: 20%;
+  }
+
+  .advanced-search .page-content {
+    flex-basis: 80%;
+  }
+
+  .advanced-search .page-content ul li {
+    flex-basis: 23%;
+    margin: 1%;
   }
 }

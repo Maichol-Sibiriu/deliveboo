@@ -1,33 +1,46 @@
 @extends('layouts.main')
 
 @section('content')
-    <h1>io sono tutti i ristoranti</h1>
 
-    <div>
-        <input type="text" name="name" placeholder="cerca per nome" v-model="name" v-on:keyup="filterRestaurant">
-        <ul>
-            @foreach ($categories as $category)
+  <main>
+      <section class="advanced-search d-flex">
+        <!-- Sidebar -->
+        <div class="sidebar-client">
+          <div class="sidebar-heading mb-5">Trova il ristorante giusto per te</div>
+          <div class="list-group list-group-flush">
+            <input type="text" name="name" placeholder="cerca per nome" v-model="name" v-on:keyup="filterRestaurant" class="mb-5">
+            <div class="category-box text-center">
+              <h3>Categorie</h3>
+              <div class="grey-box">
+                <ul class="text-left">
+                    @foreach ($categories as $category)
+                        <li>
+                          <input type="checkbox" id="{{ $category->name }}" value="{{ $category->name }}" v-model="categories"
+                          v-on:change="filterRestaurant">
+                          <label for="{{ $category->name }}">{{ $category->name }}</label>
+                        </li>
+                    @endforeach
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /#sidebar-wrapper -->
+    
+        <!-- Page Content -->
+        <div class="page-content d-flex">
+          <ul>
+            <li v-for="restaurant in allRestaurants" class="text-center">
+              <a :href="routing(restaurant.slug)">
+                <img :src="restaurant.image_logo" :alt="restaurant.name">
+                <h3>@{{restaurant.name}}</h3>
 
-                <li>
-                    <label for="{{ $category->name }}">{{ $category->name }}</label>
-                    <input type="checkbox" id="{{ $category->name }}" value="{{ $category->name }}" v-model="categories"
-                    v-on:change="filterRestaurant">
-                </li>
-
-            @endforeach
-        </ul>
-
-        <ul>
-          <li v-for="restaurant in allRestaurants">
-            <a :href="routing(restaurant.slug)">
-              <img :src="restaurant.image_logo" :alt="restaurant.name">
-              <h3>@{{restaurant.name}}</h3>
-            </a>
-          </li>
-        </ul>
-
-
-    </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
+  </main>
 
 @endsection
 <script src="{{ asset('js/filter_restaurant.js') }}" defer></script>
