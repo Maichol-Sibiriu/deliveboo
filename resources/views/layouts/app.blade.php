@@ -23,25 +23,24 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
+        <nav class="navbar navbar-expand-md">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    DELIVEBOO   <!-- inserire qui immagine logo -->
+                    <img src="{{ asset('img/logo.png') }}" alt="Deliveboo">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
+                <!-- Left Side Of Navbar -->
+                <ul class="navbar-nav mx-auto navbar-center">
+                    <li>
+                        <a class="nav-link" href="">HOME</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="">RICERCA AVANZATA</a>
+                    </li>
+                </ul>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mx-auto">
-                        <li>
-                            <a href="">HOME</a>
-                        </li>
-                        <li>
-                            <a href="">RICERCA AVANZATA</a>
-                        </li>
-                    </ul>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -56,7 +55,7 @@
                                 </li>
                             @endif
                         @else
-                            <li class="nav-item dropdown">
+                            <li class="nav-item dropdown mr-2">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     Ciao {{ Auth::user()->name }}
                                 </a>
@@ -68,7 +67,7 @@
                                 </div>
                             </li>
                             <li>
-                                <a class="nav-item" href="{{ route('logout') }}"
+                                <a class="nav-item nav-link" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">
                                     {{ __('Exit') }}
@@ -80,7 +79,6 @@
                         @endguest
                     </ul>
                 </div>
-            </div>
         </nav>
 
         <main class="py-4">

@@ -19,9 +19,7 @@
         <div id="app">
             @include('partials.header')
 
-            <main>
-                @yield('content')
-            </main>
+            @yield('content')
 
             @include('partials.footer')
         </div>
