@@ -49,16 +49,17 @@
     {{-- Carrello ordine --}}
     <div class="cart mb-5" v-if="total > 0">
       <ul>
-        <li v-for="(product, index) in order" v-if="product.quantity > 0">
-          <p>@{{ product.name }} - @{{ product.quantity }}pz.</p>
-          <a class="btn btn-primary" v-on:click="setQuantity(false, index)">- </a>
-          <a class="btn btn-primary" v-on:click="setQuantity(true, index)"> +</a>
-          <a class="btn btn-primary" v-on:click="deleteDish(index)">Elimina piatto</a>
+        <li class="mb-3" v-for="(product, index) in order" v-if="product.quantity > 0">
+          <p>@{{ product.name }}</p>
+          <a class="btn-cart-quantity" v-on:click="setQuantity(false, index)">- </a>
+          <span class="pz-quantity">@{{ product.quantity }}pz.</span>
+          <a class="btn-cart-quantity" v-on:click="setQuantity(true, index)"> +</a>
+          <a class="btn-cart-remove" v-on:click="deleteDish(index)">Rimuovi</a>
         </li>
       </ul>
       <div class="total">
-        <h2>Totale: @{{ total }} €</h2>
-        <a class="btn btn-primary" v-on:click="deleteCart">Pulisci carrello</a>
+        <a class="btn-cart-clear" v-on:click="deleteCart">Pulisci carrello</a>
+        <span class="total-text">Totale: @{{ total }} €</span>
       </div>
   
       {{-- <button v-on:click="checkout()">Checkout</button> --}}
@@ -68,7 +69,7 @@
   
   {{-- pagamento braintree --}}
   <div class="braintree-dropin-wrapper">
-    <h2>Concludi il tuo ordine</h2>
+    <h2 class="payment-title mb-5">Concludi il tuo ordine</h2>
     <form id="payment-form" class="form-group" action="{{ route('pay') }}" method="POST">
       @csrf
       @method('POST')
@@ -78,13 +79,14 @@
       <input type="hidden" name="restaurant_id" value="{{ $restaurant->id }}" />
       <label for="phone">Numero di Telefono</label>
       <input type="text" name="phone" value="{{ old('phone') }}" id="phone" />
-      <label for="phone">Indirizzo di Consegna</label>
+      <label for="address">Indirizzo di Consegna</label>
       <input type="text" name="address" value="{{ old('address') }}" id="address" />
       <div id="dropin-container"></div>
       
-      <input type="submit" />
+      <input type="submit" class="btn-cart" value="Ordina"/>
     </form>
-  
+    
+    {{-- script braintree --}}
     <script type="text/javascript">
       const form = document.getElementById('payment-form');
       const clientToken = '@php echo($clientToken) @endphp';

@@ -10177,6 +10177,7 @@ a {
   text-decoration: none;
   color: #fff;
   background-color: #64B5BB;
+  border: none;
   border-radius: 10px;
   transition: 0.2s;
 }
@@ -10265,8 +10266,77 @@ a {
   border-radius: 10px;
 }
 
+.cart {
+  position: fixed;
+  top: 60px;
+  right: 0;
+  padding: 5px 10px 10px 25px;
+  background-color: rgba(100, 181, 187, 0.8);
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  z-index: 3;
+}
+.cart p {
+  margin-bottom: 0;
+}
+.cart .pz-quantity {
+  margin-right: 5px;
+}
+.cart .btn-cart-quantity {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 5px;
+  height: 15px;
+  width: 15px;
+  font-size: 1.2em;
+  font-weight: 900;
+  text-decoration: none;
+  color: #F1CA29;
+  background-color: #EF6E60;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.cart .btn-cart-remove {
+  font-weight: bold;
+  text-decoration: none;
+  color: #EF6E60;
+  cursor: pointer;
+}
+.cart .total {
+  display: flex;
+  flex-direction: column;
+}
+.cart .total .btn-cart-clear {
+  color: #F1CA29;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+}
+.cart .total .total-text {
+  align-self: flex-end;
+  font-weight: bold;
+}
+
 .braintree-dropin-wrapper {
   padding: 0 50px;
+  min-height: 100vh;
+}
+.braintree-dropin-wrapper .payment-title {
+  text-align: center;
+  color: #F1CA29;
+}
+.braintree-dropin-wrapper #payment-form label {
+  display: block;
+}
+.braintree-dropin-wrapper #payment-form input#phone,
+.braintree-dropin-wrapper #payment-form input#address {
+  display: block;
+  width: 100%;
+  padding: 2px 5px;
+  margin-bottom: 20px;
+  border: 0;
+  border-bottom: 1px solid #6E665B;
 }
 
 .advanced-search {
