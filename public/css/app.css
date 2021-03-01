@@ -10284,3 +10284,36 @@ form {
 .box-categories .category {
   flex-basis: calc(100% / 5);
 }
+
+.stats-title {
+  font-family: "Lato", sans-serif;
+  color: #F1CA29;
+}
+
+.stats-wrapper {
+  flex-wrap: wrap;
+  padding: 0 20px;
+}
+.stats-wrapper .canvas-wrapper {
+  position: relative;
+  width: 100%;
+  max-height: 100vh;
+}
+.stats-wrapper .canvas-wrapper canvas {
+  min-height: 50%;
+  height: 100%;
+}
+
+@media screen and (min-width: 992px) {
+  .stats-wrapper {
+    justify-content: space-around;
+  }
+  .stats-wrapper .canvas-wrapper {
+    width: 45%;
+    max-height: 100vh;
+  }
+  .stats-wrapper .canvas-wrapper canvas {
+    min-height: 50%;
+    height: 100%;
+  }
+}
