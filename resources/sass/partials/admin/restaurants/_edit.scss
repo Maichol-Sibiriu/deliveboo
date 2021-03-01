@@ -1,0 +1,135 @@
+.create-restaurant{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    background-color: $brandColor;
+}
+
+h1,
+h3{
+    text-transform: uppercase;
+    font-family: $title-font;
+    font-weight: bold;
+}
+
+h1{
+    color: $secondaryColor;
+}
+
+h3,
+.btn{
+    color: $red;
+}
+
+h1,
+.btn{
+    margin: 15px;
+}
+
+.create{
+    flex-direction: column;
+    align-items: center;
+    .form{
+        justify-content: space-between;
+        padding: 50px;
+        border-radius: 20px;
+        background-color: $lightBrand;
+        .all-categories,
+        .input{
+            flex-basis: 48%;
+        }
+        .input{
+            padding: 25px;
+        }
+        .all-categories{
+            flex-direction: column;
+            justify-content: space-between;
+            .img-create{
+                height: 200px;
+                background-image: url('../../img/bg_hero_home.jpg');
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: bottom;
+                margin-bottom: 20px;
+                position: relative;
+                img{
+                    width: 150px;
+                    position: absolute;
+                    bottom: 15px;
+                    left: 50px;
+                    transform: rotate(5deg);
+                }
+            }
+            .box-categories{
+                flex-wrap: wrap;
+                .category{
+                    flex-basis: calc(100% / 4);
+                }
+            }
+        }
+    }
+    .btn{
+        background-color: $secondaryColor;
+        border-color: $secondaryColor;
+        padding: 10px 50px;
+        min-width: 20%;
+        font-family: $title-font;
+        font-size: 1.25rem;
+        font-weight: bold;
+        text-align: center;
+        border-radius: 45px;
+        &:hover{
+            background-color: blue;
+            color: $red;
+            border-color: blue;
+        }
+    }
+}
+
+// MEDIA QUERY
+@media screen and (max-width: 1200px){ 
+    .create{
+        .form{
+            .all-categories{
+                .box-categories{
+                    .category{
+                        flex-basis: calc(100% / 3);
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 992px){ 
+    .create{
+        .form{
+            .all-categories{
+                .box-categories{
+                    .category{
+                        flex-basis: calc(100% / 2);
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px){ 
+    .create{
+        .form{
+            flex-direction: column;
+            .input,
+            .all-categories{
+                flex-basis: 100%;
+                .box-categories{
+                    .category{
+                        flex-basis: calc(100% / 3);
+                    }
+                }
+            }
+        }
+    }
+}
+
+
