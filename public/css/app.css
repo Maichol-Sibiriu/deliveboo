@@ -10177,6 +10177,7 @@ a {
 }
 .create-restaurant .container .img-success {
   width: 170px;
+  margin-top: 60px;
 }
 .create-restaurant .container .p-success {
   text-transform: uppercase;
