@@ -10268,9 +10268,23 @@ a {
     margin: 1%;
   }
 }
-form {
+h1,
+h3 {
+  text-transform: uppercase;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  color: #F1CA29;
+}
+
+.create {
+  flex-direction: column;
+  align-items: center;
+}
+
+.form {
   justify-content: space-between;
   align-items: flex-end;
+  padding: 50px;
 }
 
 .all-categories,
@@ -10278,9 +10292,33 @@ form {
   width: 48%;
 }
 
+.all-categories .img-create {
+  height: 200px;
+  background-image: url("../../img/bg_hero_home.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  margin-bottom: 20px;
+  position: relative;
+}
+.all-categories .img-create img {
+  width: 150px;
+  position: absolute;
+  bottom: 15px;
+  left: 50px;
+  transform: rotate(5deg);
+}
+
 .box-categories {
   flex-wrap: wrap;
 }
 .box-categories .category {
   flex-basis: calc(100% / 5);
+  margin-right: 15px;
+}
+
+.btn {
+  background-color: red;
+  padding: 10px 50px;
+  min-width: 50%;
 }

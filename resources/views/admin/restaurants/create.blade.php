@@ -12,8 +12,8 @@
     <hr>
     @endif
 
-    <div class="container">
-        <form action="{{ route('admin.restaurants.store') }}" method="POST" enctype="multipart/form-data" class="d-flex">
+    <div class="container d-flex create">
+        <form action="{{ route('admin.restaurants.store') }}" method="POST" enctype="multipart/form-data" class="d-flex form">
             @csrf
             @method("POST")
 
@@ -42,8 +42,9 @@
 
             <div class="all-categories">
 
-                {{-- immagine logo nuovo ristorante --}}
-                {{-- <img src="{{ asset('storage/') }}" alt=""> --}}
+                <div class="img-create">
+                    <img src="{{ asset('img/rider.png') }}" alt="">
+                </div>
 
                 <h3 class="text-center">TIPOLOGIE</h3>
                 <div class="box-categories form-group d-flex">
@@ -55,8 +56,8 @@
                     @endforeach
                 </div>
         
-                <input type="submit" value="Crea Ristorante">
             </div>
         </form>
+        <input class="btn btn-primary" type="submit" value="Crea Ristorante">
     </div>
 @endsection
