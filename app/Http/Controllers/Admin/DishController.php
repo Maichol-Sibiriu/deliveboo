@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Storage;
 use App\Dish;
+use App\Restaurant;
 
 class DishController extends Controller
 {
@@ -65,8 +66,10 @@ class DishController extends Controller
         // get data from request
         $data = $request->all();
 
+        $restaurant = Restaurant::where('user_id', Auth::user()->id)->first();
+
         // aggiunta restaurant_id (foreign key)
-        $data['restaurant_id'] = Auth::user()->id;
+        $data['restaurant_id'] = $restaurant->id;
 
         // conversione prezzo da stringa a integer
         $data['price'] = (int)$data['price'];
