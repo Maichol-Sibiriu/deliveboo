@@ -10487,6 +10487,6 @@ h1,
   }
   .create .form .input .box-categories .category,
 .create .form .all-categories .box-categories .category {
-    flex-basis: calc(100% / 3);
+    flex-basis: calc(100% / 2);
   }
 }
