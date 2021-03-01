@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <main class="create-restaurant">
+    {{-- <h1></h1> --}}
 
     <h1 class="text-center">Modifica {{$editRestaurant->name }}</h1>
     @if ($errors->any())

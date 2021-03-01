@@ -10186,8 +10186,7 @@ a {
   margin-bottom: 60px;
   color: #F1CA29;
 }
-
-.btn {
+.create-restaurant .container .btn {
   background-color: blue;
   border-color: blue;
   padding: 10px 50px;
@@ -10198,7 +10197,7 @@ a {
   text-align: center;
   border-radius: 45px;
 }
-.btn:hover {
+.create-restaurant .container .btn:hover {
   background-color: #F1CA29;
   color: #EF6E60;
   border-color: #F1CA29;
