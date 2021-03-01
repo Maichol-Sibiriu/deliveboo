@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<div class="create-restaurant">
+<main class="create-restaurant">
 
     <h1 class="text-center">Crea nuovo ristorante</h1>
     @if ($errors->any())
@@ -62,5 +62,5 @@
         </form>
         <input class="btn btn-primary" type="submit" value="Crea Ristorante">
     </div>
-</div>
+</main>
 @endsection
