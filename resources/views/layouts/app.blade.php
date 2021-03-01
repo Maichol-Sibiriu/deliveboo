@@ -81,9 +81,9 @@
                 </div>
         </nav>
 
-        <main class="py-4 create-restaurant">
-            @yield('content')
-        </main>
+        
+        @yield('content')
+        
     </div>
 </body>
 </html>
