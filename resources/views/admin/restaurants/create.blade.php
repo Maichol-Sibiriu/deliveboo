@@ -1,22 +1,24 @@
 @extends('layouts.app')
 @section('content')
-<h1 class="text-center">Crea nuovo ristorante</h1>
+<main class="create-restaurant">
+
+    <h1 class="text-center">Crea nuovo ristorante</h1>
     @if ($errors->any())
     <ul>
         @foreach ($errors->all() as $error)
-            <li>
-                {{$error}}
-            </li>
+        <li>
+            {{$error}}
+        </li>
         @endforeach
     </ul>
     <hr>
     @endif
-
-    <div class="container">
-        <form action="{{ route('admin.restaurants.store') }}" method="POST" enctype="multipart/form-data" class="d-flex">
+    
+    <div class="container d-flex create">
+        <form action="{{ route('admin.restaurants.store') }}" method="POST" enctype="multipart/form-data" class="d-flex form">
             @csrf
             @method("POST")
-
+            
             <div class="input">
                 <div class="form-group">
                     <label for="name">Nome Ristorante</label>
@@ -39,12 +41,13 @@
                     <input type="file" name="image_logo" id="img_logo" accept="image/*">
                 </div>
             </div>
-
-            <div class="all-categories">
-
-                {{-- immagine logo nuovo ristorante --}}
-                {{-- <img src="{{ asset('storage/') }}" alt=""> --}}
-
+            
+            <div class="all-categories d-flex">
+                
+                <div class="img-create">
+                    <img src="{{ asset('img/rider.png') }}" alt="">
+                </div>
+                
                 <h3 class="text-center">TIPOLOGIE</h3>
                 <div class="box-categories form-group d-flex">
                     @foreach ($categories as $category)
@@ -54,9 +57,10 @@
                     </div>
                     @endforeach
                 </div>
-        
-                <input type="submit" value="Crea Ristorante">
+                
             </div>
         </form>
+        <input class="btn btn-primary" type="submit" value="Crea Ristorante">
     </div>
+</main>
 @endsection
