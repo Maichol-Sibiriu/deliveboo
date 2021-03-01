@@ -10337,10 +10337,10 @@ h1,
   align-items: center;
 }
 .create .form {
-  justify-content: space-between;
   padding: 50px;
   border-radius: 20px;
   background-color: #AAD6DA;
+  margin-bottom: 50px;
 }
 .create .form .all-categories,
 .create .form .input {
@@ -10375,7 +10375,10 @@ h1,
 .create .form .all-categories .box-categories .category {
   flex-basis: calc(100% / 4);
 }
-.create .btn {
+.create .btn-create {
+  justify-content: center;
+}
+.create .btn-create .btn {
   background-color: #F1CA29;
   border-color: #F1CA29;
   padding: 10px 50px;
@@ -10386,7 +10389,7 @@ h1,
   text-align: center;
   border-radius: 45px;
 }
-.create .btn:hover {
+.create .btn-create .btn:hover {
   background-color: blue;
   color: #EF6E60;
   border-color: blue;
@@ -10403,15 +10406,15 @@ h1,
   }
 }
 @media screen and (max-width: 768px) {
-  .create .form {
+  .create .form .form-down {
     flex-direction: column;
   }
-  .create .form .input,
-.create .form .all-categories {
+  .create .form .form-down .input,
+.create .form .form-down .all-categories {
     flex-basis: 100%;
   }
-  .create .form .input .box-categories .category,
-.create .form .all-categories .box-categories .category {
+  .create .form .form-down .input .box-categories .category,
+.create .form .form-down .all-categories .box-categories .category {
     flex-basis: calc(100% / 3);
   }
 }
@@ -10448,10 +10451,10 @@ h1,
   align-items: center;
 }
 .create .form {
-  justify-content: space-between;
   padding: 50px;
   border-radius: 20px;
   background-color: #AAD6DA;
+  margin-bottom: 50px;
 }
 .create .form .all-categories,
 .create .form .input {
@@ -10486,7 +10489,10 @@ h1,
 .create .form .all-categories .box-categories .category {
   flex-basis: calc(100% / 4);
 }
-.create .btn {
+.create .btn-create {
+  justify-content: center;
+}
+.create .btn-create .btn {
   background-color: #F1CA29;
   border-color: #F1CA29;
   padding: 10px 50px;
@@ -10497,7 +10503,7 @@ h1,
   text-align: center;
   border-radius: 45px;
 }
-.create .btn:hover {
+.create .btn-create .btn:hover {
   background-color: blue;
   color: #EF6E60;
   border-color: blue;
@@ -10514,15 +10520,15 @@ h1,
   }
 }
 @media screen and (max-width: 768px) {
-  .create .form {
+  .create .form .form-down {
     flex-direction: column;
   }
-  .create .form .input,
-.create .form .all-categories {
+  .create .form .form-down .input,
+.create .form .form-down .all-categories {
     flex-basis: 100%;
   }
-  .create .form .input .box-categories .category,
-.create .form .all-categories .box-categories .category {
-    flex-basis: calc(100% / 2);
+  .create .form .form-down .input .box-categories .category,
+.create .form .form-down .all-categories .box-categories .category {
+    flex-basis: calc(100% / 3);
   }
 }
