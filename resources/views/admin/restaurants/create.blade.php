@@ -40,7 +40,7 @@
                 </div>
             </div>
 
-            <div class="all-categories">
+            <div class="all-categories d-flex">
 
                 <div class="img-create">
                     <img src="{{ asset('img/rider.png') }}" alt="">
