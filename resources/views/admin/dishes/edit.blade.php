@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<h1>Modifica piatto</h1>
+<h1 class="text-center">Modifica piatto</h1>
 
   @if ($errors->any())
     <ul>
@@ -16,43 +16,43 @@
     @csrf
     @method('PATCH')
 
-    <div>
-      <label for="name">Nome</label>
-      <input type="text" id="name" name="name" value="{{ old('name', $dish->name) }}">
+    <div class="form-group">
+      <label for="name" class="name">Nome</label>
+      <input type="text" class="form-control edit" id="name" name="name" value="{{ old('name', $dish->name) }}">
     </div>
-    <div>
-      <label for="price">Prezzo</label>
-      <input type="number" min="0" max="999" id="price" name="price" value="{{ old('price', $dish->price) }}">
+    <div class="form-group">
+      <label for="price" class="price">Prezzo</label>
+      <input type="number" class="form-control edit" min="0" max="999" id="price" name="price" value="{{ old('price', $dish->price) }}">
     </div>
-    <div>
-      <label for="image">Immagine</label>
+    <div class="form-group">
+      <label for="image" class="img">Immagine</label>
 
       @isset($dish->image)
-        <img src="{{ asset('storage/' . $dish->image) }}" width="100">
-        <h6>Change Old Image:</h6>
+        <img class="img" src="{{ asset('storage/' . $dish->image) }}" width="100">
+        <h6 class="change-image">Change Old Image:</h6>
       @endisset
 
-      <input type="file" id="image" name="image" accept="image/*">
+      <input type="file" class="form-control edit" id="image" name="image" accept="image/*">
     </div>
-    <div>
-      <label for="description">Descrizione</label>
-      <textarea id="description" name="description">{{ old('description', $dish->description) }}</textarea>
+    <div class="form-group">
+      <label for="description" class="description2">Descrizione</label>
+      <textarea id="description" class="form-control edit mb-2" name="description">{{ old('description', $dish->description) }}</textarea>
     </div>
-    <div>
-      <label for="typology">Tipologia</label>
-      <input type="text" id="typology" name="typology" value="{{ old('typology', $dish->typology) }}">
+    <div class="form-group">
+      <label for="typology" class="typology">Tipologia</label>
+      <input type="text" class="form-control edit" id="typology" name="typology" value="{{ old('typology', $dish->typology) }}">
     </div>
-    <div>
-      <label for="vegan">Vegano</label>
+    <div class="form-group">
+      <label for="vegan" class="vegan2">Vegano</label>
       <input type="checkbox" id="vegan" name="vegan" @if($dish->vegan) checked @endif>
     </div>
-    <div>
-      <label for="available">Disponibilità</label>
+    <div class="form-group">
+      <label for="available" class="available2">Disponibilità</label>
       <input type="checkbox" id="available" name="available" @if($dish->available) checked @endif>
     </div>
 
     <input type="hidden" name="restaurant_id" value="{{ $dish->restaurant_id }}">
 
-    <input type="submit" value="Modifica piatto">
+    <input type="submit" class="btn btn-primary submit2 form-control edit" value="Modifica piatto">
   </form>
 @endsection
