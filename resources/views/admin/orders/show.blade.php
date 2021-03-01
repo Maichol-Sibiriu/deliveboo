@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<h1>{{ $order->price_tot }}</h1>
+<h1>{{ $order->amount }}</h1>
 <h1>{{ $order->address }}</h1>
 <h1>{{ $order->phone }}</h1>
 

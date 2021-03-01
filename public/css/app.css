@@ -10284,3 +10284,10 @@ form {
 .box-categories .category {
   flex-basis: calc(100% / 5);
 }
+
+main .order-index {
+  font-family: "Lato", sans-serif;
+}
+main .order-index h1 {
+  text-align: center;
+}
