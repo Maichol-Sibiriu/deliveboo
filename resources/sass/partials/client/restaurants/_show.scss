@@ -1,14 +1,24 @@
 .rest-show-main {
+  position: relative;
   font-family: $primary-font;
-  padding: 0 50px;
-  #cart {
-
+  .btn-cart {
+    padding: 10px 15px;
+    font-size: 1.6em;
+    text-decoration: none;
+    color: $white;
+    background-color: $brandColor;
+    border-radius: 10px;
+    transition: .2s;
+    &:hover {
+      box-shadow: 0 0 6px $secondaryColor;
+    }
   }
 }
 
 // info ristorante
 .rest-info-section {
   display: flex;
+  padding: 0 50px;
   max-height: 150px;
   color: $brandColor;
   .rest-logo-wrapper {
@@ -30,15 +40,68 @@
 
 // lista piatti
 .dishes-section {
+  padding: 0 50px;
   .menu-title {
     text-align: center;
     color: $secondaryColor;
   }
+  .dish-typology {
+    padding: 15px;
+    border: 2px solid rgba($grey, .3);
+    border-radius: 20px;
+    h2 {
+      color: $brandColor;
+    }
+    a.dish {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 1.2em;
+      text-decoration: none;
+      color: $grey;
+      cursor: pointer;
+      &:hover {
+        color: $red;
+      }
+    }
+  }
+}
+
+// Modale
+.modal-box {
+  padding: 50% 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 100vh;
+  background-color: rgba($red, .6);
   h2 {
+    font-size: 3em;
+    font-weight: bold;
     color: $brandColor;
+    text-shadow: 1px 1px $secondaryColor;
   }
-  p.dish {
-    font-size: 1.1em;
-    cursor: pointer;
+  .quantity-wrapper {
+    label {
+      display: block;
+      text-align: center;
+      font-size: 2em;
+    }
+    input {
+      display: block;
+      margin: 0;
+      padding: 5px 10px;
+      -moz-appearance: textfield;
+      font-size: 1.5em;
+      text-align: center;
+      color: $brandColor;
+      border: 1px solid $brandColor;
+      border-radius: 10px;
+    }
   }
+}
+
+// braintree dropin
+.braintree-dropin-wrapper {
+  padding: 0 50px;
 }

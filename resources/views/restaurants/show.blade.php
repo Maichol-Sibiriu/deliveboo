@@ -24,24 +24,26 @@
     </section>
   
     {{-- Lista piatti --}}
-    <section class="dishes-section mb-5">
-      <h2 class="menu-title">MENU</h2>
+    <section id="menu" class="dishes-section mb-5">
+      <h2 class="menu-title mb-4">MENU</h2>
       <div class="dish-typology mb-4" v-for="typology in typologies">
-        <h2>@{{ typology }}</h2>
-        <p class="dish"
+        <h2 class="mb-4">@{{ typology }}</h2>
+        <a href="#modal-box" class="dish"
           v-if="dish.available && dish.typology == typology"
           v-for="(dish, index) in dishes"
           v-on:click="activeModal(index)">@{{dish.name}}
-        </p>
+        </a>
       </div>
     </section>
   
     {{-- Modale --}}
-    <div class="modal-box mb-5" v-show="displayModal">
-      <p>Aggiungi @{{ order[dishIndex].name }}</p>
-      <label for="quantity">Quantità</label>
-      <input id="quantity" type="number" min="0" v-model="numDish">
-      <a  class="btn btn-primary" v-on:click="addDish()">Aggiungi piatto</a>
+    <div id="modal-box" class="modal-box mb-5" v-show="displayModal">
+      <h2>@{{ order[dishIndex].name }}</h2>
+      <div class="quantity-wrapper">
+        <label for="quantity">Quantità</label>
+        <input id="quantity" type="number" min="0" v-model="numDish">
+      </div>
+      <a href="#menu" class="btn-cart" v-on:click="addDish()">Aggiungi piatto</a>
     </div>
   
     {{-- Carrello ordine --}}
@@ -65,7 +67,7 @@
   
   
   {{-- pagamento braintree --}}
-  <div class="braintree-dropin">
+  <div class="braintree-dropin-wrapper">
     <h2>Concludi il tuo ordine</h2>
     <form id="payment-form" class="form-group" action="{{ route('pay') }}" method="POST">
       @csrf
