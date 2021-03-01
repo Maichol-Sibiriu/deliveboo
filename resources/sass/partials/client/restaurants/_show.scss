@@ -1,0 +1,44 @@
+.rest-show-main {
+  font-family: $primary-font;
+  padding: 0 50px;
+  #cart {
+
+  }
+}
+
+// info ristorante
+.rest-info-section {
+  display: flex;
+  max-height: 150px;
+  color: $brandColor;
+  .rest-logo-wrapper {
+    margin-right: 15px;
+    width: 40%;
+    max-width: 40%;
+    img {
+      border-radius: 20px;
+      overflow: hidden;
+    }
+  }
+  .restaurant-name {
+    color: $secondaryColor;
+  }
+  p {
+    margin: 0;
+  }
+}
+
+// lista piatti
+.dishes-section {
+  .menu-title {
+    text-align: center;
+    color: $secondaryColor;
+  }
+  h2 {
+    color: $brandColor;
+  }
+  p.dish {
+    font-size: 1.1em;
+    cursor: pointer;
+  }
+}

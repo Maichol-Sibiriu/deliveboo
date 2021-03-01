@@ -10167,6 +10167,43 @@ a {
     bottom: 4%;
   }
 }
+.rest-show-main {
+  font-family: "Lato", sans-serif;
+  padding: 0 50px;
+}
+.rest-info-section {
+  display: flex;
+  max-height: 150px;
+  color: #64B5BB;
+}
+.rest-info-section .rest-logo-wrapper {
+  margin-right: 15px;
+  width: 40%;
+  max-width: 40%;
+}
+.rest-info-section .rest-logo-wrapper img {
+  border-radius: 20px;
+  overflow: hidden;
+}
+.rest-info-section .restaurant-name {
+  color: #F1CA29;
+}
+.rest-info-section p {
+  margin: 0;
+}
+
+.dishes-section .menu-title {
+  text-align: center;
+  color: #F1CA29;
+}
+.dishes-section h2 {
+  color: #64B5BB;
+}
+.dishes-section p.dish {
+  font-size: 1.1em;
+  cursor: pointer;
+}
+
 .advanced-search {
   flex-wrap: wrap;
   justify-content: center;
@@ -10292,7 +10329,7 @@ form {
 
 .stats-wrapper {
   flex-wrap: wrap;
-  padding: 0 20px;
+  padding: 0 50px;
 }
 .stats-wrapper .canvas-wrapper {
   position: relative;
