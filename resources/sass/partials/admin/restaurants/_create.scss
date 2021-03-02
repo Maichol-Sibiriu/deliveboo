@@ -4,23 +4,28 @@
     flex-grow: 1;
     background-color: $brandColor;
 }
+
 h1,
 h3{
     text-transform: uppercase;
     font-family: $title-font;
     font-weight: bold;
 }
+
 h1{
     color: $secondaryColor;
 }
+
 h3,
 .btn{
     color: $red;
 }
+
 h1,
 .btn{
     margin: 15px;
 }
+
 .create{
     flex-direction: column;
     align-items: center;
@@ -111,6 +116,54 @@ h1,
     }
 }
 @media screen and (max-width: 768px){
+    .create{
+        .form{
+            .form-down{
+                flex-direction: column;
+                .input,
+                .all-categories{
+                    flex-basis: 100%;
+                    .box-categories{
+                        .category{
+                            flex-basis: calc(100% / 3);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// MEDIA QUERY
+@media screen and (max-width: 1200px){ 
+    .create{
+        .form{
+            .all-categories{
+                .box-categories{
+                    .category{
+                        flex-basis: calc(100% / 3);
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 992px){ 
+    .create{
+        .form{
+            .all-categories{
+                .box-categories{
+                    .category{
+                        flex-basis: calc(100% / 2);
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px){ 
     .create{
         .form{
             .form-down{

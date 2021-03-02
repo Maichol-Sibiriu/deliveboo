@@ -1,0 +1,37 @@
+.text-center {
+    margin-bottom: 20px;
+}
+
+.name,
+.price,
+.img,
+.description1,
+.typology,
+.vegan1,
+.available1,
+.create,
+.submit1 {
+    margin-left: 25%;
+}
+
+.description1,
+.vegan1 {
+    margin-top: 15px;
+}
+
+.available1 {
+    margin-bottom: 15px;
+}
+
+.create {
+    max-width: 50%;
+}
+
+.btn-submit {
+    color: $white;
+    background: $brandColor;
+}
+
+.submit1 {
+    max-width: 100px;
+}

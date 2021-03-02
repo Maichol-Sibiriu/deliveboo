@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <main class="create-restaurant">
+
     <h1 class="text-center">Crea nuovo ristorante</h1>
     @if ($errors->any())
     <ul>
@@ -12,10 +13,12 @@
     </ul>
     <hr>
     @endif
+    
     <div class="container d-flex create">
         <form action="{{ route('admin.restaurants.store') }}" method="POST" enctype="multipart/form-data" class="form">
             @csrf
             @method("POST")
+            
             <div class="d-flex form-down">
                 <div class="input">
                     <div class="form-group">
@@ -39,24 +42,30 @@
                         <input type="file" name="image_logo" id="img_logo" accept="image/*">
                     </div>
                 </div>
+                
                 <div class="all-categories d-flex">
+                    
                     <div class="img-create">
                         <img src="{{ asset('img/rider.png') }}" alt="">
                     </div>
+                    
                     <h3 class="text-center">TIPOLOGIE</h3>
                     <div class="box-categories form-group d-flex">
                         @foreach ($categories as $category)
                         <div class="category">
                             <input type="checkbox" name="categories[]" id="{{ $category->name }}" value = "{{ $category->id }}">
-                            <label for="{{ $category->name }}">{{ $category->name }}</label><br>
+                            <label for="{{ $category->name }}">{{ $category->name }}</label><br>            
                         </div>
                         @endforeach
                     </div>
+                    
                 </div>
             </div>
+
             <div class="d-flex btn-create">
                 <input class="btn btn-primary" type="submit" value="Crea Ristorante">
             </div>
+
         </form>
     </div>
 </main>
