@@ -48,8 +48,9 @@
   }
   .dish-typology {
     padding: 15px;
-    border: 2px solid rgba($grey, .3);
-    border-radius: 20px;
+    border: 2px solid rgba($yellow, .6);
+    // border-radius: 20px;
+    background-color: rgba($yellow, .4);
     h2 {
       color: $brandColor;
     }
@@ -69,28 +70,33 @@
 
 // Modale
 .modal-box {
-  padding: 50% 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 30% 0;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
   height: 100vh;
-  background-color: rgba($red, .6);
+  width: 100%;
+  background-color: rgba($grey, .6);
+  z-index: 4;
   h2 {
     font-size: 3em;
     font-weight: bold;
-    color: $brandColor;
-    text-shadow: 1px 1px $secondaryColor;
+    color: $white;
+    text-shadow: 1px 1px $red;
   }
   .quantity-wrapper {
     label {
       display: block;
       text-align: center;
       font-size: 2em;
+      color: $white;
     }
     input {
       display: block;
-      margin: 0;
       padding: 5px 10px;
       -moz-appearance: textfield;
       font-size: 1.5em;
@@ -98,6 +104,16 @@
       color: $brandColor;
       border: 1px solid $brandColor;
       border-radius: 10px;
+    }
+  }
+  .modal-icon-close {
+    position: absolute;
+    top: 5%;
+    right: 10%;
+    i {
+      font-size: 3rem;
+      color: $red;
+      text-shadow: 0px 0px 2px $secondaryColor;
     }
   }
 }

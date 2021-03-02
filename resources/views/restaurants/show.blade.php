@@ -1,11 +1,13 @@
-@extends('layouts.main')
+@extends('layouts.app')
 
 @section('content')
 
 <main class="rest-show-main">
   {{-- Errore pagamento --}}
   @if ($error) 
-  <p class="alert alert-danger">L'ordine non è andato a buon fine, controllare il metodo di pagamento!</p>
+    <p class="alert alert-danger">L'ordine non è andato a buon fine, controllare il metodo di pagamento!</p>
+  @else
+    <input type="hidden" id="cookieDelete" value="true">
   @endif
   
   <div id="cart">
@@ -44,6 +46,9 @@
         <input id="quantity" type="number" min="0" v-model="numDish">
       </div>
       <a href="#menu" class="btn-cart" v-on:click="addDish()">Aggiungi piatto</a>
+      <a href="#menu" class="modal-icon-close" v-on:click="displayModal = false">
+        <i class="fas fa-times"></i>
+      </a>
     </div>
   
     {{-- Carrello ordine --}}
@@ -120,3 +125,5 @@
 <script defer src="{{asset('js/cart.js')}}" charset="utf-8"></script>
 
 @endsection
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />

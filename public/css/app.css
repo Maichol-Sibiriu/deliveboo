@@ -10216,8 +10216,8 @@ a {
 }
 .dishes-section .dish-typology {
   padding: 15px;
-  border: 2px solid rgba(110, 102, 91, 0.3);
-  border-radius: 20px;
+  border: 2px solid rgba(245, 252, 165, 0.6);
+  background-color: rgba(245, 252, 165, 0.4);
 }
 .dishes-section .dish-typology h2 {
   color: #64B5BB;
@@ -10235,28 +10235,33 @@ a {
 }
 
 .modal-box {
-  padding: 50% 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 30% 0;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
   height: 100vh;
-  background-color: rgba(239, 110, 96, 0.6);
+  width: 100%;
+  background-color: rgba(110, 102, 91, 0.6);
+  z-index: 4;
 }
 .modal-box h2 {
   font-size: 3em;
   font-weight: bold;
-  color: #64B5BB;
-  text-shadow: 1px 1px #F1CA29;
+  color: #fff;
+  text-shadow: 1px 1px #EF6E60;
 }
 .modal-box .quantity-wrapper label {
   display: block;
   text-align: center;
   font-size: 2em;
+  color: #fff;
 }
 .modal-box .quantity-wrapper input {
   display: block;
-  margin: 0;
   padding: 5px 10px;
   -moz-appearance: textfield;
   font-size: 1.5em;
@@ -10264,6 +10269,16 @@ a {
   color: #64B5BB;
   border: 1px solid #64B5BB;
   border-radius: 10px;
+}
+.modal-box .modal-icon-close {
+  position: absolute;
+  top: 5%;
+  right: 10%;
+}
+.modal-box .modal-icon-close i {
+  font-size: 3rem;
+  color: #EF6E60;
+  text-shadow: 0px 0px 2px #F1CA29;
 }
 
 .cart {

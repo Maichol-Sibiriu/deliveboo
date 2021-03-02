@@ -14495,16 +14495,22 @@ var cart = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
 
       _this.getTypologies();
 
-      if (document.cookie) {
-        var cookiesArray = document.cookie.split(';');
+      if (document.getElementById('cookieDelete')) {
+        // cancellare cookie
+        _this.deleteCart();
+      } else {
+        // popolo input nascosti con cookie presenti
+        if (document.cookie) {
+          var cookiesArray = document.cookie.split(';');
 
-        for (var i = 0; i < cookiesArray.length - 1; i++) {
-          var cookie = cookiesArray[i].trim().split('=');
-          _this.order[parseInt(cookie[0])].quantity = parseInt(cookie[1]);
-          document.getElementById(_this.order[parseInt(cookie[0])].name).value = _this.order[parseInt(cookie[0])].quantity;
+          for (var i = 0; i < cookiesArray.length - 1; i++) {
+            var cookie = cookiesArray[i].trim().split('=');
+            _this.order[parseInt(cookie[0])].quantity = parseInt(cookie[1]);
+            document.getElementById(_this.order[parseInt(cookie[0])].name).value = _this.order[parseInt(cookie[0])].quantity;
+          }
+
+          _this.calculateTotal();
         }
-
-        _this.calculateTotal();
       }
     })["catch"](function (error) {
       console.log(error);
