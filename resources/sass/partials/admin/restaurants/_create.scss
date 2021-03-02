@@ -88,6 +88,51 @@ h1,
         }
     }
 }
+// MEDIA QUERY
+@media screen and (max-width: 1200px){
+    .create{
+        .form{
+            .all-categories{
+                .box-categories{
+                    .category{
+                        flex-basis: calc(100% / 3);
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 992px){
+    .create{
+        .form{
+            .all-categories{
+                .box-categories{
+                    .category{
+                        flex-basis: calc(100% / 2);
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 768px){
+    .create{
+        .form{
+            .form-down{
+                flex-direction: column;
+                .input,
+                .all-categories{
+                    flex-basis: 100%;
+                    .box-categories{
+                        .category{
+                            flex-basis: calc(100% / 3);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
 
 // MEDIA QUERY
 @media screen and (max-width: 1200px){ 

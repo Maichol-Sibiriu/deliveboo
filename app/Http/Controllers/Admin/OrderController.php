@@ -22,7 +22,8 @@ class OrderController extends Controller
 
         $userId = Auth::id();
         $restaurant = Restaurant::where('user_id', $userId)->first();
-        $orders = Order::where('restaurant_id', $restaurant->id)->get();
+        $orders = Order::where('restaurant_id', $restaurant->id)->orderBy('id', 'desc')->paginate(5);
+
         return view('admin.orders.index', compact('orders'));
     }
 
@@ -62,9 +63,8 @@ class OrderController extends Controller
         //     $dishes[] = $dish->pivot->order_id;
         // }
 
-        
+        return view('admin.orders.show', compact('dishes', 'order',));
 
-        return view('admin.orders.show', compact('dishes', 'order'));
     }
 
     /**

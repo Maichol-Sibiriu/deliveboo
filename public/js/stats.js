@@ -40187,7 +40187,7 @@ setTimeout(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Marco\Desktop\deliveboo\resources\js\stats.js */"./resources/js/stats.js");
+module.exports = __webpack_require__(/*! C:\Users\opaio\OneDrive\Desktop\deliveboo\resources\js\stats.js */"./resources/js/stats.js");
 
 
 /***/ })
