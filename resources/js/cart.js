@@ -10,6 +10,7 @@ const cart = new Vue({
       typologies: [],
       id:'',
       displayModal: false,
+      cartOpen: false,
       dishIndex: 0,
       numDish: 0,
       total: 0,
@@ -50,17 +51,22 @@ const cart = new Vue({
         });
 
         this.getTypologies();
-
-        if (document.cookie) {
-          let cookiesArray = document.cookie.split(';');
-           
-          for (let i = 0; i < cookiesArray.length - 1; i++) {
+        if(document.getElementById('cookieDelete')) {
+          // cancellare cookie
+          this.deleteCart();
+        } else {
+          // popolo input nascosti con cookie presenti
+          if (document.cookie) {
+            let cookiesArray = document.cookie.split(';');
              
-            const cookie = cookiesArray[i].trim().split('=');
-            this.order[parseInt(cookie[0])].quantity = parseInt(cookie[1]);
-            document.getElementById(this.order[parseInt(cookie[0])].name).value = this.order[parseInt(cookie[0])].quantity;
+            for (let i = 0; i < cookiesArray.length - 1; i++) {
+               
+              const cookie = cookiesArray[i].trim().split('=');
+              this.order[parseInt(cookie[0])].quantity = parseInt(cookie[1]);
+              document.getElementById(this.order[parseInt(cookie[0])].name).value = this.order[parseInt(cookie[0])].quantity;
+            }
+            this.calculateTotal();
           }
-          this.calculateTotal();
         }
       })
       .catch(error => {
@@ -130,9 +136,17 @@ const cart = new Vue({
             this.typologies.push(dish.typology);
           };
         });
-      }
+      },
 
+      cartToggle() {
+        this.cartOpen = !this.cartOpen;
+      },
+
+      cartPayShow() {
+        document.getElementById('cart-payment').classList.add('payment-show');
+        if(this.cartOpen == true) {
+          this.cartOpen = false;
+        }
+      },
     }
 });
-
-export default cart;

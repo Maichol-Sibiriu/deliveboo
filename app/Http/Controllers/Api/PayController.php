@@ -40,14 +40,16 @@ class PayController extends Controller
 
             $newOrder->fill($data);
             $saved = $newOrder->save();
-
             if ($saved) {
                 foreach ($data['dishes'] as $key => $dish) {
                     if ($dish == 0) {
-                        \array_splice($data['dishes'], $key, 1);
-                        \array_splice($data['dishes_id'], $key, 1);
+                        // \array_splice($data['dishes'], $key, 1);
+                        // \array_splice($data['dishes_id'], $key, 1);
+                        unset ($data['dishes'][$key]);
+                        unset ($data['dishes_id'][$key]);
                     }
                 }
+                // dd($data['dishes']);
                 // dd($data['dishes_id']);
                 $newOrder->dishes()->attach($data['dishes_id'], ['time_order' => date('Y-m-d H:i:s')]);
                 
