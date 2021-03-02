@@ -1,0 +1,268 @@
+.rest-show-main {
+  position: relative;
+  font-family: $primary-font;
+  .btn-cart {
+    padding: 10px 15px;
+    font-size: 1.6em;
+    text-decoration: none;
+    color: $white;
+    background-color: $brandColor;
+    border: none;
+    border-radius: 10px;
+    transition: .2s;
+    &:hover {
+      box-shadow: 0 0 6px $secondaryColor;
+    }
+  }
+}
+
+// info ristorante
+.rest-info-section {
+  display: flex;
+  padding: 0 50px;
+  max-height: 150px;
+  color: $brandColor;
+  .rest-logo-wrapper {
+    margin-right: 15px;
+    width: 40%;
+    max-width: 40%;
+    img {
+      border-radius: 20px;
+      overflow: hidden;
+    }
+  }
+  .restaurant-name {
+    color: $secondaryColor;
+  }
+  p {
+    margin: 0;
+  }
+}
+
+// lista piatti
+.dishes-section {
+  padding: 0 50px;
+  .menu-title {
+    text-align: center;
+    color: $secondaryColor;
+  }
+  .dish-typology {
+    padding: 15px;
+    border: 2px solid rgba($yellow, .6);
+    // border-radius: 20px;
+    background-color: rgba($yellow, .4);
+    h2 {
+      color: $brandColor;
+    }
+    a.dish {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 1.2em;
+      text-decoration: none;
+      color: $grey;
+      cursor: pointer;
+      &:hover {
+        color: $red;
+      }
+    }
+  }
+}
+
+// Modale
+.modal-box {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 30% 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba($grey, .6);
+  z-index: 4;
+  h2 {
+    font-size: 3em;
+    font-weight: bold;
+    color: $white;
+    text-shadow: 1px 1px $red;
+  }
+  .quantity-wrapper {
+    label {
+      display: block;
+      text-align: center;
+      font-size: 2em;
+      color: $white;
+    }
+    input {
+      display: block;
+      padding: 5px 10px;
+      -moz-appearance: textfield;
+      font-size: 1.5em;
+      text-align: center;
+      color: $brandColor;
+      border: 1px solid $brandColor;
+      border-radius: 10px;
+    }
+  }
+  .modal-icon-close {
+    position: absolute;
+    top: 5%;
+    right: 10%;
+    i {
+      font-size: 3rem;
+      color: $red;
+      text-shadow: 0px 0px 2px $secondaryColor;
+    }
+  }
+}
+
+// carrello ordine
+.cart {
+  position: fixed;
+  top: 60px;
+  right: 0;
+  padding: 5px 10px 10px 25px;
+  min-width: 150px;
+  background-color: rgba($brandColor, .8);
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  z-index: 3;
+  p {
+    margin-bottom: 0;
+  }
+  .pz-quantity {
+    margin-right: 5px;
+  }
+  .btn-cart-quantity {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 5px;
+    height: 15px;
+    width: 15px;
+    font-size: 1.2em;
+    font-weight: 900;
+    text-decoration: none;
+    color: $secondaryColor;
+    background-color: $red;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  .btn-cart-remove {
+    font-weight: bold;
+    text-decoration: none;
+    color: $red;
+    cursor: pointer;
+  }
+
+  .total {
+    display: flex;
+    flex-direction: column;
+    .btn-cart-clear {
+      color: $secondaryColor;
+      font-weight: bold;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .total-text {
+      align-self: flex-end;
+      font-weight: bold;
+    }
+  }
+
+  .cart-open-close {
+    position: absolute;
+    top: 12px;
+    left: 5px;
+    cursor: pointer;
+    z-index: 2;
+    i {
+      color: $red;
+      font-size: 1.1rem;
+    }
+  }
+
+  .cart-pay {
+    position: absolute;
+    bottom: 12px;
+    left: 5px;
+    cursor: pointer;
+    z-index: 2;
+    i {
+      color: $red;
+      font-size: 1.1rem;
+    }
+  }
+
+  &.cart-hide {
+    left: calc(100% - 25px);
+  }
+}
+
+// braintree dropin
+.braintree-dropin-wrapper {
+  display: none;
+  padding: 0 50px;
+  min-height: 100vh;
+  .payment-title {
+    text-align: center;
+    color: $secondaryColor;
+  }
+  
+  #payment-form {
+    label {
+      display: block;
+    }
+    input#phone,
+    input#address {
+      display: block;
+      width: 100%;
+      padding: 2px 5px;
+      margin-bottom: 20px;
+      border: 0;
+      border-bottom: 1px solid $grey;
+    }
+  }
+  &.payment-show {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  // lista piatti
+  .dishes-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    .menu-title {
+      width: 100%;
+    }
+    .dish-typology {
+      width: 45%;
+    }
+  }
+
+  // Modale
+  .modal-box {
+    padding: 15% 0;
+    .modal-icon-close {
+      position: absolute;
+      top: 10%;
+    }
+  }
+
+  // pagamento braintree
+  .braintree-dropin-wrapper {
+    padding-top: 50px;
+    #payment-form {
+      input#phone,
+      input#address {
+        display: block;
+        width: auto;
+        min-width: 25%;
+      }
+    }
+  }
+}
