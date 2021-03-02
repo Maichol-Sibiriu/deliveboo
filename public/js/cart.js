@@ -14435,7 +14435,7 @@ module.exports = g;
 /*!******************************!*\
   !*** ./resources/js/cart.js ***!
   \******************************/
-/*! exports provided: default */
+/*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -14454,6 +14454,7 @@ var cart = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
     typologies: [],
     id: '',
     displayModal: false,
+    cartOpen: false,
     dishIndex: 0,
     numDish: 0,
     total: 0
@@ -14581,10 +14582,19 @@ var cart = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
 
         ;
       });
+    },
+    cartToggle: function cartToggle() {
+      this.cartOpen = !this.cartOpen;
+    },
+    cartPayShow: function cartPayShow() {
+      document.getElementById('cart-payment').classList.add('payment-show');
+
+      if (this.cartOpen == true) {
+        this.cartOpen = false;
+      }
     }
   }
 });
-/* harmony default export */ __webpack_exports__["default"] = (cart);
 
 /***/ }),
 

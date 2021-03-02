@@ -52,7 +52,7 @@
     </div>
   
     {{-- Carrello ordine --}}
-    <div class="cart mb-5" v-if="total > 0">
+    <div class="cart mb-5" v-bind:class="{ 'cart-hide': !cartOpen}" v-if="total > 0">
       <ul>
         <li class="mb-3" v-for="(product, index) in order" v-if="product.quantity > 0">
           <p>@{{ product.name }}</p>
@@ -66,14 +66,19 @@
         <a class="btn-cart-clear" v-on:click="deleteCart">Pulisci carrello</a>
         <span class="total-text">Totale: @{{ total }} €</span>
       </div>
-  
-      {{-- <button v-on:click="checkout()">Checkout</button> --}}
+      <a class="cart-open-close" v-on:click="cartToggle">
+        <i class="fas fa-utensils"></i>
+      </a>
+      <a href="#cart-payment" class="cart-pay" v-on:click="cartPayShow">
+        <i class="far fa-credit-card"></i>
+      </a>
+      {{-- <a v-on:click="checkout()">Checkout</a> --}}
     </div>
   </div>
   
   
   {{-- pagamento braintree --}}
-  <div class="braintree-dropin-wrapper">
+  <div class="braintree-dropin-wrapper" id="cart-payment">
     <h2 class="payment-title mb-5">Concludi il tuo ordine</h2>
     <form id="payment-form" class="form-group" action="{{ route('pay') }}" method="POST">
       @csrf

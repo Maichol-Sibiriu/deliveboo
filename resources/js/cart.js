@@ -10,6 +10,7 @@ const cart = new Vue({
       typologies: [],
       id:'',
       displayModal: false,
+      cartOpen: false,
       dishIndex: 0,
       numDish: 0,
       total: 0,
@@ -135,9 +136,17 @@ const cart = new Vue({
             this.typologies.push(dish.typology);
           };
         });
-      }
+      },
 
+      cartToggle() {
+        this.cartOpen = !this.cartOpen;
+      },
+
+      cartPayShow() {
+        document.getElementById('cart-payment').classList.add('payment-show');
+        if(this.cartOpen == true) {
+          this.cartOpen = false;
+        }
+      },
     }
 });
-
-export default cart;
