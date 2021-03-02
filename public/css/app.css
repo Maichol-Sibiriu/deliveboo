@@ -10041,6 +10041,14 @@ a {
     font-size: 14px;
   }
 }
+.red-text {
+  color: #EF6E60;
+}
+
+.green-text {
+  color: #D4D867;
+}
+
 .navbar {
   font-family: "Lato", sans-serif;
   font-weight: 900;
@@ -10780,7 +10788,6 @@ h1,
     flex-basis: calc(100% / 3);
   }
 }
-
 .stats-title {
   font-family: "Lato", sans-serif;
   color: #F1CA29;
@@ -10812,4 +10819,71 @@ h1,
     min-height: 50%;
     height: 100%;
   }
+}
+.admin-title {
+  font-family: "Oswald", sans-serif;
+  font-size: 4rem;
+}
+
+.intro-menu {
+  display: block;
+  background: #F8F7F7;
+  color: #6E665B;
+  font-size: 1.5rem;
+  padding: 20px;
+  margin: 25px 10px;
+}
+.intro-menu a {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #64B5BB;
+}
+.intro-menu a:hover {
+  text-decoration: none;
+}
+.intro-menu strong {
+  display: block;
+  font-size: 1.5rem;
+}
+
+.table a.btn {
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 2px;
+  outline: none;
+  border: 1px solid transparent;
+}
+.table a.btn:hover {
+  color: #F5FCA5;
+  border: 1px solid #F5FCA5;
+}
+
+.table tr {
+  border-top: 1px solid #F8F7F7;
+  font-size: 1.5rem;
+}
+.table th, .table td {
+  vertical-align: center;
+  text-align: center;
+  border-top: none;
+}
+.table form button {
+  color: #fff;
+  margin: 0 2px;
+}
+.table form button:hover {
+  color: #F5FCA5;
+}
+
+.btn-1 {
+  background: #64B5BB;
+}
+
+.btn-2 {
+  background: #6E665B;
+}
+
+.btn-3 {
+  background: #EF6E60;
 }
