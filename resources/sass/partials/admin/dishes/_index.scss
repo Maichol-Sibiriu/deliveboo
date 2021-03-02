@@ -48,6 +48,10 @@
         font-size: 1.5rem;
     }
 
+    th {
+        background-color: $secondaryColor;
+    }
+
     th, td {
         vertical-align: center;
         text-align: center;

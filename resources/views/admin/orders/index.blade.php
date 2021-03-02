@@ -3,7 +3,7 @@
 @section('content')
 <main class="order-index container">
 
-  <h2 class="mb-5">Lista Ordini</h2>
+  <h1 class="admin-title text-center">Lista Ordini</h1>
 
   <div class="" id="ora">
 
@@ -30,14 +30,14 @@
         <td class="time-main">  {{  $order->created_at->isoFormat('HH:mm')}}  </td>
         <td class="amount-main text-center">  {{  $order->amount}} € </td>
         <td class="text-center" width="100">
-          <a href="{{ route('admin.orders.show', $order->id) }}" class="btn">Dettaglio</a>
+          <a href="{{ route('admin.orders.show', $order->id) }}" class="btn btn-1">Dettaglio</a>
         </td>
       </tr>
     </tbody>
 
     <!-- mostra bottone statistiche all ultimo ciclo -->
     @if ($loop->last)
-    <a href="{{ route('admin.stats.show', $orders[0]->restaurant_id) }}"class="btn mb-5">Visualizza Statistiche</a>
+    <a href="{{ route('admin.stats.show', $orders[0]->restaurant_id) }}"class="btn btn-1 mb-5">Visualizza Statistiche</a>
     @endif
 
     <!-- avviso in caso di tabella vuota -->
@@ -54,7 +54,7 @@
   </div>
 
   <!-- bottone indietro -->
-    <a href="{{route('admin.home')}}"class="btn mt-4">Indietro</a>
+    <a href="{{route('admin.home')}}"class="btn btn-1 mt-4">Indietro</a>
 
 
 
