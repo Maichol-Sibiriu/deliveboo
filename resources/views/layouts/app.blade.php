@@ -14,6 +14,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Oswald:wght@400;700&family=Roboto:wght@700;900&display=swap" rel="stylesheet"> 
     {{-- Styles --}}
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    {{-- Fontawesome --}}
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css' integrity='sha512-vZWT27aGmde93huNyIV/K7YsydxaafHLynlJa/4aPy28/R1a/IxewUH4MWo7As5I33hpQ7JS24kwqy/ciIFgvg==' crossorigin='anonymous'/>
     {{-- Scripts --}}
     <script src="{{ asset('js/app.js') }}" defer></script>
 </head>
