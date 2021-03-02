@@ -53,6 +53,6 @@
 
     <input type="hidden" name="restaurant_id" value="{{ $dish->restaurant_id }}">
 
-    <input type="submit" class="btn btn-primary submit2 form-control edit" value="Modifica piatto">
+    <input type="submit" class="btn btn-submit submit2 form-control edit" value="Modifica piatto">
   </form>
 @endsection

@@ -50,6 +50,6 @@
       <input type="checkbox" id="available" name="available">
     </div>
 
-    <input type="submit1" class="btn btn-primary submit1 form-control create" value="Crea piatto">
+    <input type="submit1" class="btn btn-submit submit1 form-control create" value="Crea piatto">
   </form>
 @endsection

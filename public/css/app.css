@@ -10314,6 +10314,11 @@ form {
   max-width: 50%;
 }
 
+.btn-submit {
+  color: #fff;
+  background: #64B5BB;
+}
+
 .submit1 {
   max-width: 100px;
 }
