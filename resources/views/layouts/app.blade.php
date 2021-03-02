@@ -34,7 +34,7 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mx-auto navbar-center">
                     <li>
-                        <a class="nav-link" href="">HOME</a>
+                        <a class="nav-link" href="http://127.0.0.1:8000">HOME</a>
                     </li>
                     <li>
                         <a class="nav-link" href="">RICERCA AVANZATA</a>
