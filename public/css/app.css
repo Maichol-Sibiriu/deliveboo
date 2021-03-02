@@ -11047,7 +11047,7 @@ main .order-show .tot i {
 .typology,
 .vegan1,
 .available1,
-.create,
+.create-dishes,
 .submit1 {
   margin-left: 25%;
 }
@@ -11061,7 +11061,7 @@ main .order-show .tot i {
   margin-bottom: 15px;
 }
 
-.create {
+.create-dishes {
   max-width: 50%;
 }
 
@@ -11074,11 +11074,11 @@ main .order-show .tot i {
   max-width: 100px;
 }
 
-.edit {
+.edit-dishes {
   max-width: 50%;
 }
 
-.edit,
+.edit-dishes,
 .change-image,
 .description2,
 .available2,
