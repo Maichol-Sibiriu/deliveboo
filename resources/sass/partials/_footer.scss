@@ -1,0 +1,10 @@
+footer {
+    background: rgba($brandColor, 0.55);
+    color: $white;
+    padding: 10px auto;
+
+    p.disclaimer {
+        font-size: 1rem;
+        font-family: $admin-font;
+    }
+}
