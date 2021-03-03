@@ -10568,19 +10568,32 @@ a {
     margin: 1%;
   }
 }
+.main-admin-home {
+  font-family: "Lato", sans-serif;
+}
 .main-admin-home .sidebar {
   color: #64B5BB;
   flex-basis: 25%;
   border-right: 3px solid #F5FCA5;
+  padding: 50px;
 }
-.main-admin-home .sidebar .btn-menu {
-  background-color: #64B5BB;
-  color: #fff;
+.main-admin-home .sidebar h6 {
+  font-weight: 900;
+  padding: 8px 0;
 }
-.main-admin-home .sidebar .box-menu {
-  border: none;
-  border-left: 5px solid #64B5BB;
-  margin-left: 30%;
+.main-admin-home .sidebar .side-menu ul {
+  border-left: 4px solid #64B5BB;
+}
+.main-admin-home .sidebar .side-menu ul li {
+  padding: 8px 20px;
+}
+.main-admin-home .sidebar .side-menu ul li:hover {
+  background-color: rgba(170, 214, 218, 0.2);
+}
+.main-admin-home .sidebar .side-menu ul a {
+  color: #64B5BB;
+  text-decoration: none;
+  font-weight: 600;
 }
 .main-admin-home .content {
   flex-basis: 75%;
@@ -10588,11 +10601,11 @@ a {
 }
 .main-admin-home .content .logo {
   width: 400px;
-  background-color: blue;
   border-radius: 5px;
   margin: 0 auto;
 }
 .main-admin-home .content .logo img {
+  margin: 0 auto;
   border-radius: 5px;
   height: 100%;
 }
@@ -10634,7 +10647,36 @@ a {
   font-weight: bold;
   color: #fff;
 }
+.main-admin-home .empty h2 {
+  font-size: 3rem;
+  padding-top: 80px;
+}
+.main-admin-home .empty p {
+  font-size: 1.5rem;
+}
+.main-admin-home .empty a {
+  color: #fff;
+  padding: 10px 30px;
+  border: 1px solid #64B5BB;
+  border-radius: 30px;
+  font-weight: bold;
+  background-color: #64B5BB;
+}
 
+@media screen and (max-width: 996px) {
+  .main-admin-home .sidebar {
+    display: none;
+  }
+  .main-admin-home .content {
+    flex-basis: 100%;
+  }
+  .main-admin-home .content .logo {
+    width: 90%;
+  }
+  .main-admin-home .content .logo img {
+    padding: 15px;
+  }
+}
 .create-restaurant {
   display: flex;
   flex-direction: column;

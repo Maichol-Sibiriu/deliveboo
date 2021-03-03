@@ -1,36 +1,55 @@
 
 .main-admin-home {
+  font-family: $primary-font;
 
   .sidebar {
     color: $brandColor;
     flex-basis: 25%;
     border-right: 3px solid $yellow;
+    padding: 50px;
 
-    .btn-menu {
-      background-color: $brandColor;
-      color: $white;
+    h6  {
+      font-weight: 900;
+      padding: 8px 0;
     }
 
-    .box-menu {
-      border: none;
-      border-left: 5px solid $brandColor;
-      margin-left: 30%;
+    .side-menu ul {
+      border-left: 4px solid $brandColor;
+
+      li {
+        padding: 8px 20px;
+
+        &:hover{
+          background-color: rgba($lightBrand, 0.2);
+        }
+      }
+
+      a {
+        color: $brandColor;
+        text-decoration: none;
+        font-weight: 600;
+      }
     }
+
   }
 
   .content {
     flex-basis: 75%;
     padding-top: 50px;
+    // background-image: url('../img/bg_hero_home.jpg');
+    // background-size: auto;
+    // background-position: center;
+    // background-size:cover;
 
     .logo {
       width: 400px;
-      background-color: blue;
       border-radius: 5px;
       margin: 0 auto;
 
 
 
       img {
+        margin: 0 auto;
         border-radius: 5px;
         height: 100%;
       }
@@ -38,7 +57,6 @@
     }
 
     .info-risto {
-      // margin-left: 30px;
       text-align: center;
 
       h2 {
@@ -87,50 +105,45 @@
 
   }
 
+  .empty {
+    h2 {
+      font-size: 3rem;
+      padding-top: 80px;
+    }
 
+    p {
+      font-size: 1.5rem;
+    }
 
-
-
-  // }
-  //
-  // input .btn {
-  //   margin: 0 10px;
-  //   color: $brandColor;
-  //   padding: 10px 30px;
-  //   border: 1px solid $brandColor;
-  //   border-radius: 30px;
-  //   font-weight: bold;
-  // }
-  //
-  // .empty {
-  //   text-align: center;
-  //   margin-top: 100px;
-  //
-  //   .create {
-  //     margin: 0 10px;
-  //     color: $brandColor;
-  //     padding: 10px 30px;
-  //     border: 1px solid $brandColor;
-  //     border-radius: 30px;
-  //     font-weight: bold;
-  //   }
-  // }
-  //
-  // form {
-  //   text-align: center;
-  //   margin-top: 50px;
-  //
-  //   .delete {
-  //     background-color: $red;
-  //     padding: 10px 30px;
-  //     border-radius: 30px;
-  //     font-weight: bold;
-  //     color: $white;
-  //   }
-  // }
-
+    a {
+      color: $white;
+      padding: 10px 30px;
+      border: 1px solid $brandColor;
+      border-radius: 30px;
+      font-weight: bold;
+      background-color: $brandColor;
+    }
+  }
 }
 
-@media screen and (min-width: 996px) {
+@media screen and (max-width: 996px) {
 
+  .main-admin-home {
+
+    .sidebar {
+      display: none;
+    }
+
+    .content {
+      flex-basis: 100%;
+
+      .logo {
+        width: 90%;
+
+        img {
+          padding: 15px;
+        }
+      }
+    }
+  }
 }
