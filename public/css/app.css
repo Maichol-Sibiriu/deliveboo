@@ -1,5 +1,4 @@
-@charset "UTF-8";
-@import url(https://fonts.googleapis.com/css?family=Nunito);
+@import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
 /*!
  * Bootstrap v4.6.0 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors
@@ -10569,72 +10568,115 @@ a {
     margin: 1%;
   }
 }
-.main-admin-home .logo {
+.main-admin-home {
+  font-family: "Lato", sans-serif;
+}
+.main-admin-home .sidebar {
+  color: #64B5BB;
+  flex-basis: 25%;
+  border-right: 3px solid #F5FCA5;
+  padding: 50px;
+}
+.main-admin-home .sidebar h6 {
+  font-weight: 900;
+  padding: 8px 0;
+}
+.main-admin-home .sidebar .side-menu ul {
+  border-left: 4px solid #64B5BB;
+}
+.main-admin-home .sidebar .side-menu ul li {
+  padding: 8px 20px;
+}
+.main-admin-home .sidebar .side-menu ul li:hover {
+  background-color: rgba(170, 214, 218, 0.2);
+}
+.main-admin-home .sidebar .side-menu ul a {
+  color: #64B5BB;
+  text-decoration: none;
+  font-weight: 600;
+}
+.main-admin-home .content {
+  flex-basis: 75%;
+  padding-top: 50px;
+}
+.main-admin-home .content .logo {
+  width: 400px;
+  border-radius: 5px;
   margin: 0 auto;
-  width: 300px;
-  border-radius: 30px;
 }
-.main-admin-home .logo img {
-  border-radius: 30px;
+.main-admin-home .content .logo img {
+  margin: 0 auto;
+  border-radius: 5px;
+  height: 100%;
 }
-.main-admin-home h2 {
+.main-admin-home .content .info-risto {
+  text-align: center;
+}
+.main-admin-home .content .info-risto h2 {
   text-transform: uppercase;
   color: #F1CA29;
-  text-align: center;
   font-family: "Roboto", sans-serif;
+  font-size: 3.5rem;
 }
-.main-admin-home .info-rest {
-  text-align: center;
+.main-admin-home .content .info-risto .address,
+.main-admin-home .content .info-risto .p.iva,
+.main-admin-home .content .info-risto .phone {
   font-size: 15px;
   font-style: italic;
 }
-.main-admin-home .info-rest p {
+.main-admin-home .content .info-risto p {
   font-weight: bold;
 }
-.main-admin-home .btns {
-  justify-content: center;
+.main-admin-home .content .info-risto .btns {
   flex-wrap: wrap;
+  justify-content: center;
 }
-.main-admin-home .btns .btn {
+.main-admin-home .content .info-risto .btns .btn {
   margin: 10px 10px;
-  color: #64B5BB;
+  color: #fff;
   padding: 10px 30px;
   border: 1px solid #64B5BB;
   border-radius: 30px;
   font-weight: bold;
+  background-color: #64B5BB;
 }
-.main-admin-home input .btn {
-  margin: 0 10px;
-  color: #64B5BB;
-  padding: 10px 30px;
-  border: 1px solid #64B5BB;
-  border-radius: 30px;
-  font-weight: bold;
-}
-.main-admin-home .empty {
-  text-align: center;
-  margin-top: 100px;
-}
-.main-admin-home .empty .create {
-  margin: 0 10px;
-  color: #64B5BB;
-  padding: 10px 30px;
-  border: 1px solid #64B5BB;
-  border-radius: 30px;
-  font-weight: bold;
-}
-.main-admin-home form {
-  text-align: center;
-  margin-top: 50px;
-}
-.main-admin-home form .delete {
+.main-admin-home .content .info-risto .delete {
   background-color: #EF6E60;
   padding: 10px 30px;
   border-radius: 30px;
   font-weight: bold;
   color: #fff;
 }
+.main-admin-home .empty h2 {
+  font-size: 3rem;
+  padding-top: 80px;
+}
+.main-admin-home .empty p {
+  font-size: 1.5rem;
+}
+.main-admin-home .empty a {
+  color: #fff;
+  padding: 10px 30px;
+  border: 1px solid #64B5BB;
+  border-radius: 30px;
+  font-weight: bold;
+  background-color: #64B5BB;
+}
 
+@media screen and (max-width: 996px) {
+  .main-admin-home .sidebar {
+    display: none;
+  }
+  .main-admin-home .content {
+    flex-basis: 100%;
+  }
+  .main-admin-home .content .logo {
+    width: 90%;
+  }
+  .main-admin-home .content .logo img {
+    padding: 15px;
+  }
+}
 .create-restaurant {
   display: flex;
   flex-direction: column;
