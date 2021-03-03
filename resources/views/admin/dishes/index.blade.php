@@ -24,7 +24,7 @@
                 In questa sezione ti è possibile visualizzare tutti i piatti presenti nel tuo menu online, modificarli, cancellarli o <a href="{{ route('admin.dishes.create') }}">aggiungerne</a> di nuovi. 
             </p>
             
-            <table class="table">
+            <table class="table table-striped">
                 <thead>
                   <tr>
                     <th scope="col">ID</th>
@@ -45,41 +45,41 @@
                         <td>{{ $dish->name }}</td>
                         <td>
                             @if ( $dish->description )
-                                <i class="fas fa-check-circle green-text"></i>
+                                <i class="fas fa-check-circle green-icon"></i>
                             @else
-                                <i class="fas fa-times-circle red-text"></i>
+                                <i class="fas fa-times-circle red-icon"></i>
                             @endif
                         </td>
                         <td>
                             @if ($dish->image)
-                                <i class="fas fa-check-circle green-text"></i>
+                                <i class="fas fa-check-circle green-icon"></i>
                             @else
-                                <i class="fas fa-times-circle red-text"></i>
+                                <i class="fas fa-times-circle red-icon"></i>
                             @endif
                         </td>
                         <td>{{ $dish->typology }}</td>
                         <td>
                             @if ( $dish->vegan )
-                                <i class="fas fa-check-circle green-text"></i>
+                                <i class="fas fa-check-circle green-icon"></i>
                             @else
-                                <i class="fas fa-times-circle red-text"></i>
+                                <i class="fas fa-times-circle red-icon"></i>
                             @endif
                         </td>
                         <td>
                             @if ( $dish->available )
-                                <i class="fas fa-check-circle green-text"></i>
+                                <i class="fas fa-check-circle green-icon"></i>
                             @else
-                                <i class="fas fa-times-circle red-text"></i>
+                                <i class="fas fa-times-circle red-icon"></i>
                             @endif
                         </td>
                         <td>{{ $dish->price }} €</td>
                         <td colspan="2" class="d-flex">
-                            <a href="{{ route('admin.dishes.show', $dish->id) }}" class="btn btn-1"> Esplora </a>
-                            <a href="{{ route('admin.dishes.edit', $dish->id) }}" class="btn btn-2"> <i class="fas fa-edit"></i> </a>
+                            <a href="{{ route('admin.dishes.show', $dish->id) }}" class="btn btn-brand"> Esplora </a>
+                            <a href="{{ route('admin.dishes.edit', $dish->id) }}" class="btn btn-grey"> <i class="fas fa-edit"></i> </a>
                             <form action="{{ route('admin.dishes.destroy', $dish->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-3"><i class="fas fa-trash-alt"></i></button>
+                                <button type="submit" class="btn btn-red"><i class="fas fa-trash-alt"></i></button>
                             </form>
                         </td>
                     </tr>
