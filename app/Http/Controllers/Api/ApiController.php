@@ -36,7 +36,7 @@ class ApiController extends Controller
             // ciclo sulle categorie inviate, query a db per ogni categoria
             foreach ($data['categories'] as $category) {
                 $results = DB::table('restaurants')
-                    ->select('restaurants.id', 'restaurants.name','restaurants.image_logo', 'restaurants.slug', 'restaurants.phone', 'restaurants.address' )
+                    ->select('restaurants.id', 'restaurants.name','restaurants.image_logo', 'restaurants.slug', 'restaurants.phone', 'restaurants.address')
                     ->join('category_restaurant', 'restaurants.id', '=', 'category_restaurant.restaurant_id')
                     ->join('categories', 'categories.id', '=', 'category_restaurant.category_id')
                     ->where('categories.name', $category)
