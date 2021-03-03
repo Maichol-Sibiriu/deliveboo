@@ -30,7 +30,7 @@
         <!-- Page Content -->
         <div class="page-content d-flex">
           <ul>
-            <li v-for="restaurant in allRestaurants" class="text-center">
+            <li v-for="restaurant in allRestaurants" class="text-center rest-card">
               <a :href="routing(restaurant.slug)">
                 <img :src="'storage/' + restaurant.image_logo" alt="">
                 <div class="info-rest-box">

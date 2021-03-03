@@ -10152,6 +10152,11 @@ a.btn:hover {
     content: "";
   }
 }
+.right-pos {
+  min-width: 200px;
+  justify-content: flex-end;
+}
+
 @media screen and (min-width: 992px) {
   .navbar .navbar-center {
     display: inline-flex;
@@ -10596,6 +10601,15 @@ footer .gradient {
   flex-wrap: wrap;
   justify-content: center;
   flex-grow: 1;
+}
+.advanced-search .page-content ul li.rest-card {
+  background: #fff;
+  box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.4);
+  transition: transform 0.7s;
+}
+.advanced-search .page-content ul li.rest-card:hover, .advanced-search .page-content ul li.rest-card:focus {
+  z-index: 1;
+  transform: scale(1.1);
 }
 .advanced-search .page-content ul li {
   flex-basis: 98%;
