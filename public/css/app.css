@@ -10019,7 +10019,7 @@ body {
 #app {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: calc(100vh - 50px);
 }
 
 img {
@@ -10111,11 +10111,20 @@ a {
 footer {
   background: rgba(100, 181, 187, 0.55);
   color: #fff;
-  padding: 10px auto;
+  height: 50px;
+  overflow: hidden;
 }
 footer p.disclaimer {
   font-size: 1rem;
   font-family: "Oswald", sans-serif;
+  margin-bottom: 0;
+  line-height: 2.7rem;
+}
+footer .gradient {
+  display: block;
+  width: 100%;
+  height: 12px;
+  background: linear-gradient(to left, #64B5BB 25%, #F1CA29 25%, #F1CA29 50%, #6E665B 50%, #6E665B 55%, #D4D867 55%, #D4D867 65%, #EF6E60 65%, #EF6E60 75%, #F5FCA5 75%, #F5FCA5 85%, #64B5BB 85%);
 }
 
 .hero {
@@ -11144,4 +11153,35 @@ main .order-show .tot i {
 
 .submit2 {
   max-width: 120px;
+}
+
+section.error-page {
+  width: 50%;
+  margin: 0px auto;
+  background: url("../img/bg_404.jpg");
+  background-position-x: 0%;
+  background-position-y: 0%;
+  background-repeat: repeat;
+  background-size: auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 800px;
+}
+section.error-page h1 {
+  font-family: "Oswald", sans-serif;
+  color: #6E665B;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 3rem;
+}
+section.error-page h1 .ops {
+  color: #64B5BB;
+  font-size: 7rem;
+  display: block;
+  text-transform: uppercase;
+}
+section.error-page p {
+  color: #6E665B;
+  font-size: 1.5rem;
 }
