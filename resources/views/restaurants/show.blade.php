@@ -19,7 +19,7 @@
       <div class="info">
         <input value="{{ $restaurant->id}}" type="hidden" id="restaurantId">
         <h1 class="restaurant-name">{{ $restaurant->name }}</h1>
-        <small>{{ $restaurant->address }}</small>
+        <p>{{ $restaurant->address }}</p>
         <p>+39 {{ $restaurant->phone }}</p>
         {{-- <p>P.IVA: {{ $restaurant->vat_num }}</p> --}}
       </div>
@@ -28,8 +28,8 @@
     {{-- Lista piatti --}}
     <section id="menu" class="dishes-section mb-5">
       <h2 class="menu-title mb-4">MENU</h2>
-      <div class="dish-typology mb-4" v-for="typology in typologies">
-        <h2 class="mb-4">@{{ typology }}</h2>
+      <div class="dish-typology mb-5" v-for="typology in typologies">
+        <h2 class="dish-title mb-4">@{{ typology }}</h2>
         <a href="#modal-box" class="dish"
           v-if="dish.available && dish.typology == typology"
           v-for="(dish, index) in dishes"
