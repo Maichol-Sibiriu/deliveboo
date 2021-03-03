@@ -56,3 +56,24 @@ a.btn {
 .table-striped tbody tr:nth-of-type(2n+1) {
     background-color: rgba($yellow, 0.5) !important;
 }
+
+ul.pagination {
+    margin-top: 25px;
+    border: none;  
+    font-family: $admin-font;
+    color: $grey;
+
+        .page-item.active .page-link {
+            border-color: $grey;
+            background: $secondaryColor;
+        }
+
+        .page-item a.page-link {
+                color: $grey;
+                background: $white;
+
+                &:hover {
+                    background:$yellow;
+                }
+        }
+}

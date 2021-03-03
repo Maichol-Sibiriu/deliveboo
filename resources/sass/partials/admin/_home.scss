@@ -59,12 +59,12 @@
     .info-risto {
       text-align: center;
 
-      h2 {
-        text-transform: uppercase;
-        color: $secondaryColor;
-        font-family: $title-font;
-        font-size: 3.5rem;
-      }
+      // h2 {
+      //   text-transform: uppercase;
+      //   color: $secondaryColor;
+      //   font-family: $title-font;
+      //   font-size: 3.5rem;
+      // }
 
       .address,
       .p.iva,
@@ -81,24 +81,39 @@
         flex-wrap: wrap;
         justify-content: center;
 
-        .btn {
-          margin: 10px 10px;
-          color: $white;
-          padding: 10px 30px;
-          border: 1px solid $brandColor;
-          border-radius: 30px;
-          font-weight: bold;
-          background-color: $brandColor;
-        }
+
+        // .btn {
+        //   margin: 10px 10px;
+        //   color: $white;
+        //   padding: 10px 30px;
+        //   border: 1px solid $brandColor;
+        //   border-radius: 30px;
+        //   font-weight: bold;
+        //   background-color: $brandColor;
+        // }
       }
 
-      .delete {
-        background-color: $red;
-        padding: 10px 30px;
-        border-radius: 30px;
-        font-weight: bold;
-        color: $white;
-      }
+      form {
+
+        display: inline-flex;
+        button {
+            color: $white;
+            margin: 0 2px;
+            text-transform: uppercase;
+            font-weight: 700;
+            &:hover {
+              color: $yellow;
+            }
+        }
+    }
+
+      // .delete {
+      //   background-color: $red;
+      //   padding: 10px 30px;
+      //   border-radius: 30px;
+      //   font-weight: bold;
+      //   color: $white;
+      // }
 
     }
 

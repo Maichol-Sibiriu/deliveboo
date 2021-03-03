@@ -67,7 +67,7 @@
 
     <!-- content titolo + info ristorante -->
     <div class="info-risto">
-      <h2>{{ $restaurant->name }}</h2>
+      <h2 class="admin-title">{{ $restaurant->name }}</h2>
       <p class="address">
         <i class="fas fa-map"></i> : {{$restaurant->address}}
       </p>
@@ -78,20 +78,20 @@
       </p>
 
       <div class="btns d-flex mt-5 mb-4">
-        <a class="btn ordini text-center" href="{{route('admin.orders.index')}}">ORDINI
+        <a class="btn btn-brand text-center" href="{{route('admin.orders.index')}}">ORDINI
         </a>
-        <a class="btn menu text-center" href="{{ route('admin.dishes.index') }}">
+        <a class="btn btn-brand text-center" href="{{ route('admin.dishes.index') }}">
           MENU
         </a>
-        <a class="btn edit text-center" href="{{ route('admin.restaurants.edit', $restaurant->id) }}">MODIFICA RISTORANTE</a>
+        <a class="btn btn-brand text-center" href="{{ route('admin.restaurants.edit', $restaurant->id) }}">MODIFICA RISTORANTE</a>
+        <!-- form cancellazione ristorante -->
+        <form action="{{ route('admin.restaurants.destroy', $restaurant->id) }}" method="POST">
+          @csrf
+          @method('DELETE')
+          <button class="btn btn-red" type="submit">Cancella Ristorante</button>
+        </form>
       </div>
 
-      <!-- form cancellazione ristorante -->
-      <form action="{{ route('admin.restaurants.destroy', $restaurant->id) }}" method="POST">
-        @csrf
-        @method('DELETE')
-        <input class="btn delete" type="submit" value="Cancella Ristorante">
-      </form>
       @empty
       <div class="empty text-center">
         <h2>Benvenuto in Deliveboo!!!</h2>

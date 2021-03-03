@@ -5,12 +5,12 @@
 
   <h1 class="admin-title text-center">Lista Ordini</h1>
 
-  <div class="" id="ora">
+  {{-- <div class="" id="ora">
 
-  </div>
+  </div> --}}
 
   <!-- tabella lista ordini -->
-  <table class="table">
+  <table class="table table-striped">
     <thead>
       <tr>
         <th class="id">N.ID</th>
@@ -22,30 +22,28 @@
     </thead>
 
     <!-- Ciclo + compilazione tabella -->
-    @forelse ($orders as $order)
     <tbody>
-      <tr>
-        <td class="id-main"> {{  $order->id }} </td>
-        <td class="day-main">  {{  $order->created_at->isoFormat('dddd DD/MM/YYYY') }}  </td>
-        <td class="time-main">  {{  $order->created_at->isoFormat('HH:mm')}}  </td>
-        <td class="amount-main text-center">  {{  $order->amount}} € </td>
-        <td class="text-center" width="100">
-          <a href="#" class="btn btn-1">Dettaglio</a>
-        </td>
-      </tr>
+      @foreach ($orders as $order)
+        <tr>
+          <td class="id-main"> {{  $order->id }} </td>
+          <td class="day-main">  {{  $order->created_at->isoFormat('dddd DD/MM/YYYY') }}  </td>
+          <td class="time-main">  {{  $order->created_at->isoFormat('HH:mm')}}  </td>
+          <td class="amount-main text-center">  {{  $order->amount}} € </td>
+          <td class="text-center" width="100">
+            <a href="{{route ('admin.orders.show', $order->id)}}" class="btn btn-brand">Dettaglio</a>
+          </td>
+        </tr>
+      @endforeach
     </tbody>
 
     <!-- mostra bottone statistiche all ultimo ciclo -->
-    @if ($loop->last)
-    <a href="{{ route('admin.stats.show', $orders[0]->restaurant_id) }}"class="btn btn-1 mb-5">Visualizza Statistiche</a>
-    @endif
-
-    <!-- avviso in caso di tabella vuota -->
-    @empty
+    @if (! empty($orders))
+    <a href="{{ route('admin.stats.show', $orders[0]->restaurant_id) }}"class="btn btn-brand mb-5">Visualizza Statistiche</a>
+    @else
     <div class="alert alert-danger">
       <p>Non hai ricevuto ordini.</p>
     </div>
-    @endforelse
+    @endif
 
   </table>
 

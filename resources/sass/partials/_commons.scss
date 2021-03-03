@@ -31,6 +31,13 @@ a {
   text-decoration: none;
 }
 
+.admin-title {
+  font-family: $admin-font;
+  font-size: 4rem;
+  color: $secondaryColor;
+  text-transform: uppercase;
+}
+
 @media screen and (min-width: 768px) {
   * {
     font-size: 14px;

@@ -10036,6 +10036,13 @@ a {
   text-decoration: none;
 }
 
+.admin-title {
+  font-family: "Oswald", sans-serif;
+  font-size: 4rem;
+  color: #F1CA29;
+  text-transform: uppercase;
+}
+
 @media screen and (min-width: 768px) {
   * {
     font-size: 14px;
@@ -10096,6 +10103,24 @@ a.btn:hover {
 
 .table-striped tbody tr:nth-of-type(2n+1) {
   background-color: rgba(245, 252, 165, 0.5) !important;
+}
+
+ul.pagination {
+  margin-top: 25px;
+  border: none;
+  font-family: "Oswald", sans-serif;
+  color: #6E665B;
+}
+ul.pagination .page-item.active .page-link {
+  border-color: #6E665B;
+  background: #F1CA29;
+}
+ul.pagination .page-item a.page-link {
+  color: #6E665B;
+  background: #fff;
+}
+ul.pagination .page-item a.page-link:hover {
+  background: #F5FCA5;
 }
 
 .navbar {
@@ -10738,12 +10763,6 @@ footer .gradient {
 .main-admin-home .content .info-risto {
   text-align: center;
 }
-.main-admin-home .content .info-risto h2 {
-  text-transform: uppercase;
-  color: #F1CA29;
-  font-family: "Roboto", sans-serif;
-  font-size: 3.5rem;
-}
 .main-admin-home .content .info-risto .address,
 .main-admin-home .content .info-risto .p.iva,
 .main-admin-home .content .info-risto .phone {
@@ -10757,21 +10776,17 @@ footer .gradient {
   flex-wrap: wrap;
   justify-content: center;
 }
-.main-admin-home .content .info-risto .btns .btn {
-  margin: 10px 10px;
-  color: #fff;
-  padding: 10px 30px;
-  border: 1px solid #64B5BB;
-  border-radius: 30px;
-  font-weight: bold;
-  background-color: #64B5BB;
+.main-admin-home .content .info-risto form {
+  display: inline-flex;
 }
-.main-admin-home .content .info-risto .delete {
-  background-color: #EF6E60;
-  padding: 10px 30px;
-  border-radius: 30px;
-  font-weight: bold;
+.main-admin-home .content .info-risto form button {
   color: #fff;
+  margin: 0 2px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.main-admin-home .content .info-risto form button:hover {
+  color: #F5FCA5;
 }
 .main-admin-home .empty h2 {
   font-size: 3rem;
@@ -11234,8 +11249,6 @@ main .order-show .tot i {
   margin-left: 50px;
 }
 
-.text-center {
-  margin-bottom: 20px;
 .title-text {
   text-align: center;
 }
