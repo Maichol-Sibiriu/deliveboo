@@ -10059,19 +10059,27 @@ a {
   transition: 0.2s;
 }
 .navbar .navbar-toggler .navbar-toggler-icon {
-  background-image: url("../img/burger_icon.svg");
-}
-.navbar .navbar-toggler:hover {
-  border: 2px solid #64B5BB;
+  -webkit-mask: url("../img/burger_icon.svg");
+          mask: url("../img/burger_icon.svg");
+  background: #64B5BB;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  -webkit-mask-size: cover;
+          mask-size: cover;
 }
 .navbar .navbar-collapse {
   flex-grow: 0;
 }
-.navbar a,
-.navbar a.nav-link {
+.navbar .navbar-nav li a,
+.navbar .navbar-nav li a.nav-link {
   position: relative;
   color: #64B5BB;
   text-decoration: none;
+}
+.navbar .navbar-nav li a:hover,
+.navbar .navbar-nav li a.nav-link:hover {
+  color: #64B5BB;
 }
 
 .navbar .navbar-center {

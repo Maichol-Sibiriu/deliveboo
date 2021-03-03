@@ -20,13 +20,13 @@ class ApiController extends Controller
         // niente filtri, invio tutti i ristoranti
         if ( empty($data['name']) && empty($data['categories']) ) {
             $restaurants = DB::table('restaurants')
-                ->select('restaurants.id', 'restaurants.name','restaurants.image_logo', 'restaurants.slug')
+                ->select('restaurants.id', 'restaurants.name','restaurants.image_logo', 'restaurants.slug', 'restaurants.phone', 'restaurants.address')
                 ->get();
         }
         // filtro con solo nome
         elseif ( ! empty($data['name']) && empty($data['categories'])) {
             $restaurants = Restaurant::where('name', 'like', "%$name%")
-                ->select('restaurants.id', 'restaurants.name','restaurants.image_logo', 'restaurants.slug')
+                ->select('restaurants.id', 'restaurants.name','restaurants.image_logo', 'restaurants.slug', 'restaurants.phone', 'restaurants.address')
                 ->get();
         }
         // filtro con sole categorie
@@ -36,7 +36,7 @@ class ApiController extends Controller
             // ciclo sulle categorie inviate, query a db per ogni categoria
             foreach ($data['categories'] as $category) {
                 $results = DB::table('restaurants')
-                    ->select('restaurants.id', 'restaurants.name','restaurants.image_logo', 'restaurants.slug' )
+                    ->select('restaurants.id', 'restaurants.name','restaurants.image_logo', 'restaurants.slug', 'restaurants.phone', 'restaurants.address' )
                     ->join('category_restaurant', 'restaurants.id', '=', 'category_restaurant.restaurant_id')
                     ->join('categories', 'categories.id', '=', 'category_restaurant.category_id')
                     ->where('categories.name', $category)
@@ -66,7 +66,7 @@ class ApiController extends Controller
 
             foreach ($data['categories'] as $category) {
                 $results = DB::table('restaurants')
-                    ->select('restaurants.id', 'restaurants.name','restaurants.image_logo', 'restaurants.slug')
+                    ->select('restaurants.id', 'restaurants.name','restaurants.image_logo', 'restaurants.slug', 'restaurants.phone', 'restaurants.address')
                     ->join('category_restaurant', 'restaurants.id', '=', 'category_restaurant.restaurant_id')
                     ->join('categories', 'categories.id', '=', 'category_restaurant.category_id')
                     ->where('categories.name', $category)

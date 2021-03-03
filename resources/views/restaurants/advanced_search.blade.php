@@ -34,7 +34,10 @@
               <a :href="routing(restaurant.slug)">
                 <img :src="restaurant.image_logo" :alt="restaurant.name">
                 <h3>@{{restaurant.name}}</h3>
-
+                <ul class="info-restaurant">
+                  <li><i class="fas fa-map-marked-alt"></i> @{{restaurant.address}}</li>
+                  <li><i class="fas fa-phone"></i> @{{restaurant.phone}}</li>
+                </ul>
               </a>
             </li>
           </ul>

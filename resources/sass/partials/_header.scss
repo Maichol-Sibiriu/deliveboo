@@ -6,20 +6,27 @@
     border: 2px solid transparent;
     transition: .2s;
     .navbar-toggler-icon {
-      background-image: url("../img/burger_icon.svg");
-    }
-    &:hover {
-      border: 2px solid $brandColor;
+      mask: url("../img/burger_icon.svg");
+      background: $brandColor;
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      mask-size: cover;
     }
   }
   .navbar-collapse {
     flex-grow: 0;
   }
-  a,
-  a.nav-link {
+
+  .navbar-nav li a,
+  .navbar-nav li a.nav-link {
     position: relative;
     color: $brandColor;
     text-decoration: none;
+
+    &:hover {
+      color: $brandColor;
+    }
   }
 }
 
