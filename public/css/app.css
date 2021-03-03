@@ -10303,11 +10303,14 @@ footer .gradient {
   color: #fff;
   background-color: #64B5BB;
   border: none;
-  border-radius: 10px;
+  border: 1px solid transparent;
+  border-radius: 5px;
   transition: 0.2s;
+  transition-duration: 0.2s;
 }
 .rest-show-main .btn-cart:hover {
-  box-shadow: 0 0 6px #F1CA29;
+  color: #F5FCA5;
+  border: 1px solid #F5FCA5;
 }
 
 .rest-info-section {
@@ -10362,6 +10365,12 @@ footer .gradient {
   color: #EF6E60;
 }
 
+a.btn.go-to-pay {
+  display: block;
+  margin: 0 auto;
+  max-width: 150px;
+}
+
 .modal-box {
   position: fixed;
   top: 0;
@@ -10410,17 +10419,21 @@ footer .gradient {
 }
 
 .cart {
+  display: flex;
+  flex-direction: column;
   position: fixed;
   top: 60px;
   right: 0;
-  padding: 5px 10px 10px 25px;
-  min-width: 150px;
+  padding: 5px 10px 10px 35px;
+  min-width: 180px;
+  min-height: 100px;
   background-color: rgba(100, 181, 187, 0.8);
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
   z-index: 3;
 }
 .cart p {
+  text-align: center;
   margin-bottom: 0;
 }
 .cart .pz-quantity {
@@ -10450,32 +10463,42 @@ footer .gradient {
 .cart .total {
   display: flex;
   flex-direction: column;
-}
-.cart .total .btn-cart-clear {
-  color: #F1CA29;
-  font-weight: bold;
-  text-decoration: none;
-  cursor: pointer;
+  align-self: flex-end;
+  justify-self: flex-end;
 }
 .cart .total .total-text {
   align-self: flex-end;
+  font-size: 1.1rem;
   font-weight: bold;
 }
 .cart .cart-open-close {
   position: absolute;
   top: 12px;
-  left: 5px;
+  left: 10px;
   cursor: pointer;
   z-index: 2;
 }
 .cart .cart-open-close i {
-  color: #EF6E60;
   font-size: 1.1rem;
+  color: #EF6E60;
+}
+.cart .btn-cart-clear {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  text-decoration: none;
+  cursor: pointer;
+  z-index: 2;
+}
+.cart .btn-cart-clear i {
+  font-size: 1.1rem;
+  color: #EF6E60;
 }
 .cart .cart-pay {
   position: absolute;
   bottom: 12px;
-  left: 5px;
+  left: 10px;
   cursor: pointer;
   z-index: 2;
 }
@@ -10484,7 +10507,10 @@ footer .gradient {
   font-size: 1.1rem;
 }
 .cart.cart-hide {
-  left: calc(100% - 25px);
+  left: calc(100% - 35px);
+}
+.cart.cart-hide * {
+  white-space: nowrap;
 }
 
 .braintree-dropin-wrapper {
@@ -11234,8 +11260,6 @@ main .order-show .tot i {
   margin-left: 50px;
 }
 
-.text-center {
-  margin-bottom: 20px;
 .title-text {
   text-align: center;
 }

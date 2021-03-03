@@ -37,6 +37,10 @@
         </a>
       </div>
     </section>
+
+    <a v-if="total > 0" href="#cart-payment" class="btn btn-brand mb-5 go-to-pay" v-on:click="cartPayShow">
+      Procedi al pagamento
+    </a>
   
     {{-- Modale --}}
     <div id="modal-box" class="modal-box mb-5" v-show="displayModal">
@@ -63,11 +67,13 @@
         </li>
       </ul>
       <div class="total">
-        <a class="btn-cart-clear" v-on:click="deleteCart">Pulisci carrello</a>
         <span class="total-text">Totale: @{{ total }} €</span>
       </div>
       <a class="cart-open-close" v-on:click="cartToggle">
         <i class="fas fa-utensils"></i>
+      </a>
+      <a class="btn-cart-clear" v-on:click="deleteCart">
+        <i class="fas fa-trash"></i>
       </a>
       <a href="#cart-payment" class="cart-pay" v-on:click="cartPayShow">
         <i class="far fa-credit-card"></i>

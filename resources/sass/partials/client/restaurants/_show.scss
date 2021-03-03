@@ -8,11 +8,14 @@
     color: $white;
     background-color: $brandColor;
     border: none;
-    border-radius: 10px;
+    border: 1px solid transparent;
+    border-radius: 5px;
     transition: .2s;
+    transition-duration: .2s;
     &:hover {
-      box-shadow: 0 0 6px $secondaryColor;
-    }
+      color: $yellow;
+      border: 1px solid $yellow;
+      }
   }
 }
 
@@ -72,6 +75,12 @@
   }
 }
 
+a.btn.go-to-pay {
+  display: block;
+  margin: 0 auto;
+  max-width: 150px;
+}
+
 // Modale
 .modal-box {
   position: fixed;
@@ -124,16 +133,20 @@
 
 // carrello ordine
 .cart {
+  display: flex;
+  flex-direction: column;
   position: fixed;
   top: 60px;
   right: 0;
-  padding: 5px 10px 10px 25px;
-  min-width: 150px;
+  padding: 5px 10px 10px 35px;
+  min-width: 180px;
+  min-height: 100px;
   background-color: rgba($brandColor, .8);
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
   z-index: 3;
   p {
+    text-align: center;
     margin-bottom: 0;
   }
   .pz-quantity {
@@ -164,14 +177,11 @@
   .total {
     display: flex;
     flex-direction: column;
-    .btn-cart-clear {
-      color: $secondaryColor;
-      font-weight: bold;
-      text-decoration: none;
-      cursor: pointer;
-    }
+    align-self: flex-end;
+    justify-self: flex-end;
     .total-text {
       align-self: flex-end;
+      font-size: 1.1rem;
       font-weight: bold;
     }
   }
@@ -179,19 +189,33 @@
   .cart-open-close {
     position: absolute;
     top: 12px;
-    left: 5px;
+    left: 10px;
     cursor: pointer;
     z-index: 2;
     i {
-      color: $red;
       font-size: 1.1rem;
+      color: $red;
+    }
+  }
+
+  .btn-cart-clear {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    text-decoration: none;
+    cursor: pointer;
+    z-index: 2;
+    i {
+      font-size: 1.1rem;
+      color: $red;
     }
   }
 
   .cart-pay {
     position: absolute;
     bottom: 12px;
-    left: 5px;
+    left: 10px;
     cursor: pointer;
     z-index: 2;
     i {
@@ -201,7 +225,10 @@
   }
 
   &.cart-hide {
-    left: calc(100% - 25px);
+    left: calc(100% - 35px);
+    * {
+      white-space: nowrap;
+    }
   }
 }
 
