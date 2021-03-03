@@ -29,11 +29,11 @@
                   <tr>
                     <th scope="col">ID</th>
                     <th scope="col">Nome Piatto</th>
-                    <th scope="col">Descrizione</th>
-                    <th scope="col">Immagine</th>
-                    <th scope="col">Tipologia</th>
-                    <th scope="col">Vegan</th>
-                    <th scope="col">Disponibilità</th>
+                    <th scope="col" class="off-smart">Descrizione</th>
+                    <th scope="col" class="off-smart">Immagine</th>
+                    <th scope="col" class="off-smart">Tipologia</th>
+                    <th scope="col" class="off-smart">Vegan</th>
+                    <th scope="col" class="off-smart">Disponibilità</th>
                     <th scope="col">Prezzo</th>
                     <th scope="col">Utilities</th>
                   </tr>
@@ -43,29 +43,29 @@
                     <tr>
                         <th>{{ $dish->id }}</th>
                         <td>{{ $dish->name }}</td>
-                        <td>
+                        <td class="off-smart">
                             @if ( $dish->description )
                                 <i class="fas fa-check-circle green-icon"></i>
                             @else
                                 <i class="fas fa-times-circle red-icon"></i>
                             @endif
                         </td>
-                        <td>
+                        <td class="off-smart">
                             @if ($dish->image)
                                 <i class="fas fa-check-circle green-icon"></i>
                             @else
                                 <i class="fas fa-times-circle red-icon"></i>
                             @endif
                         </td>
-                        <td>{{ $dish->typology }}</td>
-                        <td>
+                        <td class="off-smart">{{ $dish->typology }}</td>
+                        <td class="off-smart">
                             @if ( $dish->vegan )
                                 <i class="fas fa-check-circle green-icon"></i>
                             @else
                                 <i class="fas fa-times-circle red-icon"></i>
                             @endif
                         </td>
-                        <td>
+                        <td class="off-smart">
                             @if ( $dish->available )
                                 <i class="fas fa-check-circle green-icon"></i>
                             @else
@@ -73,7 +73,7 @@
                             @endif
                         </td>
                         <td>{{ $dish->price }} €</td>
-                        <td colspan="2" class="d-flex">
+                        <td class="d-flex justify-content-center">
                             <a href="{{ route('admin.dishes.show', $dish->id) }}" class="btn btn-brand"> Esplora </a>
                             <a href="{{ route('admin.dishes.edit', $dish->id) }}" class="btn btn-grey"> <i class="fas fa-edit"></i> </a>
                             <form action="{{ route('admin.dishes.destroy', $dish->id) }}" method="POST">
