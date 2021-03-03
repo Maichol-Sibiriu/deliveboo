@@ -47,3 +47,13 @@ a.btn {
 .green-icon {
     color: $green;
 }
+
+// Table
+
+.table {
+    color: $grey;
+}
+
+.table-striped tbody tr:nth-of-type(2n+1) {
+    background-color: rgba($yellow, 0.5) !important;
+}

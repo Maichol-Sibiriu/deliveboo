@@ -10090,6 +10090,14 @@ a.btn:hover {
   color: #D4D867;
 }
 
+.table {
+  color: #6E665B;
+}
+
+.table-striped tbody tr:nth-of-type(2n+1) {
+  background-color: rgba(245, 252, 165, 0.5) !important;
+}
+
 .navbar {
   font-family: "Lato", sans-serif;
   font-weight: 900;
@@ -11131,6 +11139,27 @@ main .order-show .tot i {
 
 .btn-3 {
   background: #EF6E60;
+}
+
+.dish-detail {
+  width: 65%;
+  margin: 0 auto;
+  padding: 20px;
+}
+.dish-detail .admin-title {
+  font-family: "Oswald", sans-serif;
+  font-size: 4rem;
+}
+.dish-detail .box-detail {
+  background: #F8F7F7;
+  color: #6E665B;
+  font-size: 1.5rem;
+  padding: 20px;
+  margin: 25px 10px;
+}
+.dish-detail .dish-desc {
+  flex-basis: 50%;
+  margin-left: 50px;
 }
 
 .text-center {
