@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<h1 class="text-center">Modifica piatto</h1>
+<h1 class="title-text">Modifica piatto</h1>
 
   @if ($errors->any())
     <ul>

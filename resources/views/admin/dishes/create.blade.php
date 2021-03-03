@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<h1 class="text-center">Crea un nuovo piatto</h1>
+<h1 class="title-text">Crea un nuovo piatto</h1>
 
   @if ($errors->any())
     <ul>

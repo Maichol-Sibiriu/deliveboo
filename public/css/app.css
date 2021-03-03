@@ -1,5 +1,4 @@
-@charset "UTF-8";
-@import url(https://fonts.googleapis.com/css?family=Nunito);
+@import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
 /*!
  * Bootstrap v4.6.0 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors
@@ -11045,8 +11044,8 @@ main .order-show .tot i {
   background: #EF6E60;
 }
 
-.text-center {
-  margin-bottom: 20px;
+.title-text {
+  text-align: center;
 }
 
 .name,
@@ -11064,10 +11063,6 @@ main .order-show .tot i {
 .description1,
 .vegan1 {
   margin-top: 15px;
-}
-
-.available1 {
-  margin-bottom: 15px;
 }
 
 .create-dishes {
@@ -11097,10 +11092,6 @@ main .order-show .tot i {
 }
 
 .change-image {
-  margin-top: 5px;
-}
-
-.vegan2 {
   margin-top: 5px;
 }
 
