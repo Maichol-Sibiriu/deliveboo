@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<h1 class="text-center">Crea un nuovo piatto</h1>
+<h1 class="title-text">Crea un nuovo piatto</h1>
 
   @if ($errors->any())
     <ul>
@@ -50,6 +50,6 @@
       <input type="checkbox" id="available" name="available">
     </div>
 
-    <input type="submit1" class="btn btn-submit submit1 form-control create-dishes" value="Crea piatto">
+    <input type="submit" class="btn btn-submit submit1 form-control create-dishes" value="Crea piatto">
   </form>
 @endsection
