@@ -242,6 +242,8 @@
 
   // lista piatti
   .dishes-section {
+    margin: 0 auto;
+    max-width: 1400px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
@@ -268,6 +270,8 @@
 
   // pagamento braintree
   .braintree-dropin-wrapper {
+    margin: 0 auto;
+    max-width: 1400px;
     padding-top: 50px;
     #payment-form {
       input#phone,
