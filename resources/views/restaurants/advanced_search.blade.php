@@ -30,14 +30,16 @@
         <!-- Page Content -->
         <div class="page-content d-flex">
           <ul>
-            <li v-for="restaurant in allRestaurants" class="text-center">
+            <li v-for="restaurant in allRestaurants" class="text-center rest-card">
               <a :href="routing(restaurant.slug)">
-                <img :src="restaurant.image_logo" :alt="restaurant.name">
-                <h3>@{{restaurant.name}}</h3>
-                <ul class="info-restaurant">
-                  <li><i class="fas fa-map-marked-alt"></i> @{{restaurant.address}}</li>
-                  <li><i class="fas fa-phone"></i> @{{restaurant.phone}}</li>
-                </ul>
+                <img :src="'storage/' + restaurant.image_logo" alt="">
+                <div class="info-rest-box">
+                  <h3>@{{restaurant.name}}</h3>
+                  <ul class="info-restaurant d-flex text-left">
+                    <li><i class="fas fa-map-marked-alt"></i> @{{restaurant.address}}</li>
+                    <li><i class="fas fa-phone"></i> @{{restaurant.phone}}</li>
+                  </ul>
+                </div>
               </a>
             </li>
           </ul>
