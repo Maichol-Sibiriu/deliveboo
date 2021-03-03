@@ -1,7 +1,58 @@
-.red-text {
-    color: $red;
+// Buttons
+a.btn {
+    text-transform: uppercase;
+    font-weight: 700;
+    color: $white;
+    margin: 0 2px;
+    outline: none;
+    border: 1px solid transparent;
+
+	&:hover {
+	color: $yellow;
+	border: 1px solid $yellow;
+	}
+    
 }
 
-.green-text {
+.btn-brand {
+	background: $brandColor;
+}
+
+.btn-red {
+	background: $red;
+}
+.btn-green {
+	background: $green;
+}
+.btn-grey {
+	background: $grey;
+}
+.btn-secondary {
+	background: $secondaryColor;
+}
+
+// Colored Icons - fontAwesome
+
+.brand-icon {
+    color: $brandColor;
+}
+.secondary-icon {
+    color: $secondaryColor;
+}
+
+.red-icon {
+    color: $red;
+}
+.green-icon {
     color: $green;
+}
+
+// Table
+
+.table {
+    color: $grey;
+}
+
+.table-striped tbody tr:nth-of-type(2n+1) {
+    background-color: rgba($yellow, 0.5) !important;
 }
