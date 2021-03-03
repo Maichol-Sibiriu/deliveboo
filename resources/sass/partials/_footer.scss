@@ -19,3 +19,8 @@ footer {
       $brandColor 25%, $secondaryColor 25%, $secondaryColor 50%, $grey 50%, $grey 55%, $green 55%, $green 65%, $red 65%, $red 75%, $yellow 75%, $yellow 85%, $brandColor 85% )
     }
 }
+@media screen and (max-width: 992px) {
+    footer {
+        height: 40px;
+    }
+  }

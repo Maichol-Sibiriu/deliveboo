@@ -70,12 +70,10 @@
     
 }
 
-.btn-1 {
-    background: $brandColor;
-}
-.btn-2 {
-    background: $grey;
-}
-.btn-3 {
-    background: $red;
-}
+@media screen and (max-width: 992px) {
+    .table thead tr th.off-smart,
+    .table tbody tr td.off-smart
+     {
+        display: none;
+    }
+  }

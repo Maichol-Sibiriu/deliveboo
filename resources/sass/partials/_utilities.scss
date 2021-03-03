@@ -1,17 +1,16 @@
 // Buttons
-a.btn {
+a.btn,
+button.btn {
     text-transform: uppercase;
     font-weight: 700;
     color: $white;
-    margin: 0 2px;
     outline: none;
     border: 1px solid transparent;
 
 	&:hover {
 	color: $yellow;
 	border: 1px solid $yellow;
-	}
-    
+	}  
 }
 
 .btn-brand {

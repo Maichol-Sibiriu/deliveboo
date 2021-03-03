@@ -48,11 +48,11 @@
   </table>
 
   <div class="pagination">
-    {{ $orders->links()}}
+    {{$orders->links()}}
   </div>
 
   <!-- bottone indietro -->
-    <a href="{{route('admin.home')}}"class="btn btn-1 mt-4">Indietro</a>
+    {{-- <a href="{{route('admin.home')}}"class="btn btn-1 mt-4">Indietro</a> --}}
 
 
 

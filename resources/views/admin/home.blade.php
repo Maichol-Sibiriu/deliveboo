@@ -4,7 +4,7 @@
 <main class="main-admin-home d-flex">
 
   <!-- sidebar -->
-  <div class="sidebar ">
+  <div class="admin-sidebar ">
     <h6 class="text-center mb-5">CREA / MODIFICA RISTORANTE</h6>
      <!-- menu -->
     <div class="side-menu mb-5">
@@ -39,7 +39,7 @@
   </div>
 
     <!-- content here -->
-  <div class="content ">
+  <div class="admin-content ">
     @if (session('saved'))
     <div class="alert alert-success text-center">
       <p>Il tuo ristorante {{session('saved')}} è stato creato!</p>
@@ -77,7 +77,7 @@
         <i class="fas fa-phone"></i>: {{$restaurant->phone}}
       </p>
 
-      <div class="btns d-flex mt-5 mb-4">
+      <div class="btns d-flex">
         <a class="btn btn-brand text-center" href="{{route('admin.orders.index')}}">ORDINI
         </a>
         <a class="btn btn-brand text-center" href="{{ route('admin.dishes.index') }}">
