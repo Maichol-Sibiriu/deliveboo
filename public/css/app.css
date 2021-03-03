@@ -10019,7 +10019,7 @@ body {
 #app {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: calc(100vh - 50px);
 }
 
 img {
@@ -10041,12 +10041,61 @@ a {
     font-size: 14px;
   }
 }
-.red-text {
+a.btn {
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 2px;
+  outline: none;
+  border: 1px solid transparent;
+}
+a.btn:hover {
+  color: #F5FCA5;
+  border: 1px solid #F5FCA5;
+}
+
+.btn-brand {
+  background: #64B5BB;
+}
+
+.btn-red {
+  background: #EF6E60;
+}
+
+.btn-green {
+  background: #D4D867;
+}
+
+.btn-grey {
+  background: #6E665B;
+}
+
+.btn-secondary {
+  background: #F1CA29;
+}
+
+.brand-icon {
+  color: #64B5BB;
+}
+
+.secondary-icon {
+  color: #F1CA29;
+}
+
+.red-icon {
   color: #EF6E60;
 }
 
-.green-text {
+.green-icon {
   color: #D4D867;
+}
+
+.table {
+  color: #6E665B;
+}
+
+.table-striped tbody tr:nth-of-type(2n+1) {
+  background-color: rgba(245, 252, 165, 0.5) !important;
 }
 
 .navbar {
@@ -10103,11 +10152,35 @@ a {
     content: "";
   }
 }
+.right-pos {
+  min-width: 200px;
+  justify-content: flex-end;
+}
+
 @media screen and (min-width: 992px) {
   .navbar .navbar-center {
     display: inline-flex;
   }
 }
+footer {
+  background: rgba(100, 181, 187, 0.55);
+  color: #fff;
+  height: 50px;
+  overflow: hidden;
+}
+footer p.disclaimer {
+  font-size: 1rem;
+  font-family: "Oswald", sans-serif;
+  margin-bottom: 0;
+  line-height: 2.7rem;
+}
+footer .gradient {
+  display: block;
+  width: 100%;
+  height: 12px;
+  background: linear-gradient(to left, #64B5BB 25%, #F1CA29 25%, #F1CA29 50%, #6E665B 50%, #6E665B 55%, #D4D867 55%, #D4D867 65%, #EF6E60 65%, #EF6E60 75%, #F5FCA5 75%, #F5FCA5 85%, #64B5BB 85%);
+}
+
 .hero {
   position: relative;
   display: flex;
@@ -10245,17 +10318,22 @@ a {
 }
 .rest-info-section .rest-logo-wrapper {
   margin-right: 15px;
-  width: 40%;
   max-width: 40%;
+  max-height: 100%;
 }
 .rest-info-section .rest-logo-wrapper img {
   border-radius: 20px;
   overflow: hidden;
 }
-.rest-info-section .restaurant-name {
+.rest-info-section .info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.rest-info-section .info .restaurant-name {
   color: #F1CA29;
 }
-.rest-info-section p {
+.rest-info-section .info p {
   margin: 0;
 }
 
@@ -10266,20 +10344,18 @@ a {
   text-align: center;
   color: #F1CA29;
 }
-.dishes-section .dish-typology {
-  padding: 15px;
-  border: 2px solid rgba(245, 252, 165, 0.6);
-  background-color: rgba(245, 252, 165, 0.4);
-}
-.dishes-section .dish-typology h2 {
-  color: #64B5BB;
+.dishes-section .dish-typology .dish-title {
+  padding: 5px;
+  text-align: center;
+  color: #6E665B;
+  background-color: #F1CA29;
 }
 .dishes-section .dish-typology a.dish {
   display: block;
   margin-bottom: 10px;
   font-size: 1.2em;
   text-decoration: none;
-  color: #6E665B;
+  color: #64B5BB;
   cursor: pointer;
 }
 .dishes-section .dish-typology a.dish:hover {
@@ -10437,7 +10513,13 @@ a {
 }
 
 @media screen and (min-width: 768px) {
+  .rest-info-section {
+    justify-content: center;
+  }
+
   .dishes-section {
+    margin: 0 auto;
+    max-width: 1400px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
@@ -10447,6 +10529,10 @@ a {
   }
   .dishes-section .dish-typology {
     width: 45%;
+  }
+  .dishes-section .dish-typology a.dish {
+    display: inline-block;
+    width: 50%;
   }
 
   .modal-box {
@@ -10458,6 +10544,8 @@ a {
   }
 
   .braintree-dropin-wrapper {
+    margin: 0 auto;
+    max-width: 1400px;
     padding-top: 50px;
   }
   .braintree-dropin-wrapper #payment-form input#phone,
@@ -10529,19 +10617,57 @@ a {
   justify-content: center;
   flex-grow: 1;
 }
+.advanced-search .page-content ul li.rest-card {
+  background: #fff;
+  box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.4);
+  transition: transform 0.7s;
+}
+.advanced-search .page-content ul li.rest-card:hover, .advanced-search .page-content ul li.rest-card:focus {
+  z-index: 1;
+  transform: scale(1.1);
+}
 .advanced-search .page-content ul li {
   flex-basis: 98%;
   margin: 1%;
   border: 1px solid #F8F7F7;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  overflow: hidden;
 }
 .advanced-search .page-content ul li a {
   text-decoration: none;
+  color: #6E665B;
 }
-.advanced-search .page-content ul li a h3 {
+.advanced-search .page-content ul li a i {
+  color: #F1CA29;
+}
+.advanced-search .page-content ul li a img {
+  margin-bottom: 20px;
+  width: 100%;
+  height: 250px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.advanced-search .page-content ul li a .info-rest-box {
+  padding: 10px;
+}
+.advanced-search .page-content ul li a .info-rest-box h3 {
   text-transform: uppercase;
   font-family: "Roboto", sans-serif;
   color: #EF6E60;
   font-size: 1.75rem;
+}
+.advanced-search .page-content ul li a .info-rest-box ul.info-restaurant {
+  flex-direction: column;
+}
+.advanced-search .page-content ul li a .info-rest-box ul.info-restaurant li {
+  margin-bottom: 10px;
+  padding: 8px 10px;
+  display: block;
+  border: none;
+  border-radius: 0px;
+  font-size: 1.2rem;
+  border-left: 4px solid #F1CA29;
 }
 
 @media screen and (min-width: 768px) {
@@ -10568,72 +10694,115 @@ a {
     margin: 1%;
   }
 }
-.main-admin-home .logo {
+.main-admin-home {
+  font-family: "Lato", sans-serif;
+}
+.main-admin-home .sidebar {
+  color: #64B5BB;
+  flex-basis: 25%;
+  border-right: 3px solid #F5FCA5;
+  padding: 50px;
+}
+.main-admin-home .sidebar h6 {
+  font-weight: 900;
+  padding: 8px 0;
+}
+.main-admin-home .sidebar .side-menu ul {
+  border-left: 4px solid #64B5BB;
+}
+.main-admin-home .sidebar .side-menu ul li {
+  padding: 8px 20px;
+}
+.main-admin-home .sidebar .side-menu ul li:hover {
+  background-color: rgba(170, 214, 218, 0.2);
+}
+.main-admin-home .sidebar .side-menu ul a {
+  color: #64B5BB;
+  text-decoration: none;
+  font-weight: 600;
+}
+.main-admin-home .content {
+  flex-basis: 75%;
+  padding-top: 50px;
+}
+.main-admin-home .content .logo {
+  width: 400px;
+  border-radius: 5px;
   margin: 0 auto;
-  width: 300px;
-  border-radius: 30px;
 }
-.main-admin-home .logo img {
-  border-radius: 30px;
+.main-admin-home .content .logo img {
+  margin: 0 auto;
+  border-radius: 5px;
+  height: 100%;
 }
-.main-admin-home h2 {
+.main-admin-home .content .info-risto {
+  text-align: center;
+}
+.main-admin-home .content .info-risto h2 {
   text-transform: uppercase;
   color: #F1CA29;
-  text-align: center;
   font-family: "Roboto", sans-serif;
+  font-size: 3.5rem;
 }
-.main-admin-home .info-rest {
-  text-align: center;
+.main-admin-home .content .info-risto .address,
+.main-admin-home .content .info-risto .p.iva,
+.main-admin-home .content .info-risto .phone {
   font-size: 15px;
   font-style: italic;
 }
-.main-admin-home .info-rest p {
+.main-admin-home .content .info-risto p {
   font-weight: bold;
 }
-.main-admin-home .btns {
-  justify-content: center;
+.main-admin-home .content .info-risto .btns {
   flex-wrap: wrap;
+  justify-content: center;
 }
-.main-admin-home .btns .btn {
+.main-admin-home .content .info-risto .btns .btn {
   margin: 10px 10px;
-  color: #64B5BB;
+  color: #fff;
   padding: 10px 30px;
   border: 1px solid #64B5BB;
   border-radius: 30px;
   font-weight: bold;
+  background-color: #64B5BB;
 }
-.main-admin-home input .btn {
-  margin: 0 10px;
-  color: #64B5BB;
-  padding: 10px 30px;
-  border: 1px solid #64B5BB;
-  border-radius: 30px;
-  font-weight: bold;
-}
-.main-admin-home .empty {
-  text-align: center;
-  margin-top: 100px;
-}
-.main-admin-home .empty .create {
-  margin: 0 10px;
-  color: #64B5BB;
-  padding: 10px 30px;
-  border: 1px solid #64B5BB;
-  border-radius: 30px;
-  font-weight: bold;
-}
-.main-admin-home form {
-  text-align: center;
-  margin-top: 50px;
-}
-.main-admin-home form .delete {
+.main-admin-home .content .info-risto .delete {
   background-color: #EF6E60;
   padding: 10px 30px;
   border-radius: 30px;
   font-weight: bold;
   color: #fff;
 }
+.main-admin-home .empty h2 {
+  font-size: 3rem;
+  padding-top: 80px;
+}
+.main-admin-home .empty p {
+  font-size: 1.5rem;
+}
+.main-admin-home .empty a {
+  color: #fff;
+  padding: 10px 30px;
+  border: 1px solid #64B5BB;
+  border-radius: 30px;
+  font-weight: bold;
+  background-color: #64B5BB;
+}
 
+@media screen and (max-width: 996px) {
+  .main-admin-home .sidebar {
+    display: none;
+  }
+  .main-admin-home .content {
+    flex-basis: 100%;
+  }
+  .main-admin-home .content .logo {
+    width: 90%;
+  }
+  .main-admin-home .content .logo img {
+    padding: 15px;
+  }
+}
 .create-restaurant {
   display: flex;
   flex-direction: column;
@@ -11044,6 +11213,29 @@ main .order-show .tot i {
   background: #EF6E60;
 }
 
+.dish-detail {
+  width: 65%;
+  margin: 0 auto;
+  padding: 20px;
+}
+.dish-detail .admin-title {
+  font-family: "Oswald", sans-serif;
+  font-size: 4rem;
+}
+.dish-detail .box-detail {
+  background: #F8F7F7;
+  color: #6E665B;
+  font-size: 1.5rem;
+  padding: 20px;
+  margin: 25px 10px;
+}
+.dish-detail .dish-desc {
+  flex-basis: 50%;
+  margin-left: 50px;
+}
+
+.text-center {
+  margin-bottom: 20px;
 .title-text {
   text-align: center;
 }
@@ -11097,4 +11289,35 @@ main .order-show .tot i {
 
 .submit2 {
   max-width: 120px;
+}
+
+section.error-page {
+  width: 50%;
+  margin: 0px auto;
+  background: url("../img/bg_404.jpg");
+  background-position-x: 0%;
+  background-position-y: 0%;
+  background-repeat: repeat;
+  background-size: auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 800px;
+}
+section.error-page h1 {
+  font-family: "Oswald", sans-serif;
+  color: #6E665B;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 3rem;
+}
+section.error-page h1 .ops {
+  color: #64B5BB;
+  font-size: 7rem;
+  display: block;
+  text-transform: uppercase;
+}
+section.error-page p {
+  color: #6E665B;
+  font-size: 1.5rem;
 }

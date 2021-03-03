@@ -54,6 +54,11 @@
  }
 }
 
+.right-pos {
+  min-width: 200px;
+  justify-content: flex-end;
+}
+
 @media screen and (min-width: 992px) {
   .navbar .navbar-center {
     display: inline-flex;

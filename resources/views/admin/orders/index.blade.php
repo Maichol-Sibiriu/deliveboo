@@ -30,7 +30,7 @@
         <td class="time-main">  {{  $order->created_at->isoFormat('HH:mm')}}  </td>
         <td class="amount-main text-center">  {{  $order->amount}} € </td>
         <td class="text-center" width="100">
-          <a href="{{ route('admin.orders.show', $order->id) }}" class="btn btn-1">Dettaglio</a>
+          <a href="#" class="btn btn-1">Dettaglio</a>
         </td>
       </tr>
     </tbody>
