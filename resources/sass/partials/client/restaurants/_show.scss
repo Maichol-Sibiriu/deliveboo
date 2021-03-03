@@ -24,18 +24,23 @@
   color: $brandColor;
   .rest-logo-wrapper {
     margin-right: 15px;
-    width: 40%;
     max-width: 40%;
+    max-height: 100%;
     img {
       border-radius: 20px;
       overflow: hidden;
     }
   }
-  .restaurant-name {
-    color: $secondaryColor;
-  }
-  p {
-    margin: 0;
+  .info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .restaurant-name {
+      color: $secondaryColor;
+    }
+    p {
+      margin: 0;
+    }
   }
 }
 
@@ -47,19 +52,18 @@
     color: $secondaryColor;
   }
   .dish-typology {
-    padding: 15px;
-    border: 2px solid rgba($yellow, .6);
-    // border-radius: 20px;
-    background-color: rgba($yellow, .4);
-    h2 {
-      color: $brandColor;
+    .dish-title {
+      padding: 5px;
+      text-align: center;
+      color: $grey;
+      background-color: $secondaryColor;
     }
     a.dish {
       display: block;
       margin-bottom: 10px;
       font-size: 1.2em;
       text-decoration: none;
-      color: $grey;
+      color: $brandColor;
       cursor: pointer;
       &:hover {
         color: $red;
@@ -231,6 +235,11 @@
 }
 
 @media screen and (min-width: 768px) {
+  // info ristorante
+  .rest-info-section {
+    justify-content: center;
+  }
+
   // lista piatti
   .dishes-section {
     display: flex;
@@ -241,6 +250,10 @@
     }
     .dish-typology {
       width: 45%;
+      a.dish {
+        display: inline-block;
+        width: 50%;
+      }
     }
   }
 

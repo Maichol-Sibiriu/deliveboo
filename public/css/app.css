@@ -10245,17 +10245,22 @@ a {
 }
 .rest-info-section .rest-logo-wrapper {
   margin-right: 15px;
-  width: 40%;
   max-width: 40%;
+  max-height: 100%;
 }
 .rest-info-section .rest-logo-wrapper img {
   border-radius: 20px;
   overflow: hidden;
 }
-.rest-info-section .restaurant-name {
+.rest-info-section .info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.rest-info-section .info .restaurant-name {
   color: #F1CA29;
 }
-.rest-info-section p {
+.rest-info-section .info p {
   margin: 0;
 }
 
@@ -10266,20 +10271,18 @@ a {
   text-align: center;
   color: #F1CA29;
 }
-.dishes-section .dish-typology {
-  padding: 15px;
-  border: 2px solid rgba(245, 252, 165, 0.6);
-  background-color: rgba(245, 252, 165, 0.4);
-}
-.dishes-section .dish-typology h2 {
-  color: #64B5BB;
+.dishes-section .dish-typology .dish-title {
+  padding: 5px;
+  text-align: center;
+  color: #6E665B;
+  background-color: #F1CA29;
 }
 .dishes-section .dish-typology a.dish {
   display: block;
   margin-bottom: 10px;
   font-size: 1.2em;
   text-decoration: none;
-  color: #6E665B;
+  color: #64B5BB;
   cursor: pointer;
 }
 .dishes-section .dish-typology a.dish:hover {
@@ -10437,6 +10440,10 @@ a {
 }
 
 @media screen and (min-width: 768px) {
+  .rest-info-section {
+    justify-content: center;
+  }
+
   .dishes-section {
     display: flex;
     flex-wrap: wrap;
@@ -10447,6 +10454,10 @@ a {
   }
   .dishes-section .dish-typology {
     width: 45%;
+  }
+  .dishes-section .dish-typology a.dish {
+    display: inline-block;
+    width: 50%;
   }
 
   .modal-box {
