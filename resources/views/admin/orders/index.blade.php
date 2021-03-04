@@ -10,11 +10,11 @@
     <!-- content here -->
   <section class="admin-content order-index container">
     <h1 class="admin-title text-center">Lista Ordini</h1>
-    
+
     {{-- <div class="" id="ora">
-    
+
     </div> --}}
-    
+
     <!-- tabella lista ordini -->
     <table class="table table-striped">
       <thead>
@@ -26,7 +26,7 @@
           <th></th>
         </tr>
       </thead>
-    
+
       <!-- Ciclo + compilazione tabella -->
       <tbody>
         @foreach ($orders as $order)
@@ -41,7 +41,7 @@
           </tr>
         @endforeach
       </tbody>
-    
+
       <!-- mostra bottone statistiche all ultimo ciclo -->
       @if (! empty($orders))
       <a href="{{ route('admin.stats.show', $orders[0]->restaurant_id) }}"class="btn btn-brand mb-5">Visualizza Statistiche</a>
@@ -50,17 +50,17 @@
         <p>Non hai ricevuto ordini.</p>
       </div>
       @endif
-    
+
     </table>
-    
+
     <div class="pagination">
       {{$orders->links()}}
     </div>
-    
+
     <!-- bottone indietro -->
       {{-- <a href="{{route('admin.home')}}"class="btn btn-1 mt-4">Indietro</a> --}}
 
-  </section>   
-</main>  
+  </section>
+</main>
 
 @endsection
