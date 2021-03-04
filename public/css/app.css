@@ -10049,7 +10049,8 @@ a {
   }
 }
 a.btn,
-button.btn {
+button.btn,
+input.btn {
   text-transform: uppercase;
   font-weight: 700;
   color: #fff;
@@ -10057,7 +10058,8 @@ button.btn {
   border: 1px solid transparent;
 }
 a.btn:hover,
-button.btn:hover {
+button.btn:hover,
+input.btn:hover {
   color: #F5FCA5;
   border: 1px solid #F5FCA5;
 }
@@ -10725,82 +10727,83 @@ footer .gradient {
     margin: 1%;
   }
 }
-.main-admin-home {
+.main-admin {
   font-family: "Lato", sans-serif;
+  flex-grow: 1;
 }
-.main-admin-home .admin-sidebar {
+.main-admin .admin-sidebar {
   color: #64B5BB;
   flex-basis: 25%;
   border-right: 3px solid #F5FCA5;
   padding: 50px;
 }
-.main-admin-home .admin-sidebar h6 {
+.main-admin .admin-sidebar h6 {
   font-weight: 900;
   padding: 8px 0;
 }
-.main-admin-home .admin-sidebar .side-menu ul {
+.main-admin .admin-sidebar .side-menu ul {
   border-left: 4px solid #64B5BB;
 }
-.main-admin-home .admin-sidebar .side-menu ul li {
+.main-admin .admin-sidebar .side-menu ul li {
   padding: 8px 20px;
 }
-.main-admin-home .admin-sidebar .side-menu ul li:hover {
+.main-admin .admin-sidebar .side-menu ul li:hover {
   background-color: rgba(170, 214, 218, 0.2);
 }
-.main-admin-home .admin-sidebar .side-menu ul a {
+.main-admin .admin-sidebar .side-menu ul a {
   color: #64B5BB;
   text-decoration: none;
   font-weight: 600;
 }
-.main-admin-home .admin-content {
+.main-admin .admin-content {
   flex-basis: 75%;
   padding-top: 50px;
 }
-.main-admin-home .admin-content .logo {
+.main-admin .admin-content .logo {
   width: 400px;
   border-radius: 5px;
   margin: 0 auto;
 }
-.main-admin-home .admin-content .logo img {
+.main-admin .admin-content .logo img {
   margin: 0 auto;
   border-radius: 5px;
   height: 100%;
 }
-.main-admin-home .admin-content .info-risto {
+.main-admin .admin-content .info-risto {
   text-align: center;
 }
-.main-admin-home .admin-content .info-risto .address,
-.main-admin-home .admin-content .info-risto .p.iva,
-.main-admin-home .admin-content .info-risto .phone {
+.main-admin .admin-content .info-risto .address,
+.main-admin .admin-content .info-risto .p.iva,
+.main-admin .admin-content .info-risto .phone {
   font-size: 15px;
   font-style: italic;
 }
-.main-admin-home .admin-content .info-risto p {
+.main-admin .admin-content .info-risto p {
   font-weight: bold;
 }
-.main-admin-home .admin-content .info-risto .btns {
+.main-admin .admin-content .info-risto .btns {
   flex-wrap: wrap;
   justify-content: center;
 }
-.main-admin-home .admin-content .info-risto .btns form {
+.main-admin .admin-content .info-risto .btns form {
   display: inline-flex;
 }
-.main-admin-home .admin-content .info-risto .btns form button {
+.main-admin .admin-content .info-risto .btns form button {
   color: #fff;
   text-transform: uppercase;
   font-weight: 700;
 }
-.main-admin-home .admin-content .info-risto .btns form button:hover {
+.main-admin .admin-content .info-risto .btns form button:hover {
   color: #F5FCA5;
 }
-.main-admin-home .empty h2 {
+.main-admin .empty h2 {
   font-size: 3rem;
   padding-top: 80px;
 }
-.main-admin-home .empty p {
+.main-admin .empty p {
   font-size: 1.5rem;
 }
-.main-admin-home .empty a {
+.main-admin .empty a {
   color: #fff;
   padding: 10px 30px;
   border: 1px solid #64B5BB;
@@ -11279,7 +11282,7 @@ main .order-show .tot i {
 }
 
 .submit1 {
-  max-width: 100px;
+  max-width: 150px;
 }
 
 .edit-dishes {
@@ -11300,7 +11303,7 @@ main .order-show .tot i {
 }
 
 .submit2 {
-  max-width: 120px;
+  max-width: 150px;
 }
 
 section.error-page {

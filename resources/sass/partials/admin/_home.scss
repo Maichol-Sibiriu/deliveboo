@@ -1,6 +1,7 @@
 
-.main-admin-home {
+.main-admin {
   font-family: $primary-font;
+  flex-grow: 1;
 
   .admin-sidebar {
     color: $brandColor;

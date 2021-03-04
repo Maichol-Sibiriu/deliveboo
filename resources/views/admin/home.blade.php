@@ -1,45 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-<main class="main-admin-home d-flex">
+<main class="main-admin d-flex">
 
   <!-- sidebar -->
-  <div class="admin-sidebar ">
-    <h6 class="text-center mb-5">CREA / MODIFICA RISTORANTE</h6>
-     <!-- menu -->
-    <div class="side-menu mb-5">
-      <h6>MENU</h6>
-      <div class="cont-menu">
-        <ul>
-          <li>
-            <a href="{{ route('admin.dishes.index') }}">Visualizza Menu</a>
-          </li>
-          <li>
-            <a href="{{ route('admin.dishes.create') }}">Aggiungi Nuovo Piatto</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- ordini -->
-    <div class="side-menu">
-      <h6>ORDINI</h6>
-      <div class="cont-menu">
-        <ul>
-          <li>
-            <a href="{{ route('admin.orders.index') }}">Visualizza Ordini</a>
-          </li>
-          <li>
-            <a href="#">Statistiche Ordini</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-  </div>
+  @include('partials.sidebar')
 
     <!-- content here -->
-  <div class="admin-content ">
+  <section class="admin-content ">
     @if (session('saved'))
     <div class="alert alert-success text-center">
       <p>Il tuo ristorante {{session('saved')}} è stato creato!</p>
@@ -96,13 +64,13 @@
       <div class="empty text-center">
         <h2>Benvenuto in Deliveboo!!!</h2>
         <p>Inizia da qui, creando il tuo ristorante dedicato alle consegne a domicilio.</p>
-        <a class="btn create text-center"   href="{{route('admin.restaurants.create') }}">
+        <a class="btn btn-brand text-center"   href="{{route('admin.restaurants.create') }}">
           CREA RISTORNATE
         </a>
       </div>
 
     </div>
-  </div>
+  </section>
 
     @endforelse
 
