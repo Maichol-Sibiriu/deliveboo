@@ -5,7 +5,6 @@
 <div class="content d-flex">
 
   <div class="cover">
-    cover
   </div>
 
   <div class="access">
