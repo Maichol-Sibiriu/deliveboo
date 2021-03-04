@@ -3,8 +3,9 @@
 @section('content')
 <main class="main-admin d-flex">
 
-  <!-- sidebar -->
-  @include('partials.sidebar')
+    <!-- sidebar -->
+    @include('partials.sidebar')
+  
 
     <!-- content here -->
   <section class="admin-content ">
@@ -61,7 +62,7 @@
       </div>
 
       @empty
-      <div class="empty text-center">
+      <div class="empty text-center container">
         <h2 class="text-center admin-title">Benvenuto in Deliveboo!</h2>
         <p>Inizia da qui, creando il tuo ristorante, inserendo un menù e controllando di volta in volta gli ordini che verranno fatti dai tuoi clienti.
           Consegne veloci, pasti caldi, clienti soddisfatti! La famiglia Deliveboo è pronta a darti tutti gli strumenti per restare al passo con i tempi!
