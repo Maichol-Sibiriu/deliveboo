@@ -82,6 +82,9 @@ const cart = new Vue({
           const strCookie = `${i}=${el.quantity};`;
           document.cookie = strCookie;
         });
+        if(this.total == 0) {
+          document.getElementById('cart-payment').classList.remove('payment-show');
+        }
       },
     },
     methods:{
