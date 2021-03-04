@@ -7,7 +7,7 @@
   
       <!-- content here -->
     <section class="admin-content create-restaurant">
-        <h1 class="text-center">Modifica {{$editRestaurant->name }}</h1>
+        <h1 class="text-center admin-title">Modifica {{$editRestaurant->name }}</h1>
         @if ($errors->any())
         <ul>
             @foreach ($errors->all() as $error)
@@ -42,23 +42,21 @@
                             <label for="phone">Numero di Telefono</label>
                             <input class="form-control" type="text" name="phone" id="phone" value="{{ old('phone', $editRestaurant->phone) }}">
                         </div>
-                        <div class="form-group">
-                            <label for="image_logo">Logo Ristorante</label>
-                            @isset($editRestaurant->image_logo)
-                            <img width="100" src="{{ asset('storage/' . $editRestaurant->image_logo) }}" alt="{{ $editRestaurant->name }}">                
-                            <h6>Change Old Image:</h6>
-                            @endisset
-                            <input type="file" name="image_logo" id="image_logo" accept="image/*">
-                        </div>
                     </div>
                     
                     <div class="all-categories d-flex">
                         
-                        <div class="img-create">
-                            <img src="{{ asset('img/rider.png') }}" alt="">
+                        <div class="img-create text-center">
+                            <label for="image_logo">Logo Ristorante</label>
+                            @isset($editRestaurant->image_logo)
+                            <img width="150" src="{{ asset('storage/' . $editRestaurant->image_logo) }}" alt="{{ $editRestaurant->name }}">                
+                            <h6>Change Old Image:</h6>
+                            @endisset
+                            <input type="file" name="image_logo" id="image_logo" accept="image/*">
+                            {{-- <img src="{{ asset('img/rider.png') }}" alt=""> --}}
                         </div>
                         
-                        <h3 class="text-center">Lista Tag:</h3>
+                        <h3 class="text-center tag-list">Lista Tag:</h3>
                         <div class="box-categories form-group d-flex">
                             @foreach ($categories as $category)
                             <div class="category">
@@ -77,7 +75,7 @@
                 </div>
     
                 <div class="d-flex btn-create">
-                    <input class="btn btn-primary" type="submit" value="Edita Ristorante">
+                    <input class="btn btn-brand" type="submit" value="Edita Ristorante">
                 </div>
             </form>
         </div>

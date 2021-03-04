@@ -29,7 +29,7 @@
       @if(!empty($restaurant->image_logo))
       <img src="{{ asset('storage/' . $restaurant->image_logo)}}" alt="">
       @else
-      <img src="https://lh3.googleusercontent.com/proxy/aU3eznafn9kTe0YVQvWmD_B7zXugOCXhDXBTY8jDIaHS4bt4FkNTeoSMDsSw1y26qZo_T1AxP15BtBfQrZwr-kr7gWBjNsc3vyHmA30tJM1AqgcEFlNuDdLlt2j1VDE4kAExZsXEFp8J7yu5MSZU5w" alt="">
+      <img src="{{ asset('img/no-rest-logo.jpg')}}" alt="">
       @endif
     </div>
 
@@ -62,10 +62,12 @@
 
       @empty
       <div class="empty text-center">
-        <h2>Benvenuto in Deliveboo!!!</h2>
-        <p>Inizia da qui, creando il tuo ristorante dedicato alle consegne a domicilio.</p>
+        <h2 class="text-center admin-title">Benvenuto in Deliveboo!</h2>
+        <p>Inizia da qui, creando il tuo ristorante, inserendo un menù e controllando di volta in volta gli ordini che verranno fatti dai tuoi clienti.
+          Consegne veloci, pasti caldi, clienti soddisfatti! La famiglia Deliveboo è pronta a darti tutti gli strumenti per restare al passo con i tempi!
+        </p>
         <a class="btn btn-brand text-center"   href="{{route('admin.restaurants.create') }}">
-          CREA RISTORNATE
+          Crea Ristorante
         </a>
       </div>
 
