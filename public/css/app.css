@@ -10695,8 +10695,14 @@ pre.prettyprint {
 }
 .dishes-section .dish-typology .dish-title {
   padding: 5px;
+  font-family: "Oswald", sans-serif;
   text-align: center;
-  color: #64B5BB;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #fff;
+  background-color: #64B5BB;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 .dishes-section .dish-typology a.dish {
   display: flex;
@@ -10712,15 +10718,24 @@ pre.prettyprint {
 .dishes-section .dish-typology a.dish .dish-img-wrapper img {
   height: 100%;
   width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.dishes-section .dish-typology a.dish h3 {
+  color: #EF6E60;
+  text-transform: uppercase;
+  font-weight: bold;
 }
 .dishes-section .dish-typology a.dish .dish-name-desc {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
   margin-left: 15px;
+  max-width: 50%;
 }
 .dishes-section .dish-typology a.dish .dish-name-desc p {
   margin: 0;
+  color: #6E665B;
+  word-break: break-all;
 }
 .dishes-section .dish-typology a.dish .dish-price {
   margin-left: auto;
