@@ -32,7 +32,8 @@
           <ul>
             <li v-for="restaurant in allRestaurants" class="text-center rest-card">
               <a :href="routing(restaurant.slug)">
-                <img :src="'storage/' + restaurant.image_logo" alt="">
+                <img v-if="restaurant.image_logo" :src="'storage/' + restaurant.image_logo" alt="">
+                <img v-else src="img/no-rest-logo.jpg" alt="">
                 <div class="info-rest-box">
                   <h3>@{{restaurant.name}}</h3>
                   <ul class="info-restaurant d-flex text-left">

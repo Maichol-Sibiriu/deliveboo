@@ -8,7 +8,7 @@
   
       <!-- content here -->
     <section class="admin-content create-restaurant">
-        <h1 class="text-center">Crea nuovo ristorante</h1>
+        <h1 class="text-center admin-title">Crea nuovo ristorante</h1>
         @if ($errors->any())
         <ul>
             @foreach ($errors->all() as $error)
@@ -52,7 +52,7 @@
                     <div class="all-categories d-flex">
                         
                         <div class="img-create">
-                            <img src="{{ asset('img/rider.png') }}" alt="">
+                            <img src="{{ asset('img/no-rest-logo.jpg') }}" alt="">
                         </div>
                         
                         <h3 class="text-center">TIPOLOGIE</h3>
@@ -69,7 +69,7 @@
                 </div>
         
                 <div class="d-flex btn-create">
-                    <input class="btn btn-primary" type="submit" value="Crea Ristorante">
+                    <input class="btn btn-brand" type="submit" value="Crea Ristorante">
                 </div>
         
             </form>
