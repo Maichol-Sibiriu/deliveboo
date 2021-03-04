@@ -60,11 +60,14 @@
     flex-wrap: wrap;
     .dish-title {
       padding: 5px;
+      font-family: $admin-font;
       text-align: center;
-      color: $brandColor;
-      // border-top: 2px solid $brandColor;
-      // border-bottom: 2px solid $brandColor;
-      // background-color: $secondaryColor;
+      text-transform: uppercase;
+      font-weight: bold;
+      color: $white;
+      background-color: $brandColor;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
     }
     a.dish {
       display: flex;
@@ -78,16 +81,23 @@
         img {
           height: 100%;
           width: 100%;
-          // object-fit: cover;
+          object-fit: cover;
         }
+      }
+      h3 {
+        color: $red;
+        text-transform: uppercase;
+        font-weight: bold;
       }
       .dish-name-desc {
         display: flex;
         flex-direction: column;
-        justify-content: flex-end;
         margin-left: 15px;
+        max-width: 50%;
         p {
           margin: 0;
+          color: $grey;
+          word-break: break-all;
         }
       }
       .dish-price {
