@@ -6,13 +6,15 @@
     background-image: url('../img/bg_login.jpg');
     background-size: auto;
     background-position: top;
+    background-repeat: no-repeat;
     opacity: 0.7;
-
   }
 
   .access {
     flex-basis: 65%;
     padding: 80px;
+    display: flex;
+    align-items: center;
 
     .headline {
 
@@ -66,11 +68,8 @@
     .access {
       flex-basis: 100%;
       padding: 20px;
-      text-align: center;
+      justify-content: center;
 
-      .headline {
-        margin-top: 80px;
-      }
 
       img {
         display: none;
@@ -81,8 +80,6 @@
       .email {
         justify-content: center;
       }
-
-
     }
 
   }
