@@ -10,7 +10,12 @@
     <!-- content here -->
   <section class="admin-content order-index container">
     <h1 class="admin-title text-center">Lista Ordini</h1>
-    
+    @if(empty($dishes))
+        <p class="intro-menu">
+            In questa sezione ti è possibile visualizzare tutti gli ordini ricevuti dal tuo ristorante.
+            <strong>ATTENZIONE! Al momento, non sono presenti ordini!</strong> 
+        </p>
+    @else
     {{-- <div class="" id="ora">
     
     </div> --}}
@@ -59,7 +64,7 @@
     
     <!-- bottone indietro -->
       {{-- <a href="{{route('admin.home')}}"class="btn btn-1 mt-4">Indietro</a> --}}
-
+    @endif
   </section>   
 </main>  
 

@@ -10303,17 +10303,15 @@ footer .gradient {
 }
 
 .who-cards {
-  width: 95%;
   margin: 10px auto;
 }
 
 /* entire container, keeps perspective */
 .card-container {
   margin: 200px 1%;
-  width: calc(100% / 5 - 2%);
+  width: calc((100% / 3) - 2%);
   -o-perspective: 800px;
   perspective: 800px;
-  margin-bottom: 30px;
 }
 
 /* flip the pane when hovered */
@@ -10475,8 +10473,6 @@ footer .gradient {
 
 .card .stats {
   display: block;
-  float: left;
-  width: 33.333333%;
   text-align: center;
 }
 

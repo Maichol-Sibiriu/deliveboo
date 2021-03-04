@@ -1,17 +1,15 @@
 .who-cards {
-    width: 95%;
     margin: 10px auto;
 }
 
 /* entire container, keeps perspective */
 .card-container {
     margin: 200px 1%;
-    width: calc(100% / 5 - 2%);
+    width: calc((100% / 3) - 2%);
     -webkit-perspective: 800px;
- -moz-perspective: 800px;
-   -o-perspective: 800px;
-      perspective: 800px;
-      margin-bottom: 30px;
+    -moz-perspective: 800px;
+    -o-perspective: 800px;
+    perspective: 800px;
 }
 /* flip the pane when hovered */
 .card-container:not(.manual-flip):hover .card,
@@ -173,8 +171,6 @@
 }
 .card .stats{
   display: block;
-  float: left;
-  width: 33.333333%;
   text-align: center;
 }
 
