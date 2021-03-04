@@ -11336,3 +11336,69 @@ section.error-page p {
   color: #6E665B;
   font-size: 1.5rem;
 }
+
+.content {
+  height: 90vh;
+}
+.content .cover {
+  flex-basis: 35%;
+  background-image: url("../img/bg_login.jpg");
+  background-size: auto;
+  background-position: top;
+  opacity: 0.7;
+}
+.content .access {
+  flex-basis: 65%;
+  padding: 80px;
+}
+.content .access .headline img {
+  max-width: 200px;
+  margin-bottom: 20px;
+}
+.content .access .headline p {
+  margin-bottom: 25px;
+}
+.content .access .headline a {
+  text-decoration: none;
+  color: #64B5BB;
+}
+.content .access .headline .email,
+.content .access .headline .password {
+  align-items: center;
+}
+.content .access .headline .email .icon,
+.content .access .headline .password .icon {
+  font-size: 25px;
+  margin-right: 15px;
+  border-radius: 50%;
+  background-color: yellow;
+  padding: 12px;
+}
+.content .access .headline .email input,
+.content .access .headline .password input {
+  border-radius: 0 30px 30px 0;
+}
+.content .access .headline .remember {
+  padding-left: 80px;
+}
+
+@media screen and (max-width: 768px) {
+  .content .cover {
+    display: none;
+  }
+  .content .access {
+    flex-basis: 100%;
+    padding: 20px;
+    text-align: center;
+  }
+  .content .access .headline {
+    margin-top: 80px;
+  }
+  .content .access img {
+    display: none;
+  }
+  .content .access .password,
+.content .access .email {
+    justify-content: center;
+  }
+}
