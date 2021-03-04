@@ -10303,17 +10303,15 @@ footer .gradient {
 }
 
 .who-cards {
-  width: 95%;
   margin: 10px auto;
 }
 
 /* entire container, keeps perspective */
 .card-container {
   margin: 200px 1%;
-  width: calc(100% / 5 - 2%);
+  width: calc((100% / 3) - 2%);
   -o-perspective: 800px;
   perspective: 800px;
-  margin-bottom: 30px;
 }
 
 /* flip the pane when hovered */
@@ -10475,8 +10473,6 @@ footer .gradient {
 
 .card .stats {
   display: block;
-  float: left;
-  width: 33.333333%;
   text-align: center;
 }
 
@@ -10695,8 +10691,14 @@ pre.prettyprint {
 }
 .dishes-section .dish-typology .dish-title {
   padding: 5px;
+  font-family: "Oswald", sans-serif;
   text-align: center;
-  color: #64B5BB;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #fff;
+  background-color: #64B5BB;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 .dishes-section .dish-typology a.dish {
   display: flex;
@@ -10712,15 +10714,24 @@ pre.prettyprint {
 .dishes-section .dish-typology a.dish .dish-img-wrapper img {
   height: 100%;
   width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.dishes-section .dish-typology a.dish h3 {
+  color: #EF6E60;
+  text-transform: uppercase;
+  font-weight: bold;
 }
 .dishes-section .dish-typology a.dish .dish-name-desc {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
   margin-left: 15px;
+  max-width: 50%;
 }
 .dishes-section .dish-typology a.dish .dish-name-desc p {
   margin: 0;
+  color: #6E665B;
+  word-break: break-all;
 }
 .dishes-section .dish-typology a.dish .dish-price {
   margin-left: auto;

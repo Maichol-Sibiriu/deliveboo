@@ -27,7 +27,7 @@
   
     {{-- Lista piatti --}}
     <section id="menu" class="dishes-section mb-5">
-      <h2 class="menu-title mb-4">MENU</h2>
+      <h2 class="menu-title admin-title mb-5">MENU</h2>
       <div class="dish-typology mb-5" v-for="typology in typologies">
         <h2 class="dish-title mb-4">@{{ typology }}</h2>
         {{-- Piatto singolo --}}
