@@ -46,10 +46,10 @@
           </tr>
         @endforeach
       </tbody>
-
+      @endif
       <!-- mostra bottone statistiche all ultimo ciclo -->
       @if (! empty($orders))
-      <a href="{{ route('admin.stats.show', $orders[0]->restaurant_id) }}"class="btn btn-brand mb-5">Visualizza Statistiche</a>
+      <a href="{{ route('admin.stats.show', $id) }}"class="btn btn-brand mb-5">Visualizza Statistiche</a>
       @else
       <div class="alert alert-danger">
         <p>Non hai ricevuto ordini.</p>

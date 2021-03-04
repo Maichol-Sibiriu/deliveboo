@@ -11611,11 +11611,14 @@ section.error-page p {
   background-image: url("../img/bg_login.jpg");
   background-size: auto;
   background-position: top;
+  background-repeat: no-repeat;
   opacity: 0.7;
 }
 .content .access {
   flex-basis: 65%;
   padding: 80px;
+  display: flex;
+  align-items: center;
 }
 .content .access .headline img {
   max-width: 200px;
@@ -11655,16 +11658,41 @@ section.error-page p {
   .content .access {
     flex-basis: 100%;
     padding: 20px;
-    text-align: center;
-  }
-  .content .access .headline {
-    margin-top: 80px;
+    justify-content: center;
   }
   .content .access img {
     display: none;
   }
   .content .access .password,
 .content .access .email {
+    justify-content: center;
+  }
+}
+.content label {
+  font-weight: bold;
+}
+.content .name-email,
+.content .pass-conf {
+  flex-basis: 50%;
+}
+.content .name-email input,
+.content .pass-conf input {
+  padding: 3px 10px;
+}
+.content .headline input {
+  border-radius: 30px;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 768px) {
+  .content {
+    text-align: center;
+  }
+  .content .name-email,
+.content .pass-conf {
+    flex-basis: 100%;
+  }
+  .content .box-form {
     justify-content: center;
   }
 }
