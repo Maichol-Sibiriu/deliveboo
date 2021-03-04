@@ -27,16 +27,31 @@
   
     {{-- Lista piatti --}}
     <section id="menu" class="dishes-section mb-5">
-      <h2 class="menu-title mb-4">MENU</h2>
+      <h2 class="menu-title admin-title mb-5">MENU</h2>
       <div class="dish-typology mb-5" v-for="typology in typologies">
         <h2 class="dish-title mb-4">@{{ typology }}</h2>
-        <a href="#modal-box" class="dish"
+        {{-- Piatto singolo --}}
+        <a href="#modal-box" class="dish mb-5"
           v-if="dish.available && dish.typology == typology"
           v-for="(dish, index) in dishes"
-          v-on:click="activeModal(index)">@{{dish.name}}
+          v-on:click="activeModal(index)">
+          <div class="dish-img-wrapper">
+            <img :src="'http://127.0.0.1:8000/storage/' + dish.image" alt="">
+          </div>
+          <div class="dish-name-desc">
+            <h3>@{{dish.name}}</h3>
+            <p>@{{dish.description}}</p>
+          </div>
+          <h3 class="dish-price">
+            @{{dish.price}}€
+          </h3>
         </a>
       </div>
     </section>
+
+    <a v-if="total > 0" href="#cart-payment" class="btn btn-brand mb-5 go-to-pay" v-on:click="cartPayShow">
+      Procedi al pagamento
+    </a>
   
     {{-- Modale --}}
     <div id="modal-box" class="modal-box mb-5" v-show="displayModal">
@@ -54,20 +69,33 @@
     {{-- Carrello ordine --}}
     <div class="cart mb-5" v-bind:class="{ 'cart-hide': !cartOpen}" v-if="total > 0">
       <ul>
-        <li class="mb-3" v-for="(product, index) in order" v-if="product.quantity > 0">
-          <p>@{{ product.name }}</p>
-          <a class="btn-cart-quantity" v-on:click="setQuantity(false, index)">- </a>
-          <span class="pz-quantity">@{{ product.quantity }}pz.</span>
-          <a class="btn-cart-quantity" v-on:click="setQuantity(true, index)"> +</a>
-          <a class="btn-cart-remove" v-on:click="deleteDish(index)">Rimuovi</a>
+        <li class="dish-ordered mb-3" v-for="(product, index) in order" v-if="product.quantity > 0">
+          <div class="dish-name-wrapper">
+            <a class="btn-cart-remove" v-on:click="deleteDish(index)">
+              <i class="fas fa-times-circle"></i>
+            </a>
+            <span class="prod-name">@{{ product.name }}</span>
+          </div>
+          <div class="set-quantity ml-3">
+            <a class="btn-cart-quantity" v-on:click="setQuantity(false, index)">
+              <i class="fas fa-minus"></i>
+            </a>
+            <span class="pz-quantity">@{{ product.quantity }}</span>
+            <a class="btn-cart-quantity" v-on:click="setQuantity(true, index)">
+              <i class="fas fa-plus"></i>
+            </a>
+          </div>
         </li>
       </ul>
       <div class="total">
-        <a class="btn-cart-clear" v-on:click="deleteCart">Pulisci carrello</a>
         <span class="total-text">Totale: @{{ total }} €</span>
       </div>
       <a class="cart-open-close" v-on:click="cartToggle">
-        <i class="fas fa-utensils"></i>
+        <i v-if="cartOpen == false" class="fas fa-chevron-left"></i>
+        <i v-else class="fas fa-chevron-right"></i>
+      </a>
+      <a class="btn-cart-clear" v-on:click="deleteCart">
+        <i class="fas fa-trash-alt"></i>
       </a>
       <a href="#cart-payment" class="cart-pay" v-on:click="cartPayShow">
         <i class="far fa-credit-card"></i>

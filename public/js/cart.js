@@ -14524,6 +14524,10 @@ var cart = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
         var strCookie = "".concat(i, "=").concat(el.quantity, ";");
         document.cookie = strCookie;
       });
+
+      if (this.total == 0) {
+        document.getElementById('cart-payment').classList.remove('payment-show');
+      }
     }
   },
   methods: {

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Order;
 use App\Dish;
 use App\Restaurant;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
@@ -58,6 +59,17 @@ class OrderController extends Controller
     {
         $order = Order::find($id);
         $dishes = $order->dishes;
+        
+
+        foreach($dishes as $dish) {
+            $quantity = DB::table('dish_order')
+            ->select('dish_order.quantity')
+            ->where("dish_order.order_id", $id)
+            ->where("dish_order.dish_id", $dish->id)
+            ->first();
+
+            $dish['quantity'] = $quantity->quantity;
+        }
         // $dishes = [];
         // foreach ($order->dishes as $dish) {
         //     $dishes[] = $dish->pivot->order_id;

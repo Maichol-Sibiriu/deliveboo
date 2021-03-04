@@ -14,4 +14,9 @@ class StaticPageController extends Controller
         return view('success');
     }
 
+    
+    public function credits() {
+        return view('credits');
+    }
+
 }

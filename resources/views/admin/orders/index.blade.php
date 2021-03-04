@@ -1,64 +1,66 @@
 @extends('layouts.app')
 
 @section('content')
-<main class="order-index container">
 
-  <h1 class="admin-title text-center">Lista Ordini</h1>
+<main class="main-admin d-flex">
 
-  <div class="" id="ora">
+  <!-- sidebar -->
+  @include('partials.sidebar')
 
-  </div>
+    <!-- content here -->
+  <section class="admin-content order-index container">
+    <h1 class="admin-title text-center">Lista Ordini</h1>
 
-  <!-- tabella lista ordini -->
-  <table class="table">
-    <thead>
-      <tr>
-        <th class="id">N.ID</th>
-        <th class="day">Data ordine</th>
-        <th class="time">Orario ordine</th>
-        <th class="amount text-center">Prezzo Totale Ordine</th>
-        <th></th>
-      </tr>
-    </thead>
+    {{-- <div class="" id="ora">
 
-    <!-- Ciclo + compilazione tabella -->
-    @forelse ($orders as $order)
-    <tbody>
-      <tr>
-        <td class="id-main"> {{  $order->id }} </td>
-        <td class="day-main">  {{  $order->created_at->isoFormat('dddd DD/MM/YYYY') }}  </td>
-        <td class="time-main">  {{  $order->created_at->isoFormat('HH:mm')}}  </td>
-        <td class="amount-main text-center">  {{  $order->amount}} € </td>
-        <td class="text-center" width="100">
-          <a href="#" class="btn btn-1">Dettaglio</a>
-        </td>
-      </tr>
-    </tbody>
+    </div> --}}
 
-    <!-- mostra bottone statistiche all ultimo ciclo -->
-    @if ($loop->last)
-    <a href="{{ route('admin.stats.show', $orders[0]->restaurant_id) }}"class="btn btn-1 mb-5">Visualizza Statistiche</a>
-    @endif
+    <!-- tabella lista ordini -->
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th class="id">N.ID</th>
+          <th class="day">Data ordine</th>
+          <th class="time">Orario ordine</th>
+          <th class="amount text-center">Prezzo Totale Ordine</th>
+          <th></th>
+        </tr>
+      </thead>
 
-    <!-- avviso in caso di tabella vuota -->
-    @empty
-    <div class="alert alert-danger">
-      <p>Non hai ricevuto ordini.</p>
+      <!-- Ciclo + compilazione tabella -->
+      <tbody>
+        @foreach ($orders as $order)
+          <tr>
+            <td class="id-main"> {{  $order->id }} </td>
+            <td class="day-main">  {{  $order->created_at->isoFormat('dddd DD/MM/YYYY') }}  </td>
+            <td class="time-main">  {{  $order->created_at->isoFormat('HH:mm')}}  </td>
+            <td class="amount-main text-center">  {{  $order->amount}} € </td>
+            <td class="text-center" width="100">
+              <a href="{{route ('admin.orders.show', $order->id)}}" class="btn btn-brand">Dettaglio</a>
+            </td>
+          </tr>
+        @endforeach
+      </tbody>
+
+      <!-- mostra bottone statistiche all ultimo ciclo -->
+      @if (! empty($orders))
+      <a href="{{ route('admin.stats.show', $orders[0]->restaurant_id) }}"class="btn btn-brand mb-5">Visualizza Statistiche</a>
+      @else
+      <div class="alert alert-danger">
+        <p>Non hai ricevuto ordini.</p>
+      </div>
+      @endif
+
+    </table>
+
+    <div class="pagination">
+      {{$orders->links()}}
     </div>
-    @endforelse
 
-  </table>
+    <!-- bottone indietro -->
+      {{-- <a href="{{route('admin.home')}}"class="btn btn-1 mt-4">Indietro</a> --}}
 
-  <div class="pagination">
-    {{ $orders->links()}}
-  </div>
-
-  <!-- bottone indietro -->
-    <a href="{{route('admin.home')}}"class="btn btn-1 mt-4">Indietro</a>
-
-
-
+  </section>
 </main>
-
 
 @endsection
