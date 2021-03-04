@@ -3,14 +3,18 @@
 
 <main class="credits">
     <div class="container">
-        <h1 class="text-center admin-title">Chi c'è dietro il Team #2?</h1>
+        <h1 class="text-center admin-title mt-5">Chi c'è dietro il Team #2?</h1>
+        <div class="catchphrase">
+            E' stata un'esperienza formativa a 360°, un percorso lungo e appagante, verso un futuro ora più luminoso. Grazie a Paolo, Lorenzo e Fabio per i 6 mesi più intensi degli ultimi anni. Grazie a Chiara e Luca per il supporto e la guida durante l'esame finale. Grazie a Margherita e Marta per la spalla indispensabile, che saranno nei prossimi mesi. Grazie Boolean Careers! 
+            <span>Con stima e affetto, il Team#2</span>
+        </div>
             <div class="who-cards d-flex">
                 {{-- Cards MAICHOL --}}
                 <div class="card-container">
                     <div class="card">
                         <div class="front">
                             <div class="user">
-                                <img src="img/avatar-Marco.png"/>
+                                <img src="img/mike_avi.png"/>
                             </div>
                             <div class="content">
                                 <div class="main">
@@ -42,9 +46,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="footer">
-                               Prova Footer
-                            </div>
+                            
                         </div> <!-- end back panel -->
                     </div> 
                 </div>
@@ -54,7 +56,7 @@
                     <div class="card">
                         <div class="front">
                             <div class="user">
-                                <img src="img/avatar-Marco.png"/>
+                                <img src="img/marco_avi.png"/>
                             </div>
                             <div class="content">
                                 <div class="main">
@@ -86,9 +88,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="footer">
-                               Prova Footer
-                            </div>
+                            
                         </div> <!-- end back panel -->
                     </div> 
                 </div>
@@ -98,7 +98,7 @@
                     <div class="card">
                         <div class="front">
                             <div class="user">
-                                <img src="img/avatar-Marco.png"/>
+                                <img src="img/fabio_avi.png"/>
                             </div>
                             <div class="content">
                                 <div class="main">
@@ -130,9 +130,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="footer">
-                               Prova Footer
-                            </div>
+                            
                         </div> <!-- end back panel -->
                     </div>
                 </div>
@@ -142,11 +140,11 @@
                     <div class="card">
                         <div class="front">
                             <div class="user">
-                                <img src="img/avatar-Marco.png"/>
+                                <img src="img/osama_avi.png"/>
                             </div>
                             <div class="content">
                                 <div class="main">
-                                    <h3 class="name">Osama Pajola</h3>
+                                    <h3 class="name">Osama Paiola</h3>
                                     <p class="profession">Wannabe Full Stack Developer</p>
                                     <p class="text-center">"Ho i muratori in casa, è un casino, non vi sento.. Mi sentite?"</p>
                                 </div>
@@ -174,9 +172,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="footer">
-                               Prova Footer
-                            </div>
+                            
                         </div> <!-- end back panel -->
                     </div> 
                 </div>
@@ -186,7 +182,7 @@
                     <div class="card">
                         <div class="front">
                             <div class="user">
-                                <img src="img/avatar-Marco.png"/>
+                                <img src="img/massi_avi.png"/>
                             </div>
                             <div class="content">
                                 <div class="main">
@@ -218,15 +214,12 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="footer">
-                               Ringraziamenti!
-                            </div>
                         </div> <!-- end back panel -->
                     </div>
                 </div>
                 {{-- End Cards --}}
             </div>
-        <a class="btn btn-brand" href="{{ route('welcome') }}">Torna alla homepage</a>
-    </div>
+            <div class="clear"></div>
+        </div>
 </main>
 @endsection

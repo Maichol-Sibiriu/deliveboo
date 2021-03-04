@@ -1,10 +1,11 @@
 .who-cards {
     margin: 10px auto;
+    overflow: hidden;
 }
 
 /* entire container, keeps perspective */
 .card-container {
-    margin: 200px 1%;
+    margin: 100px 1%;
     width: calc((100% / 3) - 2%);
     -webkit-perspective: 800px;
     -moz-perspective: 800px;
@@ -104,8 +105,8 @@
 }
 .card .user img{
   background: none repeat scroll 0 0 #FFFFFF;
-  border: 4px solid #FFFFFF;
   width: 100%;
+  border: 1px solid #ffffff;
 }
 
 .card .content{
@@ -203,18 +204,18 @@
   text-transform: uppercase;
   margin: 0;
 }
-.space-30{
-  height: 30px;
-  display: block;
-}
-.space-50{
-  height: 50px;
-  display: block;
-}
-.space-200{
-  height: 200px;
-  display: block;
-}
+// .space-30{
+//   height: 30px;
+//   display: block;
+// }
+// .space-50{
+//   height: 50px;
+//   display: block;
+// }
+// .space-200{
+//   height: 200px;
+//   display: block;
+// }
 .white-board{
   background-color: #FFFFFF;
   min-height: 200px;
@@ -285,6 +286,29 @@ color: #2C93FF;
 }
 .navbar-default .navbar-brand-logo .brand{
   color: #555;
+}
+
+.catchphrase {
+    text-align: center;
+    margin: 100px auto;
+    width: 50%;
+    font-family: $primary-font;
+    font-size: 1.3rem;
+    font-style: italic;
+    color: $grey;
+
+    span {
+        margin: 20px auto;
+        display: block;
+        text-align: right;
+        font-size: 1.5rem;
+        color: $brandColor;
+        font-weight: bold;
+    }
+}
+
+.clear {
+    clear: both;
 }
 
 
