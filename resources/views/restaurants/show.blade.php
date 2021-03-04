@@ -121,7 +121,7 @@
       <input type="text" name="address" value="{{ old('address') }}" id="address" />
       <div id="dropin-container"></div>
       
-      <input type="submit" class="btn-cart" value="Ordina"/>
+      <input type="submit" class="btn-cart" value="Procedi al pagamento"/>
     </form>
     
     {{-- script braintree --}}
