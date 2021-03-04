@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Restaurant;
 
 class StatsController extends Controller
 {
@@ -15,7 +16,12 @@ class StatsController extends Controller
      */
     public function index()
     {
-        //
+        $userId = Auth::id();
+        $restaurant = Restaurant::where('user_id', $userId)->first();
+
+        return redirect()->route('admin.stats.show', $restaurant->id);
+
+
     }
 
     /**

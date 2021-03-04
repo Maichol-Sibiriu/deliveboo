@@ -10036,20 +10036,30 @@ a {
   text-decoration: none;
 }
 
+.admin-title {
+  font-family: "Oswald", sans-serif;
+  font-size: 4rem;
+  color: #F1CA29;
+  text-transform: uppercase;
+}
+
 @media screen and (min-width: 768px) {
   * {
     font-size: 14px;
   }
 }
-a.btn {
+a.btn,
+button.btn,
+input.btn {
   text-transform: uppercase;
   font-weight: 700;
   color: #fff;
-  margin: 0 2px;
   outline: none;
   border: 1px solid transparent;
 }
-a.btn:hover {
+a.btn:hover,
+button.btn:hover,
+input.btn:hover {
   color: #F5FCA5;
   border: 1px solid #F5FCA5;
 }
@@ -10096,6 +10106,24 @@ a.btn:hover {
 
 .table-striped tbody tr:nth-of-type(2n+1) {
   background-color: rgba(245, 252, 165, 0.5) !important;
+}
+
+ul.pagination {
+  margin-top: 25px;
+  border: none;
+  font-family: "Oswald", sans-serif;
+  color: #6E665B;
+}
+ul.pagination .page-item.active .page-link {
+  border-color: #6E665B;
+  background: #F1CA29;
+}
+ul.pagination .page-item a.page-link {
+  color: #6E665B;
+  background: #fff;
+}
+ul.pagination .page-item a.page-link:hover {
+  background: #F5FCA5;
 }
 
 .navbar {
@@ -10180,6 +10208,11 @@ footer .gradient {
   background: linear-gradient(to left, #64B5BB 25%, #F1CA29 25%, #F1CA29 50%, #6E665B 50%, #6E665B 55%, #D4D867 55%, #D4D867 65%, #EF6E60 65%, #EF6E60 75%, #F5FCA5 75%, #F5FCA5 85%, #64B5BB 85%);
 }
 
+@media screen and (max-width: 992px) {
+  footer {
+    height: 40px;
+  }
+}
 .hero {
   position: relative;
   display: flex;
@@ -10756,93 +10789,83 @@ a.btn.go-to-pay {
     margin: 1%;
   }
 }
-.main-admin-home {
+.main-admin {
   font-family: "Lato", sans-serif;
+  flex-grow: 1;
 }
-.main-admin-home .sidebar {
+.main-admin .admin-sidebar {
   color: #64B5BB;
   flex-basis: 25%;
   border-right: 3px solid #F5FCA5;
   padding: 50px;
 }
-.main-admin-home .sidebar h6 {
+.main-admin .admin-sidebar h6 {
   font-weight: 900;
   padding: 8px 0;
 }
-.main-admin-home .sidebar .side-menu ul {
+.main-admin .admin-sidebar .side-menu ul {
   border-left: 4px solid #64B5BB;
 }
-.main-admin-home .sidebar .side-menu ul li {
+.main-admin .admin-sidebar .side-menu ul li {
   padding: 8px 20px;
 }
-.main-admin-home .sidebar .side-menu ul li:hover {
+.main-admin .admin-sidebar .side-menu ul li:hover {
   background-color: rgba(170, 214, 218, 0.2);
 }
-.main-admin-home .sidebar .side-menu ul a {
+.main-admin .admin-sidebar .side-menu ul a {
   color: #64B5BB;
   text-decoration: none;
   font-weight: 600;
 }
-.main-admin-home .content {
+.main-admin .admin-content {
   flex-basis: 75%;
   padding-top: 50px;
 }
-.main-admin-home .content .logo {
+.main-admin .admin-content .logo {
   width: 400px;
   border-radius: 5px;
   margin: 0 auto;
 }
-.main-admin-home .content .logo img {
+.main-admin .admin-content .logo img {
   margin: 0 auto;
   border-radius: 5px;
   height: 100%;
 }
-.main-admin-home .content .info-risto {
+.main-admin .admin-content .info-risto {
   text-align: center;
 }
-.main-admin-home .content .info-risto h2 {
-  text-transform: uppercase;
-  color: #F1CA29;
-  font-family: "Roboto", sans-serif;
-  font-size: 3.5rem;
-}
-.main-admin-home .content .info-risto .address,
-.main-admin-home .content .info-risto .p.iva,
-.main-admin-home .content .info-risto .phone {
+.main-admin .admin-content .info-risto .address,
+.main-admin .admin-content .info-risto .p.iva,
+.main-admin .admin-content .info-risto .phone {
   font-size: 15px;
   font-style: italic;
 }
-.main-admin-home .content .info-risto p {
+.main-admin .admin-content .info-risto p {
   font-weight: bold;
 }
-.main-admin-home .content .info-risto .btns {
+.main-admin .admin-content .info-risto .btns {
   flex-wrap: wrap;
   justify-content: center;
 }
-.main-admin-home .content .info-risto .btns .btn {
-  margin: 10px 10px;
-  color: #fff;
-  padding: 10px 30px;
-  border: 1px solid #64B5BB;
-  border-radius: 30px;
-  font-weight: bold;
-  background-color: #64B5BB;
+.main-admin .admin-content .info-risto .btns form {
+  display: inline-flex;
 }
-.main-admin-home .content .info-risto .delete {
-  background-color: #EF6E60;
-  padding: 10px 30px;
-  border-radius: 30px;
-  font-weight: bold;
+.main-admin .admin-content .info-risto .btns form button {
   color: #fff;
+  text-transform: uppercase;
+  font-weight: 700;
 }
-.main-admin-home .empty h2 {
+.main-admin .admin-content .info-risto .btns form button:hover {
+  color: #F5FCA5;
+}
+.main-admin .empty h2 {
   font-size: 3rem;
   padding-top: 80px;
 }
-.main-admin-home .empty p {
+.main-admin .empty p {
   font-size: 1.5rem;
 }
-.main-admin-home .empty a {
+.main-admin .empty a {
   color: #fff;
   padding: 10px 30px;
   border: 1px solid #64B5BB;
@@ -10852,16 +10875,16 @@ a.btn.go-to-pay {
 }
 
 @media screen and (max-width: 996px) {
-  .main-admin-home .sidebar {
+  .main-admin-home .admin-sidebar {
     display: none;
   }
-  .main-admin-home .content {
+  .main-admin-home .admin-content {
     flex-basis: 100%;
   }
-  .main-admin-home .content .logo {
+  .main-admin-home .admin-content .logo {
     width: 90%;
   }
-  .main-admin-home .content .logo img {
+  .main-admin-home .admin-content .logo img {
     padding: 15px;
   }
 }
@@ -11263,18 +11286,12 @@ main .order-show .tot i {
   color: #F5FCA5;
 }
 
-.btn-1 {
-  background: #64B5BB;
+@media screen and (max-width: 992px) {
+  .table thead tr th.off-smart,
+.table tbody tr td.off-smart {
+    display: none;
+  }
 }
-
-.btn-2 {
-  background: #6E665B;
-}
-
-.btn-3 {
-  background: #EF6E60;
-}
-
 .dish-detail {
   width: 65%;
   margin: 0 auto;
@@ -11327,7 +11344,7 @@ main .order-show .tot i {
 }
 
 .submit1 {
-  max-width: 100px;
+  max-width: 150px;
 }
 
 .edit-dishes {
@@ -11348,7 +11365,7 @@ main .order-show .tot i {
 }
 
 .submit2 {
-  max-width: 120px;
+  max-width: 150px;
 }
 
 section.error-page {
