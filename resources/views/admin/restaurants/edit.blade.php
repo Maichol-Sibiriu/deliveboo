@@ -49,7 +49,7 @@
                         <div class="img-create text-center">
                             <label for="image_logo">Logo Ristorante</label>
                             @isset($editRestaurant->image_logo)
-                            <img width="150" src="{{ asset('storage/' . $editRestaurant->image_logo) }}" alt="{{ $editRestaurant->name }}">                
+                            <img width="150" height="150" src="{{ asset('storage/' . $editRestaurant->image_logo) }}" alt="{{ $editRestaurant->name }}">                
                             <h6>Change Old Image:</h6>
                             @endisset
                             <input type="file" name="image_logo" id="image_logo" accept="image/*">
