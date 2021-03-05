@@ -20,7 +20,9 @@ class DishController extends Controller
     public function index()
     {
         // recupero tutti i piatti del ristorante
-        $id = Auth::id();
+        $userId = Auth::id();
+        $restaurant = Restaurant::where('user_id', $userId)->first();
+        $id = $restaurant->id;
         $dishes = Dish::where('restaurant_id', $id)->get();
         return view('admin.dishes.index', compact('dishes'));
     }

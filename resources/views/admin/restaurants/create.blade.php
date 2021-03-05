@@ -10,7 +10,7 @@
     <section class="admin-content create-restaurant">
         <h1 class="text-center admin-title">Crea nuovo ristorante</h1>
         @if ($errors->any())
-        <ul>
+        <ul class="alert alert-danger">
             @foreach ($errors->all() as $error)
             <li>
                 {{$error}}

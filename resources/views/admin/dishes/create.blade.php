@@ -58,7 +58,7 @@
           <input type="checkbox" id="available" name="available">
         </div>
     
-        <input type="submit" class="btn btn-brand submit1 form-control create-dishes" value="Crea piatto">
+        <input type="submit" class="btn btn-brand submit1 form-control create-dishes center-input" value="Crea piatto">
       </form>
   </section> 
 </main>

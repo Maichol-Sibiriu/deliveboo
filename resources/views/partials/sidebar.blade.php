@@ -1,5 +1,6 @@
 <!-- sidebar -->
-<aside class="admin-sidebar ">
+<aside class="admin-sidebar sidebar-hide">
+  @if(! Auth::user()->restaurants->isEmpty())
     <h6 class="text-center mb-5">CREA / MODIFICA RISTORANTE</h6>
      <!-- menu -->
     <div class="side-menu mb-5">
@@ -30,4 +31,11 @@
         </ul>
       </div>
     </div>
-  </aside>
+  @endif
+</aside>
+
+<div class="open-sidebar">
+  <i class="fas fa-th-large"></i>
+</div>
+
+<script defer src="{{ asset('js/sidebar.js') }}"></script>

@@ -22,7 +22,7 @@
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white">      
-            <a class="navbar-brand" href="{{ route('welcome') }}">
+            <a class="navbar-brand mr-auto" href="{{ route('welcome') }}">
                 <img src="{{ asset('img/logo.png') }}" alt="Deliveboo">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -38,7 +38,7 @@
                     <a class="nav-link" href="{{ route('restaurants.index')}}">RICERCA AVANZATA</a>
                 </li>
             </ul>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="collapse navbar-collapse ml-auto" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mr-auto">
 
@@ -81,8 +81,9 @@
         </nav>
 
         @yield('content')
+
+        @include('partials.footer')
     </div>
 
-    @extends('partials.footer')
 </body>
 </html>
