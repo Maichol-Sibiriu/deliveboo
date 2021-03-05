@@ -11372,6 +11372,17 @@ main .order-index th {
     display: none;
   }
 }
+main .order-show .bill-store {
+  margin: 0px auto;
+  max-width: 450px;
+  border: 2px dotted #6E665B;
+  padding: 10px;
+  text-align: center;
+}
+main .order-show .btn-return {
+  width: 100%;
+  text-align: center;
+}
 main .order-show h2,
 main .order-show h4 {
   text-align: center;
