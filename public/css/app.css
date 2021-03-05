@@ -10698,6 +10698,10 @@ pre.prettyprint {
   font-style: italic;
   color: #6E665B;
 }
+.catchphrase strong {
+  color: #64B5BB;
+  font-size: 1.4rem;
+}
 .catchphrase span {
   margin: 20px auto;
   display: block;

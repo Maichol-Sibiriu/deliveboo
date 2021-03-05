@@ -297,6 +297,11 @@ color: #2C93FF;
     font-style: italic;
     color: $grey;
 
+    strong {
+      color: $brandColor;
+      font-size: 1.4rem;
+    }
+
     span {
         margin: 20px auto;
         display: block;

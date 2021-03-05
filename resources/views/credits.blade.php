@@ -5,7 +5,7 @@
     <div class="container">
         <h1 class="text-center admin-title mt-5">Chi c'è dietro il Team #2?</h1>
         <div class="catchphrase">
-            E' stata un'esperienza formativa a 360°, un percorso lungo e appagante, verso un futuro ora più luminoso. Grazie a Paolo, Lorenzo e Fabio per i 6 mesi più intensi degli ultimi anni. Grazie a Chiara e Luca per il supporto e la guida durante l'esame finale. Grazie a Margherita e Marta per la spalla indispensabile, che saranno nei prossimi mesi. Grazie Boolean Careers! 
+            E' stata un'esperienza formativa a 360°, un percorso lungo e appagante, verso un futuro ora più luminoso. Grazie a <strong>Paolo</strong>, <strong>Lorenzo</strong> e <strong>Fabio</strong> per i 6 mesi più intensi degli ultimi anni di ognuno di noi. Grazie a <strong>Chiara</strong> e <strong>Luca</strong> per il supporto e la guida durante l'esame finale. Grazie a <strong>Margherita</strong> e <strong>Marta</strong> per la spalla indispensabile, che saranno nei prossimi mesi. E non ultimi, <strong>tutti i ragazzi della Classe 19</strong> con cui abbiamo affrontato il viaggio e a cui facciamo il nostro più grande in bocca al lupo! Grazie <strong>Boolean Careers</strong>! 
             <span>Con stima e affetto, il Team#2</span>
         </div>
             <div class="who-cards d-flex">
@@ -20,10 +20,10 @@
                                 <div class="main">
                                     <h3 class="name">Maichol Sibiriu</h3>
                                     <p class="profession">Wannabe Full Stack Developer</p>
-                                    <p class="text-center">"Scusate ragazzi, stavo facendo la cacca..."</p>
+                                    <p class="text-center">"Ah ma l'ho fatto io?"</p>
                                 </div>
                                 <div class="footer">
-                                    <i class="fa fa-mail-forward">#MAIL MAICHOL</i> 
+                                    <i class="fa fa-mail-forward">msibiriu@gmail.com</i> 
                                 </div>
                             </div>
                         </div> <!-- end front panel -->
@@ -71,7 +71,7 @@
                         </div> <!-- end front panel -->
                         <div class="back">
                             <div class="header">
-                                <h5 class="motto">"To be or not to be, this is my awesome motto!"</h5>
+                                <h5 class="motto">#MOTTOMARCO</h5>
                             </div>
                             <div class="content">
                                 <div class="main">
@@ -107,7 +107,7 @@
                                     <p class="text-center">"Ragazzi, mi faccio un caffè e arrivo..."</p>
                                 </div>
                                 <div class="footer">
-                                    <i class="fa fa-mail-forward">#MAIL FABIO</i> 
+                                    <i class="fa fa-mail-forward">fabio.mezzina.09@gmail.com</i> 
                                 </div>
                             </div>
                         </div> <!-- end front panel -->
@@ -149,7 +149,7 @@
                                     <p class="text-center">"Ho i muratori in casa, è un casino, non vi sento.. Mi sentite?"</p>
                                 </div>
                                 <div class="footer">
-                                    <i class="fa fa-mail-forward">#MAIL OSAMA</i> 
+                                    <i class="fa fa-mail-forward">opaiola@hotmail.it</i> 
                                 </div>
                             </div>
                         </div> <!-- end front panel -->
@@ -191,7 +191,7 @@
                                     <p class="text-center">"Io ragazzi ho già fatto, che faccio, pusho?"</p>
                                 </div>
                                 <div class="footer">
-                                    <i class="fa fa-mail-forward">#MAILMASSI</i> 
+                                    <i class="fa fa-mail-forward">maxi.ambrogio@gmail.com</i> 
                                 </div>
                             </div>
                         </div> <!-- end front panel -->
