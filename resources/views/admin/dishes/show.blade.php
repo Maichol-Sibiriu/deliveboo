@@ -56,7 +56,7 @@
                                 @endif
                             </td>
                             <td>{{ $dish->price }} €</td>
-                            <td colspan="2" class="d-flex">
+                            <td colspan="2" class="d-flex justify-content-center">
                                 <a href="{{ route('admin.dishes.edit', $dish->id) }}" class="btn btn-grey"> <i class="fas fa-edit"></i> </a>
                                 <form action="{{ route('admin.dishes.destroy', $dish->id) }}" method="POST">
                                     @csrf
