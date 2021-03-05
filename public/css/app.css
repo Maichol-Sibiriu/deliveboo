@@ -10220,7 +10220,7 @@ footer .gradient {
   justify-content: center;
   align-items: center;
   flex-grow: 1;
-  background-image: url("../img/bg_hero_home.jpg");
+  background-image: url("../img/bg_hero_home_mobile.jpg");
   background-position: bottom center;
 }
 .hero .start {
@@ -10270,6 +10270,9 @@ footer .gradient {
 }
 
 @media screen and (min-width: 992px) {
+  .hero {
+    background-image: url("../img/bg_hero_home.jpg");
+  }
   .hero .start .text #text-sx {
     align-self: flex-start;
   }

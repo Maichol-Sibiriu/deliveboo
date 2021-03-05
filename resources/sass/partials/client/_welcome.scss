@@ -4,7 +4,7 @@
   justify-content: center;
   align-items: center;
   flex-grow: 1;
-  background-image: url('../img/bg_hero_home.jpg');
+  background-image: url('../img/bg_hero_home_mobile.jpg');
   background-position: bottom center;
   .start {
     min-width: 45%;
@@ -57,6 +57,7 @@
 
 @media screen and (min-width: 992px) {
   .hero {
+      background-image: url('../img/bg_hero_home.jpg');
     .start .text {
       #text-sx {
         align-self: flex-start;
