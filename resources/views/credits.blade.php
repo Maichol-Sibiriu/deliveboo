@@ -20,7 +20,7 @@
                                 <div class="main">
                                     <h3 class="name">Maichol Sibiriu</h3>
                                     <p class="profession">Wannabe Full Stack Developer</p>
-                                    <p class="text-center">"Ah ma l'ho fatto io?"</p>
+                                    <p class="text-center">"Scusate ragazzi, stavo facendo la cacca.."</p>
                                 </div>
                                 <div class="footer">
                                     <i class="fa fa-mail-forward">msibiriu@gmail.com</i> 
@@ -62,7 +62,7 @@
                                 <div class="main">
                                     <h3 class="name">Marco Giulietti</h3>
                                     <p class="profession">Wannabe Full Stack Developer</p>
-                                    <p class="text-center">"Scusate ragazzi, nottata infernale, non ho dormito per niente.."</p>
+                                    <p class="text-center">"Ragazzi, nottata infernale, non ho dormito per niente.."</p>
                                 </div>
                                 <div class="footer">
                                     <i class="fa fa-mail-forward">giulietti.marco27@gmail.com</i> 
