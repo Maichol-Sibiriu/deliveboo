@@ -1,7 +1,7 @@
 footer {
     background: rgba($brandColor, 0.55);
     color: $white;
-    overflow: hidden;
+    // overflow: hidden;
 
     p.disclaimer {
         font-size: 1rem;
@@ -20,6 +20,6 @@ footer {
 }
 @media screen and (max-width: 992px) {
     footer {
-        height: 40px;
+        // height: 40px;
     }
   }

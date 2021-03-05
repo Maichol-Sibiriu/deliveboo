@@ -10019,7 +10019,7 @@ body {
 #app {
   display: flex;
   flex-direction: column;
-  min-height: calc(100vh - 50px);
+  min-height: 100vh;
 }
 
 img {
@@ -10194,7 +10194,6 @@ ul.pagination .page-item a.page-link:hover {
 footer {
   background: rgba(100, 181, 187, 0.55);
   color: #fff;
-  overflow: hidden;
 }
 footer p.disclaimer {
   font-size: 1rem;
@@ -10209,11 +10208,6 @@ footer .gradient {
   background: linear-gradient(to left, #64B5BB 25%, #F1CA29 25%, #F1CA29 50%, #6E665B 50%, #6E665B 55%, #D4D867 55%, #D4D867 65%, #EF6E60 65%, #EF6E60 75%, #F5FCA5 75%, #F5FCA5 85%, #64B5BB 85%);
 }
 
-@media screen and (max-width: 992px) {
-  footer {
-    height: 40px;
-  }
-}
 .hero {
   position: relative;
   display: flex;
